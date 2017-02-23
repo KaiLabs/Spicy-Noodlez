@@ -1,0 +1,43 @@
+<%= form_for(lostandfound) do |f| %>
+  <% if lostandfound.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lostandfound.errors.count, "error") %> prohibited this lostandfound from being saved:</h2>
+
+      <ul>
+      <% lostandfound.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :item %>
+    <%= f.text_field :item %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :foundlocation %>
+    <%= f.text_field :foundlocation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :foundtime %>
+    <%= f.datetime_select :foundtime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit!" %>
+  </div>
+<% end %>

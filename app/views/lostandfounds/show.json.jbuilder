@@ -1,0 +1,1 @@
+json.partial! "lostandfounds/lostandfound", lostandfound: @lostandfound

@@ -1,0 +1,1 @@
+json.array! @lostandfounds, partial: 'lostandfounds/lostandfound', as: :lostandfound

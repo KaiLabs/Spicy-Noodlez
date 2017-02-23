@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lostandfound.title %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @lostandfound.item %>
+</p>
+
+
+<p>
+  <strong>Foundlocation:</strong>
+  <%= @lostandfound.foundlocation %>
+</p>
+
+<p>
+  <strong>Foundtime:</strong>
+  <%= @lostandfound.foundtime %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @lostandfound.notes %>
+</p>
+
+<%= link_to 'Edit', edit_lostandfound_path(@lostandfound) %> |
+<%= link_to 'Back', lostandfounds_path %>

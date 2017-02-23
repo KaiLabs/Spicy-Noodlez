@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @ride.destination %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @ride.origin %>
+</p>
+
+<p>
+  <strong>When:</strong>
+  <%= @ride.when %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @ride.role %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @ride.notes %>
+</p>
+
+<%= link_to 'Edit', edit_ride_path(@ride) %> |
+<%= link_to 'Back', rides_path %>

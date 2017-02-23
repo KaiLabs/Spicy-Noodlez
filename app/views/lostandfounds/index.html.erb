@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lost & Found</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Item</th>
+      <th>Foundlocation</th>
+      <th>Foundtime</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lostandfounds.each do |lostandfound| %>
+      <tr>
+        <td><%= lostandfound.title %></td>
+        <td><%= lostandfound.item %></td>
+        <td><%= lostandfound.foundlocation %></td>
+        <td><%= lostandfound.foundtime %></td>
+        <td><%= lostandfound.notes %></td>
+        <td><%= link_to 'Show', lostandfound %></td>
+        <td><%= link_to 'Edit', edit_lostandfound_path(lostandfound) %></td>
+        <td><%= link_to 'Destroy', lostandfound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

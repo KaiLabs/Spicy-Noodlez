@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+      <% if @posts.present? %>
+      <% @posts.each do |post| %>
+      <!-- create new fields in db with
+      rails generate scaffold add_FIELD_to_TABLE FIELD:FIELDTYPE
+      remove fields in db with 
+      rails generate scaffold remove_FIELD_from_TABLE FIELD:FIELDTYPE
+
+      
+       -->
+       <div>
+      Title: <%=post.title%> <br>
+      Location: <%=post.location%><br>
+      Description: <%=post.description%><br>
+      Start Time: <%=post.startdate %><br>
+      End Time: <%=post.enddate %><br>
+      Link: <%=post.link %> <br>
+      <%= link_to "Show", post_path(post) %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <br>
+
+      <% end %>
+    <% else %>
+      <p> There are no posts containing the term(s): <%= params[:search] %>.</p>
+    <% end %>
+  </div>
+
+
+
+
+
