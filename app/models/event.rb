@@ -1,10 +1,6 @@
 class Event < ApplicationRecord
 	require 'time'
 
-	def self.search(search)
-		where("title LIKE ? OR location LIKE ? OR description LIKE ?", 
-			"%#{search}%", "%#{search}%", "%#{search}%")
-	end
 
 # Converts from UTC to EST
 	def self.time_offset(timestamp)

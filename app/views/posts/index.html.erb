@@ -1,8 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<!-- post.attributes
+     post.methods
+      -->
+
 <h1>Posts</h1>
       <% if @posts.present? %>
       <% @posts.each do |post| %>
+      <br>
+      <!-- http://stackoverflow.com/questions/3137393/rails-add-a-line-break-into-a-text-area -->
+      <%=h(Post.print_attributes(post)).gsub(/\n/, '<br/>').html_safe %>
+      <br>
+
+       <%= link_to "Show", post %>
+      <% if post.is_a?(Event) %>
+        <%=link_to "Edit", edit_event_path(post) %>
+        <% elsif post.is_a?(Ride) %>
+          <%= link_to "Edit", edit_ride_path(post) %>
+        <% else %>
+          <%= link_to "Edit", edit_lostandfound_path(post) %>
+        <%end%>
+       <%= link_to "Destroy", post, method: :delete, data: { confirm: 'Are you sure?' } %>
+       <br>
+       <br>
+      <%end%>
+      <br>
+      <%end%>
       <!-- create new fields in db with
       rails generate scaffold add_FIELD_to_TABLE FIELD:FIELDTYPE
       remove fields in db with 
@@ -10,24 +33,6 @@
 
       
        -->
-       <div>
-      Title: <%=post.title%> <br>
-      Location: <%=post.location%><br>
-      Description: <%=post.description%><br>
-      Start Time: <%=post.startdate %><br>
-      End Time: <%=post.enddate %><br>
-      Link: <%=post.link %> <br>
-      <%= link_to "Show", post_path(post) %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-    <br>
-
-      <% end %>
-    <% else %>
-      <p> There are no posts containing the term(s): <%= params[:search] %>.</p>
-    <% end %>
-  </div>
 
 
 

@@ -11,6 +11,7 @@
 
 
 Ride.create(
+	"title": "Feed me",
 	"destination": "Chipotle",
 	"origin": "Usdan",
 	"when": "2017-02-22 9:03:00 UTC",

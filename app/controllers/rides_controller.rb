@@ -69,6 +69,6 @@ class RidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ride_params
-      params.require(:ride).permit(:destination, :origin, :when, :role, :notes)
+      params.require(:ride).permit(:destination, :title, :origin, :when, :role, :notes)
     end
 end

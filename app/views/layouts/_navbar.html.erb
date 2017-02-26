@@ -5,7 +5,7 @@
   <li><%=link_to "Lost & Found", lostandfounds_path%></li>
   <li style="float:right">
   <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
     <%= submit_tag "Search", :name => nil%>
   <% end %> </li>
 </ul>

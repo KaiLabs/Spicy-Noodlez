@@ -4,12 +4,24 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all 
-    if params[:search]
-      @posts = Post.search(params[:search]).order("created_at DESC")
-    else
-      @posts = Post.all.order("created_at DESC")
-    end
+    # @posts = Post.all
+    events = Event.all
+    rides = Ride.all
+    lostandfounds = Lostandfound.all
+
+    # @posts = (@events + @rides + @lostandfound).sort_by(:update_at).reverse
+    # @posts = (@events + @rides + @lostandfound)(:order => "created_at DESC")
+    posts_unsorted = events + rides + lostandfounds
+    @posts = posts_unsorted.sort {|a,b| b.updated_at <=> a.updated_at }
+
+
+    # http://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
+    # if params[:search]
+    #   @posts = Posts.all.search(params[:search]).order("created_at DESC")
+    # else
+    #   @posts = Posts.all.order("created_at DESC")
+    # end
+
   end
 
   # GET /posts/1
@@ -74,6 +86,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :startdate, :enddate, :link, :location, :description)
+      params.require(:post).permit(:title, :startdate, :enddate, :link, :location, :description, :search)
     end
 end
