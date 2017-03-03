@@ -1,8 +1,8 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
   	def self.search(search)
-		where("title LIKE ? OR location LIKE ? OR description LIKE ?", 
-			"%#{search}%", "%#{search}%", "%#{search}%")
+		where("title LIKE ?", 
+			"%#{search}%")
 	end
 
 	# Converts from UTC to EST
