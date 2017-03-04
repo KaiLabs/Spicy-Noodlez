@@ -8,6 +8,7 @@ class EventsController < ApplicationController
     @events.each do |event|
       Event.convert_times(event)
     end
+    # if 
   end
 
   # GET /events/1

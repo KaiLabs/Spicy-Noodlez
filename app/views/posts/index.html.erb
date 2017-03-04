@@ -5,13 +5,13 @@
       -->
 
 <h1>Posts</h1>
+<center>
       <% if @posts.present? %>
       <% @posts.each do |post| %>
       <br>
       <!-- http://stackoverflow.com/questions/3137393/rails-add-a-line-break-into-a-text-area -->
+      <div class="card">
       <%=h(Post.print_attributes(post)).gsub(/\n/, '<br/>').html_safe %>
-      <br>
-
        <%= link_to "Show", post %>
       <% if post.is_a?(Event) %>
         <%=link_to "Edit", edit_event_path(post) %>
@@ -22,10 +22,11 @@
         <%end%>
        <%= link_to "Destroy", post, method: :delete, data: { confirm: 'Are you sure?' } %>
        <br>
-       <br>
+     </div>
       <%end%>
       <br>
       <%end%>
+    </center>
       <!-- create new fields in db with
       rails generate scaffold add_FIELD_to_TABLE FIELD:FIELDTYPE
       remove fields in db with 

@@ -13,37 +13,59 @@
  *= require_tree .
  *= require_self
  */
-
-
+@import url(https://fonts.googleapis.com/css?family=Avenir);h1{font-size:55px}h1 a{color:white}h2{font-size:45px}h3{font-size:35px}h4{font-size:25px}p{font-size:15px}body{font-family:Avenir;color:#41414D;font-weight:100;margin:0;background-color:#F8F8FA}button{outline:none;border:none;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;font-size:20px;text-transform:uppercase;padding:10px;margin-left:10px;margin-right:10px;font-family:Avenir}button a{color:white}a{color:#41414D;text-decoration:none}#header{display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding-left:50px;padding-right:50px;background-color:#41414D;color:white}.createbutton{background-color:#E5645E}.hollowbutton{background-color:#41414D;border:solid 1px white}#calendar{display:flex;justify-content:space-around}#calendar{background-color:white;width:50%;margin:auto;padding:50px;margin-top:2%}.simple-calendar th{background-color:#41414D;color:white;text-align:center}.simple-calendar td{vertical-align:top}.simple-calendar .day{width:100px;height:100px;border:.5px solid lightgrey}.simple-calendar .today{background-color:#E5645E}.simple-calendar .past{background-color:#F8F8FA}.simple-calendar .past a{color:lightgrey}.simple-calendar .prev-month a{color:lightgrey}.simple-calendar .next-month a{color:lightgrey}.calendar-heading{display:flex;justify-content:space-between;align-items:center}.calendar-title{font-size:45px;font-weight:900}.calendarmonth{text-align:center}.calendardate{text-align:right}.calendardate a{color:#5a5a64;font-size:12px}.calendarevent a{color:#5a5a64}
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 body {
   background: #e2e2e2;
   width: 98%;
   height: 100vh;
 }
 body .card {
-  width: 800px;
-  height: 400px;
+  width: 80%;
+  height: 30%;
   background: transparent;
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   margin: auto;
   top: 0;
   bottom: 0;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
+  border-radius: 20px;
+  border-width: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
   box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
 }
 body .card_left {
   width: 40%;
   height: 400px;
-  float: left;
-  overflow: hidden;
   background: transparent;
 }
+body .card_right {
+  width: 60%;
+  float: right;
+  height: 400px;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+}
+
+.twitter-card {
+  display: inline-block;
+  padding: 16px;
+  margin: 10px 0;
+  max-width: 468px;
+  border: #ddd 1px solid;
+  border-top-color: #eee;
+  border-bottom-color: #bbb;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font: bold 14px/18px Helvetica, Arial, sans-serif;
+  color: #000;
+}
+/*
 body .card_left img {
   width: 100%;
   height: auto;
@@ -134,15 +156,17 @@ body .card_right__button a:hover {
   transition-property: all;
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
-}
+}*/
 
 
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 10;
     overflow: hidden;
     background-color: #333;
+    position: fixed;
+    width: 100%;
 }
 
 li {
@@ -157,10 +181,6 @@ li a {
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
 
 input[type=text] {
     -webkit-transition: width 1s ease-in-out;
@@ -170,8 +190,28 @@ input[type=text] {
     box-sizing: border-box;
 }
 
-input[type=text]:focus {
-    width: 75%;
+.newpostbuttons{
+  padding: 40px;
 }
+
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 12px;}
+.button5 {border-radius: 50%;}
 
 

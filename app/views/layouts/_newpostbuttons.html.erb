@@ -1,9 +1,16 @@
-<div>
-<%= link_to 'New Event', new_event_path %>
-<br>
-<%= link_to 'New Ride', new_ride_path %>
-<br>
-<%= link_to 'New Lost/Found', 
-new_lostandfound_path %>
-<br>
+<div class="newpostbuttons">
+	<center>
+
+	<button class="button3">
+	<%= link_to 'New Event', new_event_path %>
+	</button>
+
+	<button class="button3"
+	><%= link_to 'New Lost/Found', new_lostandfound_path %>
+	</button>
+
+	<button class="button3"><%= link_to 'New Ride', new_ride_path %>
+	</button>
+
+	</center>
 </div>

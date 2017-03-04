@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Calendars</h1>
+
+<div class= "simple-calendar">
+<%= month_calendar  do |date| %>
+  <%= date %>
+  <br>
+    <% @calendars.each do |calendar| %>
+      <% if calendar.startdate.strftime("%Y-%m-%d") == date.strftime("%Y-%m-%d") %>
+        <%= link_to "event",event_path(calendar) %>
+      <% end %>
+    <%end %>
+<% end %>
+</div>
+<br>
+

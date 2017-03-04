@@ -2,32 +2,29 @@
 
 <h1>Lost & Found</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Item</th>
-      <th>Foundlocation</th>
-      <th>Foundtime</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<body>
+  <center>
+ <% @lostandfounds.each do |lostandfound| %>
+  <div class="card">
+    <div class="card-content">
+        Title: <%= lostandfound.title %>
+        <br>
+        Item: <%= lostandfound.item %>
+        <br>
+        Location Found: <%= lostandfound.foundlocation %>
+        <br>
+        When did you find it:<%= lostandfound.foundtime %>
+        <br>
+        Notes: <%= lostandfound.notes %>
+        <br>
+        <%= link_to 'Show', lostandfound %>
+        <%= link_to 'Edit', edit_lostandfound_path(lostandfound) %>
+        <%= link_to 'Destroy', lostandfound, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+  <br>
+  <br>
+  <%end%>
+</center>
+</body>
 
-  <tbody>
-    <% @lostandfounds.each do |lostandfound| %>
-      <tr>
-        <td><%= lostandfound.title %></td>
-        <td><%= lostandfound.item %></td>
-        <td><%= lostandfound.foundlocation %></td>
-        <td><%= lostandfound.foundtime %></td>
-        <td><%= lostandfound.notes %></td>
-        <td><%= link_to 'Show', lostandfound %></td>
-        <td><%= link_to 'Edit', edit_lostandfound_path(lostandfound) %></td>
-        <td><%= link_to 'Destroy', lostandfound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>

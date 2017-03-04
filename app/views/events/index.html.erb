@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+
+<h1> Events </h1>
+  <center> <%= link_to "Calendar View", "calendars#index" %></center>
+
+
+<!-- <h1>Events</h1>
 
 <table>
   <thead>
@@ -31,6 +36,32 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
+ -->
+<body>
+  <center>
+  <% @events.each do |event| %>
+    <div class="card">
+      <div class="card-content">
+        Title: <%= event.title %>
+        <br>
+        Location: <%= event.location %>
+        <br>
+        Description: <%= event.description %>
+        <br>
+        Start: <%= Event.time_offset(event.startdate) %>
+        <br>
+        End: <%= Event.time_offset(event.enddate) %>
+        <br>
+        Event Link: <%=link_to "GO HERE", event.link %>
+        <br>
+        <%= link_to 'Show', event %>
+        <%= link_to 'Edit', edit_event_path(event) %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+    <br>
+    <br>
+  <% end %> 
+</center>
+</body
 

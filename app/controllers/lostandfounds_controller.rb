@@ -42,13 +42,14 @@ class LostandfoundsController < ApplicationController
   def update
     respond_to do |format|
       if @lostandfound.update(lostandfound_params)
-        format.html { redirect_to @lostandfound, notice: 'Lostandfound was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Your post was successfully updated.' }
         format.json { render :show, status: :ok, location: @lostandfound }
       else
         format.html { render :edit }
         format.json { render json: @lostandfound.errors, status: :unprocessable_entity }
       end
     end
+    # redirect_to root_path
   end
 
   # DELETE /lostandfounds/1

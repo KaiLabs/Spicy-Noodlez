@@ -2,32 +2,33 @@
 
 <h1>Rides</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Destination</th>
-      <th>Origin</th>
-      <th>When</th>
-      <th>Role</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @rides.each do |ride| %>
-      <tr>
-        <td><%= ride.destination %></td>
-        <td><%= ride.origin %></td>
-        <td><%= ride.when %></td>
-        <td><%= ride.role %></td>
-        <td><%= ride.notes %></td>
-        <td><%= link_to 'Show', ride %></td>
-        <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
-        <td><%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<body> 
+  <center>
+  <% @rides.each do |ride| %>
+      <div class='card'>
+        <div class="card-content">
+          Where to? <%=ride.destination%>
+          <br>
+          From where? <%=ride.origin%>
+          <br>
+          When? <%=ride.when%>
+          <br> 
+          Role: <%=ride.role%>
+          <br>
+          Notes: <%=ride.notes %>
+          <br>
+          <%= link_to "Show", ride %>
+          <%= link_to "Edit", edit_ride_path(ride) %>
+          <%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+      <br> 
+      <br> 
+    <%end%>
+</center>
 
-<br>
+</body>
+
+
+

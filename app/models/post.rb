@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 	end
 
 	def self.print_attributes(post)
-		x = ""
+		x = "Category: #{post.class} \n"
 		post.attributes.each_pair do |key, val|
 			x = "#{x}" + "#{key}: #{val} \n"
 		end
