@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
   # GET /posts
   # GET /posts.json
   def index
@@ -17,7 +16,10 @@ class PostsController < ApplicationController
     # http://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
     # Try calling each controller's Controller.serach function and then adding those up? that allows diff keys?
     if params[:search]
-      posts_unsorted = @events.all.search(params[:search]) + @rides.all.search(params[:search]) + @lostandfounds.all.search(params[:search])
+      rides = @rides.all.search(params[:search])
+      events = @events.all.search(params[:search])
+      lostandfounds = @lostandfounds.all.search(params[:search])
+      posts_unsorted = rides + events + lostandfounds
       @posts = posts_unsorted.sort {|a,b| b.updated_at <=> a.updated_at }
       # @posts = @posts.all.search(params[:search]).order("created_at DESC")
     else
