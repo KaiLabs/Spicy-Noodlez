@@ -13,12 +13,44 @@
  *= require_tree .
  *= require_self
  */
-@import url(https://fonts.googleapis.com/css?family=Avenir);h1{font-size:55px}h1 a{color:white}h2{font-size:45px}h3{font-size:35px}h4{font-size:25px}p{font-size:15px}body{font-family:Avenir;color:#41414D;font-weight:100;margin:0;background-color:#F8F8FA}button{outline:none;border:none;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;font-size:20px;text-transform:uppercase;padding:10px;margin-left:10px;margin-right:10px;font-family:Avenir}button a{color:white}a{color:#41414D;text-decoration:none}#header{display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding-left:50px;padding-right:50px;background-color:#41414D;color:white}.createbutton{background-color:#E5645E}.hollowbutton{background-color:#41414D;border:solid 1px white}#calendar{display:flex;justify-content:space-around}#calendar{background-color:white;width:50%;margin:auto;padding:50px;margin-top:2%}.simple-calendar th{background-color:#41414D;color:white;text-align:center}.simple-calendar td{vertical-align:top}.simple-calendar .day{width:100px;height:100px;border:.5px solid lightgrey}.simple-calendar .today{background-color:#E5645E}.simple-calendar .past{background-color:#F8F8FA}.simple-calendar .past a{color:lightgrey}.simple-calendar .prev-month a{color:lightgrey}.simple-calendar .next-month a{color:lightgrey}.calendar-heading{display:flex;justify-content:space-between;align-items:center}.calendar-title{font-size:45px;font-weight:900}.calendarmonth{text-align:center}.calendardate{text-align:right}.calendardate a{color:#5a5a64;font-size:12px}.calendarevent a{color:#5a5a64}
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+@import "materialize";
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://fonts.googleapis.com/css?family=Avenir);
+h1{font-size:55px}
+h1 a{color:white}
+h2{font-size:45px}
+h3{font-size:35px}
+h4{font-size:25px}
+p{font-size:15px}
+body{font-family:Avenir;color:#41414D;font-weight:100;margin:0;background-color:#F8B8FA}
+button{outline:none;border:none;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;font-size:20px;text-transform:uppercase;padding:10px;margin-left:10px;margin-right:10px;font-family:Avenir}
+button a{color:white}a{color:#41414D;text-decoration:none}
+#header{display:flex;flex-direction:row;justify-content:space-between;align-items:center;padding-left:50px;padding-right:50px;background-color:#41414D;color:white}
+.createbutton{background-color:#E5645E;position: relative;}
+.hollowbutton{background-color:#41414D;border:solid 1px white; position:relative;}
+#calendar{display:flex;justify-content:space-around}
+#calendar{background-color:white;width:50%;margin:auto;padding:50px;margin-top:2%}
+.simple-calendar th{background-color:#41414D;color:white;text-align:center}
+.simple-calendar td{vertical-align:top}
+.simple-calendar .day{width:100px;height:100px;border:.5px solid lightgrey}
+.simple-calendar .today{background-color:#E5645E}
+.simple-calendar .past{background-color:#F8F8FA}
+.simple-calendar .past a{color:lightgrey}
+.simple-calendar .prev-month a{color:lightgrey}
+.simple-calendar .next-month a{color:lightgrey}
+.calendar-heading{display:flex;justify-content:space-between;align-items:center}
+.calendar-title{font-size:45px;font-weight:900}
+.calendarmonth{text-align:center}
+.calendardate{text-align:right}
+.calendardate a{color:#5a5a64;font-size:12px}
+.calendarevent a{color:#5a5a64}
+
+
+
 
 body {
-  background: #e2e2e2;
+  background: #FB1FB1;
+  background-color: #D3D3D3;
   width: 98%;
   height: 100vh;
 }
@@ -64,6 +96,10 @@ body .card_right {
   box-shadow: 0 1px 3px rgba(0,0,0,0.15);
   font: bold 14px/18px Helvetica, Arial, sans-serif;
   color: #000;
+}
+
+.simple-calendar {
+  width: 100%;
 }
 /*
 body .card_left img {
@@ -159,18 +195,11 @@ body .card_right__button a:hover {
 }*/
 
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 10;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    width: 100%;
-}
+
 
 li {
     float: left;
+    color: #E5645E;
 }
 
 li a {
@@ -196,7 +225,7 @@ input[type=text] {
 
 
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CBF50; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -206,6 +235,7 @@ input[type=text] {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    position: relative;
 }
 
 .button1 {border-radius: 2px;}
@@ -214,4 +244,197 @@ input[type=text] {
 .button4 {border-radius: 12px;}
 .button5 {border-radius: 50%;}
 
+
+
+    @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+    @import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+    body {
+    padding: 60px 0px;
+    background-color: rgb(220, 220, 220);
+  }
+    
+    .event-list {
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+    margin: 0px;
+    padding: 0px;
+  }
+  .event-list > li {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px rgb(51, 51, 51);
+    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+    padding: 0px;
+    margin: 0px 0px 20px;
+  }
+  .event-list > li > time {
+    display: inline-block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(197, 44, 102);
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .event-list > li:nth-child(even) > time {
+    background-color: rgb(165, 82, 167);
+  }
+  .event-list > li > time > span {
+    display: none;
+  }
+  .event-list > li > time > .day {
+    display: block;
+    font-size: 56pt;
+    font-weight: 100;
+    line-height: 1;
+  }
+  .event-list > li time > .month {
+    display: block;
+    font-size: 24pt;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .event-list > li > img {
+    width: 100%;
+  }
+  .event-list > li > .info {
+    padding-top: 5px;
+    text-align: center;
+  }
+  .event-list > li > .info > .title {
+    font-size: 17pt;
+    font-weight: 700;
+    margin: 0px;
+  }
+  .event-list > li > .info > .desc {
+    font-size: 13pt;
+    font-weight: 300;
+    margin: 0px;
+  }
+  .event-list > li > .info > ul,
+  .event-list > li > .social > ul {
+    display: table;
+    list-style: none;
+    margin: 10px 0px 0px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .event-list > li > .social > ul {
+    margin: 0px;
+  }
+  .event-list > li > .info > ul > li,
+  .event-list > li > .social > ul > li {
+    display: table-cell;
+    cursor: pointer;
+    color: rgb(30, 30, 30);
+    font-size: 11pt;
+    font-weight: 300;
+        padding: 3px 0px;
+  }
+    .event-list > li > .info > ul > li > a {
+    display: block;
+    width: 100%;
+    color: rgb(30, 30, 30);
+    text-decoration: none;
+  } 
+    .event-list > li > .social > ul > li {    
+        padding: 0px;
+    }
+    .event-list > li > .social > ul > li > a {
+        padding: 3px 0px;
+  } 
+  .event-list > li > .info > ul > li:hover,
+  .event-list > li > .social > ul > li:hover {
+    color: rgb(30, 30, 30);
+    background-color: rgb(200, 200, 200);
+  }
+  .facebook a,
+  .twitter a,
+  .google-plus a {
+    display: block;
+    width: 100%;
+    color: rgb(75, 110, 168) !important;
+  }
+  .twitter a {
+    color: rgb(79, 213, 248) !important;
+  }
+  .google-plus a {
+    color: rgb(221, 75, 57) !important;
+  }
+  .facebook:hover a {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(75, 110, 168) !important;
+  }
+  .twitter:hover a {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(79, 213, 248) !important;
+  }
+  .google-plus:hover a {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(221, 75, 57) !important;
+  }
+
+  @media (min-width: 768px) {
+    .event-list > li {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 120px;
+      padding: 0px;
+    }
+    .event-list > li > time,
+    .event-list > li > img  {
+      display: inline-block;
+    }
+    .event-list > li > time,
+    .event-list > li > img {
+      width: 120px;
+      float: left;
+    }
+    .event-list > li > .info {
+      background-color: rgb(245, 245, 245);
+      overflow: hidden;
+    }
+    .event-list > li > time,
+    .event-list > li > img {
+      width: 120px;
+      height: 120px;
+      padding: 0px;
+      margin: 0px;
+    }
+    .event-list > li > .info {
+      position: relative;
+      height: 120px;
+      text-align: left;
+      padding-right: 40px;
+    } 
+    .event-list > li > .info > .title, 
+    .event-list > li > .info > .desc {
+      padding: 0px 10px;
+    }
+    .event-list > li > .info > ul {
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+    }
+    .event-list > li > .social {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      display: block;
+      width: 40px;
+    }
+        .event-list > li > .social > ul {
+            border-left: 1px solid rgb(230, 230, 230);
+        }
+    .event-list > li > .social > ul > li {      
+      display: block;
+            padding: 0px;
+    }
+    .event-list > li > .social > ul > li > a {
+      display: block;
+      width: 40px;
+      padding: 10px 0px 9px;
+    }
+  }
 

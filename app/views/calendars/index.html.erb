@@ -8,7 +8,7 @@
   <br>
     <% @calendars.each do |calendar| %>
       <% if calendar.startdate.strftime("%Y-%m-%d") == date.strftime("%Y-%m-%d") %>
-        <%= link_to "event",event_path(calendar) %>
+        <strong><%= link_to calendar.title,event_path(calendar) %></strong>
       <% end %>
     <%end %>
 <% end %>

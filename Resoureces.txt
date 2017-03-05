@@ -1,0 +1,16 @@
+MODAL:
+https://www.w3schools.com/howto/howto_css_signup_form.asp
+
+TOGGLE:
+https://www.w3schools.com/howto/howto_css_switch.asp
+
+ANIMATED SEARCH:
+https://www.w3schools.com/howto/howto_css_animated_search.asp
+
+CARD:
+
+https://www.w3schools.com/howto/howto_css_cards.asp
+
+
+BootStrap looks pretty
+
