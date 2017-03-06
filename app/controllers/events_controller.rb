@@ -5,9 +5,10 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @events.each do |event|
-      Event.convert_times(event)
-    end
+    @events = @events.sort {|a,b| b.startdate <=> a.startdate }
+    # @events.each do |event|
+    #   Event.convert_times(event)
+    # end
     # if 
   end
 
