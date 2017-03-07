@@ -11,28 +11,42 @@
 
 
 Ride.create(
-	"title": "Feed me",
-	"destination": "Chipotle",
+	"title": "Wes -> NYC",
+	"destination": "New York City",
 	"origin": "Usdan",
-	"when": "2017-02-22 9:03:00 UTC",
-	"role": "driver",
-	"notes": "I will provide snacks!")
+	"when": "2017-03-10 16:00:00 UTC",
+	"role": "Driver",
+	"notes": "I am driving ppl for free!")
+Ride.create(
+	"title": "Anyone going to Vassar College?",
+	"destination": "Vassar",
+	"origin": "Wesleyan",
+	"when": "2017-03-08 16:00:00 UTC",
+	"role": "Rider",
+	"notes": "I will happily pay $20 to anyone who is going there!")
 Event.create(
-	"title": "Party", 
-	"location":"211 Pine", 
-	"description":"House Warming BYOG", 
-	"startdate": "2017-02-22 9:03:00 UTC",
-	"enddate": "2017-02-25 12:03:00 UTC",
-	"link": "https://www.facebook.com")
+	"title": "Kai Lab Presentations", 
+	"location":"Fisk 666", 
+	"description":"Present where you're at.", 
+	"startdate": "2017-03-05 7:00:00 UTC",
+	"enddate": "2017-03-05 12:03:00 UTC",
+	"link": "http://www.kaiwes.com/")
 Event.create(
-	"title": "Sleep", 
-	"location":"211 Pine", 
-	"description":"Just for funsies", 
-	"startdate": "2016-03-22 12:03:00 UTC",
-	"enddate": "2016-03-25 20:03:00 UTC",
-	"link": "https://www.facebook.com")
+	"title": "Men's Basketball Game v. Vassar College", 
+	"location":"Freeman Athletic Center", 
+	"description":"Come support plz!", 
+	"startdate": "2017-03-22 12:03:00 UTC",
+	"enddate": "2017-03-22 20:03:00 UTC",
+	"link": "http://athletics.wesleyan.edu/landing/index")
 Lostandfound.create(
-	"title": "LOST JACKET",
-	"item": "Black Jacket with rhinestones",
+	"title": "Lost my favorite jacket",
+	"item": "Black jacket with rhinestones",
 	"foundlocation": "Usdan Quiet Side",
-	"foundtime": "2016-03-25 20:03:00 UTC")
+	"foundtime": "2016-03-25 20:03:00 UTC",
+	"notes": "I will bake you some brownies if you find it")
+Lostandfound.create(
+	"title": "Found a Motorola Razr (pink)",
+	"item": "Motorola Razr",
+	"foundlocation": "Meditation Room",
+	"foundtime": "2016-03-25 20:03:00 UTC",
+	"notes": "I will be sitting in Roth's office until 3pm today if you want to come by and get it")
