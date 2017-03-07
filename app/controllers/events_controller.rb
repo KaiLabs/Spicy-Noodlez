@@ -9,12 +9,12 @@ class EventsController < ApplicationController
     # @events.each do |event|
     #   Event.convert_times(event)
     # end
-    # if 
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+
   end
 
   # GET /events/new
