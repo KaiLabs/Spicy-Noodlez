@@ -3,28 +3,28 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-    # @events = Event.all
-    # @rides = Ride.all
-    # @lostandfounds = Lostandfound.all
+    # @posts = Post.all
+    @events = Event.all
+    @rides = Ride.all
+    @lostandfounds = Lostandfound.all
 
-    # # @posts = (@events + @rides + @lostandfound).sort_by(:update_at).reverse
-    # # @posts = (@events + @rides + @lostandfound)(:order => "created_at DESC")
-    # posts_unsorted = @events + @rides + @lostandfounds
-    # @posts = posts_unsorted.sort {|a,b| b.updated_at <=> a.updated_at }
+    # @posts = (@events + @rides + @lostandfound).sort_by(:update_at).reverse
+    # @posts = (@events + @rides + @lostandfound)(:order => "created_at DESC")
+    posts_unsorted = @events + @rides + @lostandfounds
+    @posts = posts_unsorted.sort {|a,b| b.updated_at <=> a.updated_at }
 
-    # # http://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
-    # # Try calling each controller's Controller.serach function and then adding those up? that allows diff keys?
-    # if params[:search]
-    #   rides = @rides.all.search(params[:search])
-    #   events = @events.all.search(params[:search])
-    #   lostandfounds = @lostandfounds.all.search(params[:search])
-    #   posts_unsorted = rides + events + lostandfounds
-    #   @posts = posts_unsorted.sort {|a,b| b.updated_at <=> a.updated_at }
-    #   # @posts = @posts.all.search(params[:search]).order("created_at DESC")
-    # else
-    #   @posts
-    # end
+    # http://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
+    # Try calling each controller's Controller.serach function and then adding those up? that allows diff keys?
+    if params[:search]
+      rides = @rides.all.search(params[:search])
+      events = @events.all.search(params[:search])
+      lostandfounds = @lostandfounds.all.search(params[:search])
+      posts_unsorted = rides + events + lostandfounds
+      @posts = posts_unsorted.sort {|a,b| b.updated_at <=> a.updated_at }
+      # @posts = @posts.all.search(params[:search]).order("created_at DESC")
+    else
+      @posts
+    end
 
   end
 
