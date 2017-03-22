@@ -5,6 +5,12 @@ class LostandfoundsController < ApplicationController
   # GET /lostandfounds.json
   def index
     @lostandfounds = Lostandfound.all
+
+		if params[:search]
+			@lostandfounds = @lostandfounds.all.search(params[:search])
+		else
+			@lostandfounds
+		end
   end
 
   # GET /lostandfounds/1

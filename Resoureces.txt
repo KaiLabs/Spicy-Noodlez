@@ -11,8 +11,35 @@ CARD:
 
 https://www.w3schools.com/howto/howto_css_cards.asp
 
-
 BootStrap looks pretty
 
 http://codepen.io/jasonmccuen/pen/dOxEBR
 http://codepen.io/suzukocode/pen/PbLbNv
+
+
+      # create new fields in db with
+      # rails generate scaffold add_FIELD_to_TABLE FIELD:FIELDTYPE
+      # remove fields in db with 
+      # rails generate scaffold remove_FIELD_from_TABLE FIELD:FIELDTYPE
+
+To Do:
+
+2. Validators to make sure input fields are filled in COMPLETE
+3. make sure posts/new and all these other paths redirects you to posts#index COMPLETE
+7. Search bar for your active path : all or current path button
+	7a. Search bar for your current path only... !! COMPLETE
+8. Move current ruby stuff in my views to the models. for DRYness. COMPLETE
+
+1. Debugging thing chapter 7.
+
+6. Users have usernmame/password/avatar/
+		has_many posts, events, rides, ...
+		but posts/events/rides/bla only has_one user.
+
+5. https://www.railstutorial.org/book/modeling_users
+4. log_in + Authenticated User class
+5. If authenticated then you can post/edit/delete otherwise just show.
+	You can only post if youre logged in
+	You can only edit/delete if youre the owner of the post
+	You can show regardless of being logged in.
+8. 

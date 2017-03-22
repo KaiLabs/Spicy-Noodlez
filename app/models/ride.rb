@@ -1,4 +1,9 @@
 class Ride < ApplicationRecord
+	validates :title, length: { in: 2..100 }
+	validates :destination, length: {in: 2..50}
+	validates :origin, length: {in: 2..50}
+	validates :when, :role, presence: true
+	validates :notes, length: {maximum: 500}
 
 	def self.search(search)
 		where("destination LIKE ? OR origin LIKE ? OR title LIKE ?", 
