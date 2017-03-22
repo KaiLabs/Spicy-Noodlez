@@ -3,6 +3,12 @@ require 'test_helper'
 class RidesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @ride = rides(:one)
+  #   @ride = Ride.new( "title": "Wes -> NYC",
+  # "destination": "New York City",
+  # "origin": "Usdan",
+  # "when": "2017-03-10 16:00:00 UTC",
+  # "role": "Driver",
+  # "notes": "I am driving ppl for free!")
   end
 
   test "should get index" do

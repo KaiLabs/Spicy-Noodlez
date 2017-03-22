@@ -33,6 +33,23 @@ Done:
 
 To Do:
 
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!
+
+
 1. Debugging thing chapter 7.
 
 6. Users have usernmame/password/avatar/
@@ -40,7 +57,7 @@ To Do:
 		but posts/events/rides/bla only has_one user.
 
 5. https://www.railstutorial.org/book/modeling_users
-4. log_in + Authenticated User class
+4. log_in + Authenticated User
 5. If authenticated then you can post/edit/delete otherwise just show.
 	You can only post if youre logged in
 	You can only edit/delete if youre the owner of the post

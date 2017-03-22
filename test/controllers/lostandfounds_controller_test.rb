@@ -17,7 +17,7 @@ class LostandfoundsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create lostandfound" do
     assert_difference('Lostandfound.count') do
-      post lostandfounds_url, params: { lostandfound: { foundlocation: @lostandfound.foundlocation, foundtime: @lostandfound.foundtime, item: @lostandfound.item, notes: @lostandfound.notes, picture: @lostandfound.picture, title: @lostandfound.title } }
+      post lostandfounds_url, params: { lostandfound: { foundlocation: @lostandfound.foundlocation, foundtime: @lostandfound.foundtime, item: @lostandfound.item, notes: @lostandfound.notes,  title: @lostandfound.title } }
     end
 
     assert_redirected_to lostandfound_url(Lostandfound.last)
@@ -34,7 +34,7 @@ class LostandfoundsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update lostandfound" do
-    patch lostandfound_url(@lostandfound), params: { lostandfound: { foundlocation: @lostandfound.foundlocation, foundtime: @lostandfound.foundtime, item: @lostandfound.item, notes: @lostandfound.notes, picture: @lostandfound.picture, title: @lostandfound.title } }
+    patch lostandfound_url(@lostandfound), params: { lostandfound: { foundlocation: @lostandfound.foundlocation, foundtime: @lostandfound.foundtime, item: @lostandfound.item, notes: @lostandfound.notes, title: @lostandfound.title } }
     assert_redirected_to lostandfound_url(@lostandfound)
   end
 

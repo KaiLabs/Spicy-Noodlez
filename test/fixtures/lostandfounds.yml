@@ -3,7 +3,6 @@
 one:
   title: MyString
   item: MyString
-  picture: 
   foundlocation: MyString
   foundtime: 2017-02-22 12:54:54
   notes: MyText
@@ -11,7 +10,6 @@ one:
 two:
   title: MyString
   item: MyString
-  picture: 
   foundlocation: MyString
   foundtime: 2017-02-22 12:54:54
   notes: MyText
