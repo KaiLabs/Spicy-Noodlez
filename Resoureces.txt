@@ -22,13 +22,16 @@ http://codepen.io/suzukocode/pen/PbLbNv
       # remove fields in db with 
       # rails generate scaffold remove_FIELD_from_TABLE FIELD:FIELDTYPE
 
-To Do:
+Done:
 
 2. Validators to make sure input fields are filled in COMPLETE
 3. make sure posts/new and all these other paths redirects you to posts#index COMPLETE
 7. Search bar for your active path : all or current path button
 	7a. Search bar for your current path only... !! COMPLETE
 8. Move current ruby stuff in my views to the models. for DRYness. COMPLETE
+
+
+To Do:
 
 1. Debugging thing chapter 7.
 
