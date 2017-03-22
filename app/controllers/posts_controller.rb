@@ -1,15 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+
+  
   # GET /posts
   # GET /posts.json
   def index
-    # @posts = Post.all
     @events = Event.all
     @rides = Ride.all
     @lostandfounds = Lostandfound.all
-
-    # @posts = (@events + @rides + @lostandfound).sort_by(:update_at).reverse
-    # @posts = (@events + @rides + @lostandfound)(:order => "created_at DESC")
     posts_unsorted = @events + @rides + @lostandfounds
     @posts = posts_unsorted.sort {|a,b| b.updated_at <=> a.updated_at }
 

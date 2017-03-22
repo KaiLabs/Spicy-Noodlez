@@ -1,13 +1,14 @@
 class Post < ApplicationRecord
-	# include Event, Post, Lostandfound
-	def self.search(search)
-		where("title LIKE ?", "%#{search}%")
-	end
+
 
 	def self.print_attributes(post)
 		x = "Category: #{post.class} \n"
 		post.attributes.each_pair do |key, val|
-			x = "#{x}" + "#{key}: #{val} \n"
+			if val.is_a?(ActiveSupport::TimeWithZone)
+				x = "#{x}" + "#{key}: #{Common.readable_timestamps(val)} \n"
+			else
+				x = "#{x}" + "#{key}: #{val} \n"
+			end
 		end
 		return x
 	end

@@ -1,4 +1,8 @@
 class Event < ApplicationRecord
+	validates :title, length: {in: 5..50}
+	validates :location, length: {in: 5..50}
+	validates :description, length: {maximum: 500}
+	validates :startdate, :enddate, presence: true
 	require 'time'
 
 
@@ -7,7 +11,7 @@ class Event < ApplicationRecord
 			"%#{search}%", "%#{search}%", "%#{search}%")
 	end
 
-# Converts from UTC to EST
+# Converts from UTC to EST --> Moved to common.rb for DRYness
 	def self.time_offset(timestamp)
 		timestamp + Time.zone_offset('EST')
 	end
@@ -21,6 +25,5 @@ class Event < ApplicationRecord
 		event[:enddate] = @y
 		return event
 	end
-
 
 end
