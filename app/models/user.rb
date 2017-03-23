@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 # https://www.railstutorial.org/book/modeling_users#fig-sqlite_user_row
-
+# belongs_to
+# has_many events, rides, lostandfounds
 	
 	VALID_EMAIL_REGEX= /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	before_save { self.email = email.downcase }

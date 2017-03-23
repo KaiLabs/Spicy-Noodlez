@@ -39,7 +39,6 @@ WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
-
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
@@ -51,15 +50,22 @@ WRITE TESTS!!!!!!!!!
 
 
 1. Debugging thing chapter 7.
-
+2. Write TESTS!
+3. Validate that events start in the future and end after that point
+4. Validate that rides start in the future and end after that
+5. Validate that found happened in the past
 6. Users have usernmame/password/avatar/
 		has_many posts, events, rides, ...
 		but posts/events/rides/bla only has_one user.
-
 5. https://www.railstutorial.org/book/modeling_users
 4. log_in + Authenticated User
 5. If authenticated then you can post/edit/delete otherwise just show.
 	You can only post if youre logged in
 	You can only edit/delete if youre the owner of the post
 	You can show regardless of being logged in.
-8. 
+8. Star posts to save for later!!
+9. Static Routes...help, about, contact
+
+
+
+

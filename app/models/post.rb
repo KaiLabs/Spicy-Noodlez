@@ -1,6 +1,5 @@
 class Post < ApplicationRecord
 
-
 	def self.print_attributes(post)
 		x = "Category: #{post.class} \n"
 		post.attributes.each_pair do |key, val|
@@ -12,5 +11,6 @@ class Post < ApplicationRecord
 		end
 		return x
 	end
+	
 end
 
