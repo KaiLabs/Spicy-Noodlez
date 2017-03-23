@@ -29,10 +29,11 @@ Done:
 7. Search bar for your active path : all or current path button
 	7a. Search bar for your current path only... !! COMPLETE
 8. Move current ruby stuff in my views to the models. for DRYness. COMPLETE
-
+3. Validate that events start in the future and end after that point COMPLETE
+4. Validate that rides start in the future and end after that COMPLETE
+5. Validate that found happened in the past COMPLETE
 
 To Do:
-
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
@@ -51,13 +52,34 @@ WRITE TESTS!!!!!!!!!
 
 1. Debugging thing chapter 7.
 2. Write TESTS!
-3. Validate that events start in the future and end after that point
-4. Validate that rides start in the future and end after that
-5. Validate that found happened in the past
+5. https://www.railstutorial.org/book/modeling_users
+
+BUG BUG BUG BUG BUG
+my validations are acting up for comparing times
+check out Daichi's validaitons instead
+"event"=>
+  {"title"=>"ok",
+   "location"=>"ok",
+   "description"=>"ok",
+   "startdate(1i)"=>"2017",
+   "startdate(2i)"=>"3",
+   "startdate(3i)"=>"23",
+   "startdate(4i)"=>"15",
+   "startdate(5i)"=>"55",
+   "enddate(1i)"=>"2017",
+   "enddate(2i)"=>"3",
+   "enddate(3i)"=>"23",
+   "enddate(4i)"=>"17",
+   "enddate(5i)"=>"55",
+   "link"=>""}
+
+@startdate is being split up into these things
+instead of "2017-03-23" and so on
+
+
 6. Users have usernmame/password/avatar/
 		has_many posts, events, rides, ...
 		but posts/events/rides/bla only has_one user.
-5. https://www.railstutorial.org/book/modeling_users
 4. log_in + Authenticated User
 5. If authenticated then you can post/edit/delete otherwise just show.
 	You can only post if youre logged in

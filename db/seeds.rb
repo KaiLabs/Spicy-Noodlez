@@ -14,29 +14,29 @@ Ride.create(
 	"title": "Wes -> NYC",
 	"destination": "New York City",
 	"origin": "Usdan",
-	"when": "2017-03-10 16:00:00 UTC",
+	"when": "2018-03-10 16:00:00 UTC",
 	"role": "Driver",
 	"notes": "I am driving ppl for free!")
 Ride.create(
 	"title": "Anyone going to Vassar College?",
 	"destination": "Vassar",
 	"origin": "Wesleyan",
-	"when": "2017-03-08 16:00:00 UTC",
+	"when": "2018-03-08 16:00:00 UTC",
 	"role": "Rider",
 	"notes": "I will happily pay $20 to anyone who is going there!")
 Event.create(
 	"title": "Kai Lab Presentations", 
 	"location":"Fisk 666", 
 	"description":"Present where you're at.", 
-	"startdate": "2017-03-05 7:00:00 UTC",
-	"enddate": "2017-03-05 12:03:00 UTC",
+	"startdate": "2018-03-05 7:00:00 UTC",
+	"enddate": "2018-03-05 12:03:00 UTC",
 	"link": "http://www.kaiwes.com/")
 Event.create(
 	"title": "Men's Basketball Game v. Vassar College", 
 	"location":"Freeman Athletic Center", 
 	"description":"Come support plz!", 
-	"startdate": "2017-03-22 12:03:00 UTC",
-	"enddate": "2017-03-22 20:03:00 UTC",
+	"startdate": "2018-03-22 12:03:00 UTC",
+	"enddate": "2018-03-22 20:03:00 UTC",
 	"link": "http://athletics.wesleyan.edu/landing/index")
 Lostandfound.create(
 	"title": "Lost my favorite jacket",

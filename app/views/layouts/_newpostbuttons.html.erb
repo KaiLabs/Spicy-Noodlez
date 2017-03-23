@@ -1,10 +1,32 @@
 
 <div class="newpostbuttons">
 	<center>
-    <button type= "button" class="btn btn-info"> <span class="glyphicon glyphicon-edit"></span> <%= link_to 'New Event', new_event_path(:redirect_to => @state) %></button>
-    <button type= "button" class="btn btn-info"> <span class="glyphicon glyphicon-plus"></span> 
-    <span class="glyphicon glyphicon-pencil"></span>  <%= link_to 'New Lost/Found', new_lostandfound_path(:redirect_to => @state) %></button>
 
-    <button type= "button" class="btn btn-info">  <span class="glyphicon glyphicon-road"></span>  <%= link_to 'New Ride', new_ride_path(:redirect_to => @state) %></button>
+    <button type= "button" class="btn btn-info"> 
+    	<span class="glyphicon glyphicon-edit"></span> 
+    	<%= link_to 'New Event', new_event_path(:redirect_to => @state) %>
+    </button>
+
+    <button type= "button" class="btn btn-info"> 
+	    <span class="glyphicon glyphicon-plus"></span> 
+	    <span class="glyphicon glyphicon-pencil"></span>  
+	    <%= link_to 'New Lost/Found', new_lostandfound_path(:redirect_to => @state) %>
+	</button>
+
+    <button type= "button" class="btn btn-info">  
+    	<span class="glyphicon glyphicon-road"></span>  
+    	<%= link_to 'New Ride', new_ride_path(:redirect_to => @state) %>
+    </button>
+
+
+    <div class='actions'>
+    	Just a test...
+  		<%= link_to 'New Ride', new_ride_path(:redirect_to => @state), class: "btn btn-primary"%>
+  		<span class="glyphicon glyphicon-road"></span>
+  		<span class="glyphicon glyphicon-plus"></span> 
+	    <span class="glyphicon glyphicon-pencil"></span>
+	    <span class="glyphicon glyphicon-edit"></span> 
+  	</div>
+
 	</center>
 </div>
