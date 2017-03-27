@@ -6,13 +6,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# USEFUL GEMS @ BELOW LINK
+# https://infinum.co/the-capsized-eight/a-gem-for-every-occasion-11-great-ruby-libraries-we-use-on-every-project
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',            '~> 5.0.1'
 gem 'bootstrap-sass',   '~> 3.3.6'
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'font-awesome-sass'
+gem 'validates_timeliness', '~> 4.0'
 gem 'simple_calendar',  '~> 2.0'
 gem 'bcrypt',           '~> 3.1.11'
 # Use sqlite3 as the database for Active Record

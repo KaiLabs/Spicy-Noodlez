@@ -4,74 +4,8 @@
 <h1> Events </h1>
   <center> <%= link_to "Calendar View", "calendars#index" %></center>
 
-
-<!-- <h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>Startdate</th>
-      <th>Enddate</th>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.location %></td>
-        <td><%= event.description %></td>
-        <td><%= event.startdate %></td>
-        <td><%= Event.time_offset(event.enddate) %></td>
-        <td><%=link_to "GO HERE", event.link %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
- -->
-
- 
-<!-- <body>
-  <center>
-  <% @events.each do |event| %>
-    <div class="card">
-      <div class="card-content">
-        Title: <%= event.title %>
-        <br>
-        Location: <%= event.location %>
-        <br>
-        Description: <%= event.description %>
-        <br>
-        <%= event.startdate.strftime("%Y") %>
-        <%=event.startdate.strftime("%m") %>
-        <%=event.startdate.strftime("%d") %>
-        Start: <%= Event.time_offset(event.startdate) %>
-        <br>
-        End: <%= Event.time_offset(event.enddate) %>
-        <br>
-        Event Link: <%=link_to "GO HERE", event.link %>
-        <br>
-        <%= link_to 'Show', event %>
-        <%= link_to 'Edit', edit_event_path(event) %>
-        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    </div>
-    <br>
-    <br>
-  <% end %> 
-</center>
-</body> -->
-
-<!-- http://bootsnipp.com/snippets/featured/event-list -->
-
+<br>
+<br>
 <body>
 <div class="container">
     <div class="row">
@@ -82,7 +16,7 @@
             <time datetime="2014-07-20 2000">
               <span class="day"><%=event.startdate.strftime("%d") %></span>
               <span class="month"><%=event.startdate.strftime("%m") %></span>
-              <span class="year"><%= event.startdate.strftime("%Y") %></span>
+              <span class="year"><%= event.startdate.strftime("%Y") %></span> 
               <span class="time">8:00 PM</span>
             </time>
             <img alt="img" src="https://i2.wp.com/wesleying.org/wp-content/uploads/2016/11/kailabs.png" />

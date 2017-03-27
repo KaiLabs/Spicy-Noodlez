@@ -25,6 +25,7 @@ http://codepen.io/suzukocode/pen/PbLbNv
 Done:
 
 2. Validators to make sure input fields are filled in COMPLETE
+# https://github.com/adzap/validates_timeliness/
 3. make sure posts/new and all these other paths redirects you to posts#index COMPLETE
 7. Search bar for your active path : all or current path button
 	7a. Search bar for your current path only... !! COMPLETE
@@ -76,7 +77,6 @@ check out Daichi's validaitons instead
 @startdate is being split up into these things
 instead of "2017-03-23" and so on
 
-
 6. Users have usernmame/password/avatar/
 		has_many posts, events, rides, ...
 		but posts/events/rides/bla only has_one user.
@@ -87,6 +87,7 @@ instead of "2017-03-23" and so on
 	You can show regardless of being logged in.
 8. Star posts to save for later!!
 9. Static Routes...help, about, contact
+10. INGEST events from other sites(?)
 
 
 

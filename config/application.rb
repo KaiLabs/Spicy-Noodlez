@@ -13,5 +13,7 @@ module WesAdmits
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.exceptions_app = self.routes
+    config.time_zone = 'Eastern Time (US & Canada)'
+    # TIMEZONES: http://stackoverflow.com/questions/6118779/how-to-change-default-timezone-for-active-record-in-rails
   end
 end
