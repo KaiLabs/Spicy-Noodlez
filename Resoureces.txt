@@ -55,28 +55,6 @@ WRITE TESTS!!!!!!!!!
 2. Write TESTS!
 5. https://www.railstutorial.org/book/modeling_users
 
-BUG BUG BUG BUG BUG
-my validations are acting up for comparing times
-check out Daichi's validaitons instead
-"event"=>
-  {"title"=>"ok",
-   "location"=>"ok",
-   "description"=>"ok",
-   "startdate(1i)"=>"2017",
-   "startdate(2i)"=>"3",
-   "startdate(3i)"=>"23",
-   "startdate(4i)"=>"15",
-   "startdate(5i)"=>"55",
-   "enddate(1i)"=>"2017",
-   "enddate(2i)"=>"3",
-   "enddate(3i)"=>"23",
-   "enddate(4i)"=>"17",
-   "enddate(5i)"=>"55",
-   "link"=>""}
-
-@startdate is being split up into these things
-instead of "2017-03-23" and so on
-
 6. Users have usernmame/password/avatar/
 		has_many posts, events, rides, ...
 		but posts/events/rides/bla only has_one user.
