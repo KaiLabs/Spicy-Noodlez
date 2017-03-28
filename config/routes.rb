@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users
-  resources :calendars
+  resources :calendars, :only => [:index]
   resources :lostandfounds
   resources :events
   resources :posts, :only => [:index]
@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   # get  '/about',   to: 'static_pages#about'
   # get  '/contact', to: 'static_pages#contact'
   # get  '/signup',  to: 'users#new'
-  match "/404", :to => "errors#not_found", :via => :all
-  match "/500", :to => "errors#internal_server_error", :via => :all
+  # match "/404", :to => "errors#not_found", :via => :all
+  # match "/500", :to => "errors#internal_server_error", :via => :all
 
 
 end

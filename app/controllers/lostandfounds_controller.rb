@@ -34,7 +34,7 @@ class LostandfoundsController < ApplicationController
 
     respond_to do |format|
       if @lostandfound.save
-        format.html { redirect_to @lostandfound, notice: 'Lostandfound was successfully created.' }
+        format.html { redirect_to '/', notice: 'Lostandfound was successfully created.' }
         format.json { render :show, status: :created, location: @lostandfound }
       else
         format.html { render :new }

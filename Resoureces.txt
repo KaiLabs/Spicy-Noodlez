@@ -63,9 +63,12 @@ WRITE TESTS!!!!!!!!!
 	You can only post if youre logged in
 	You can only edit/delete if youre the owner of the post
 	You can show regardless of being logged in.
-8. Star posts to save for later!!
 9. Static Routes...help, about, contact
 10. INGEST events from other sites(?)
+11. Error Handling
+12. When Search returns with 0 results. redirect to somewhere and flash[:success] = "No results" 
+8. Star posts to save for later!!
+
 
 
 
