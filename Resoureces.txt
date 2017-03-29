@@ -33,6 +33,10 @@ Done:
 3. Validate that events start in the future and end after that point COMPLETE
 4. Validate that rides start in the future and end after that COMPLETE
 5. Validate that found happened in the past COMPLETE
+6. SSL
+7. Error Handling
+8. User Password Handling --> Gravatar
+
 
 To Do:
 WRITE TESTS!!!!!!!!!
@@ -50,11 +54,12 @@ WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 
-
 1. Debugging thing chapter 7.
 2. Write TESTS!
 5. https://www.railstutorial.org/book/modeling_users
 
+5. Sorting/Filtering (see Daichi code)
+	5a. Clear Search...Clear Sort
 6. Users have usernmame/password/avatar/
 		has_many posts, events, rides, ...
 		but posts/events/rides/bla only has_one user.
