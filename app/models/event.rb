@@ -7,6 +7,10 @@ class Event < ApplicationRecord
 	validates_datetime :startdate, :after => :now
 	validates_datetime :startdate, :before => :enddate
 	validates_datetime :enddate, :after => :startdate
+	
+	belongs_to :user
+  	default_scope -> { order(created_at: :desc) }
+  	validates :user_id, presence: true
 	require 'time'
 
 	def self.search(search)

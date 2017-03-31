@@ -1,5 +1,6 @@
 class LostandfoundsController < ApplicationController
-  before_action :set_lostandfound, only: [:show, :edit, :update, :destroy]
+  # before_action :set_lostandfound, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy]
 
   # GET /lostandfounds
   # GET /lostandfounds.json
@@ -30,7 +31,7 @@ class LostandfoundsController < ApplicationController
   # POST /lostandfounds
   # POST /lostandfounds.json
   def create
-    @lostandfound = Lostandfound.new(lostandfound_params)
+    @lostandfound = current_user.lostandfounds.build(lostandfounds_params)
 
     respond_to do |format|
       if @lostandfound.save

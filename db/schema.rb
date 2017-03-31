@@ -19,13 +19,16 @@ ActiveRecord::Schema.define(version: 20170331140638) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
-    t.string   "location"
     t.string   "description"
+    t.string   "location"
     t.datetime "startdate"
     t.datetime "enddate"
     t.text     "link"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "lostandfounds", force: :cascade do |t|
@@ -34,8 +37,11 @@ ActiveRecord::Schema.define(version: 20170331140638) do
     t.string   "foundlocation"
     t.datetime "foundtime"
     t.text     "notes"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["user_id", "created_at"], name: "index_lostandfounds_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_lostandfounds_on_user_id"
   end
 
   create_table "microposts", force: :cascade do |t|
@@ -48,15 +54,17 @@ ActiveRecord::Schema.define(version: 20170331140638) do
   end
 
   create_table "rides", force: :cascade do |t|
-    t.string   "destination"
+    t.string   "title"
     t.string   "origin"
+    t.string   "destination"
     t.datetime "when"
     t.string   "role"
     t.text     "notes"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "title"
-    t.integer  "user_id"
+    t.index ["user_id", "created_at"], name: "index_rides_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|

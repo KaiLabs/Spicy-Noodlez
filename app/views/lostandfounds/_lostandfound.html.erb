@@ -1,0 +1,8 @@
+<li id="lostandfound-<%= lostandfound.id %>">
+  <span class="user"> <%=link_to "Check it out", lostandfound %></span>
+  <div class="content">Content: <%= lostandfound.title %></div>
+  <div class="timestamp">
+    Posted <%= time_ago_in_words(lostandfound.created_at) %> ago.
+  </div>
+</li>
+

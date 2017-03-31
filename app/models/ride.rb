@@ -6,7 +6,9 @@ class Ride < ApplicationRecord
 	validates :notes, length: {maximum: 500}
 
 	validates_datetime :when, :after => :now
-
+	belongs_to :user
+	default_scope -> { order(created_at: :desc) }
+	validates :user_id, presence: true
 	def self.search(search)
 		where("destination LIKE ? OR origin LIKE ? OR title LIKE ?", 
 			"%#{search}%", "%#{search}%", "%#{search}%")

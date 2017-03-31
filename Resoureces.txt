@@ -36,6 +36,10 @@ Done:
 6. SSL
 7. Error Handling
 8. User Password Handling --> Gravatar
+9. Users have usernmame/password/avatar/
+		has_many posts, events, rides, ...
+		but posts/events/rides/bla only has_one user.
+10. log_in + Authenticated User
 
 
 To Do:
@@ -60,10 +64,6 @@ WRITE TESTS!!!!!!!!!
 
 5. Sorting/Filtering (see Daichi code)
 	5a. Clear Search...Clear Sort
-6. Users have usernmame/password/avatar/
-		has_many posts, events, rides, ...
-		but posts/events/rides/bla only has_one user.
-4. log_in + Authenticated User
 5. If authenticated then you can post/edit/delete otherwise just show.
 	You can only post if youre logged in
 	You can only edit/delete if youre the owner of the post
@@ -71,10 +71,21 @@ WRITE TESTS!!!!!!!!!
 9. Static Routes...help, about, contact
 10. INGEST events from other sites(?)
 11. Error Handling
-12. When Search returns with 0 results. redirect to somewhere and flash[:success] = "No results" 
+12. When Search returns with 0 results. redirect to somewhere and flash[:danger] = "No results" 
 8. Star posts to save for later!!
+9. Contact Driver/Finder
+10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
 
 
+
+Rails Console Help:
+ z = user.lostandfounds.create!(title: "Found this dank meme", item: "A dank meem", foundlocation: "the interwebz", foundtime: "2017-02-03 00:00:00", notes: "I will give it to you big time", user_id: user.id)
+
+ y = user.events.create!(title: "Eat me", description: "Come to 211 Pine to eat my nuts", location: "211 PINE", startdate: "2017-04-28 20:00:42", enddate: "2017-05-01 20:00:20", link: nil, user_id: user.id)
+
+ x = user.rides.create!(destination: "Your moms", origin: "Usdan", when: "2017-04-20 19:50:54 UTC", role: "Driver", notes: "pay me plz but not too much", user_id: user.id, title: "Who needs a ride?")
+
+ user = User.create(username: "fab", email: "a@abc.com", password: "foobar", password_confirmation: "foobar")
 
 
 

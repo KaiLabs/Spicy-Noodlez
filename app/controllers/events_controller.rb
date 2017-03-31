@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  # before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy]
 
   # GET /events
   # GET /events.json
@@ -35,7 +36,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     # CREATE TIMES IN EST?
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
     
     respond_to do |format|
       if @event.save

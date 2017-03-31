@@ -1,5 +1,6 @@
 class RidesController < ApplicationController
-  before_action :set_ride, only: [:show, :edit, :update, :destroy]
+  # before_action :set_ride, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy]
 
   # GET /rides
   # GET /rides.json
@@ -30,10 +31,10 @@ class RidesController < ApplicationController
   # POST /rides
   # POST /rides.json
   def create
-    @ride = Ride.new(ride_params)
-
+    @ride = current_user.rides.build(ride_params)
     respond_to do |format|
       if @ride.save
+        flash[:success] = "Ride created!"
         format.html { redirect_to '/', notice: 'Ride was successfully created.' }
         format.json { render :show, status: :created, location: @ride }
       else
