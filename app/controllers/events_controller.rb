@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   # before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:create, :destroy]
-
+  before_action :can_post?, only: [:new]
   # GET /events
   # GET /events.json
   def index
@@ -20,17 +20,23 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find(params[:id])
+    @event = find_event
   end
 
   # GET /events/new
   def new
-    @event = Event.new
+    # can_post?
   end
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
+    @event = find_event
+    if owner?(@event.user_id)
+      @event
+    else
+      flash[:danger] = "Sorry, you can't edit someone else's stuff"
+      redirect_to @event
+    end
   end
 
   # POST /events
@@ -84,4 +90,18 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:title, :location, :description, :startdate, :enddate, :link)
     end
+
+    def find_event
+      Event.find(params[:id])
+    end
+
+    def can_post?
+      if logged_in?
+        @event = Event.new
+      else
+        flash[:danger] = "Nice try. You can't post unless you are logged in."
+        redirect_to signin_url
+      end
+    end
+
 end

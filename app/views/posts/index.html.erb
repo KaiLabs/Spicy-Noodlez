@@ -3,14 +3,14 @@
 
 <h1>Posts</h1>
 <center>
-  <!-- if @posts.present? -->
+  <% if @posts.present? %>
       <% @posts.each do |post| %>
       <br>
       <!-- http://stackoverflow.com/questions/3137393/rails-add-a-line-break-into-a-text-area -->
       <div class="card">
       <%=h(Post.print_attributes(post)).gsub(/\n/, '<br/>').html_safe %>
        <%= link_to "Show", post %>
-       <% if current_user.id == post.user_id %>
+       <% if current_user && current_user.id == post.user_id %>
       <% if post.is_a?(Event) %>
         <%=link_to "Edit", edit_event_path(post) %>
         <% elsif post.is_a?(Ride) %>
@@ -23,8 +23,13 @@
        <br>
      </div>
       <%end%>
+<% else %>
+  <% if params[:search] %>
+  <h4> There are no posts containing the term: <%= params[:search] %> </h4>
+  <%end%>
+  <h4> No posts yet :/ </h4>
+<% end %>
       <br>
-      <!-- end -->
     </center>
 
 

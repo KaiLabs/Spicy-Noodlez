@@ -40,6 +40,13 @@ Done:
 		has_many posts, events, rides, ...
 		but posts/events/rides/bla only has_one user.
 10. log_in + Authenticated User
+11. If authenticated then you can post/edit/delete otherwise just show.
+	You can only post if youre logged in
+	You can only edit/delete if youre the owner of the post
+	You can show regardless of being logged in. 
+12. When Search returns with 0 results. redirect to somewhere and flash[:danger] = "No results" 
+	maybe --> have a before_action if there is a search and there are no results, then just print "nothing here" only: [:index]
+9. Static Routes...help, about, contact
 
 
 To Do:
@@ -58,23 +65,23 @@ WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 
-1. Debugging thing chapter 7.
-2. Write TESTS!
+4. Error Handling when not logged in and so on...
 5. https://www.railstutorial.org/book/modeling_users
-
-5. Sorting/Filtering (see Daichi code)
-	5a. Clear Search...Clear Sort
-5. If authenticated then you can post/edit/delete otherwise just show.
-	You can only post if youre logged in
-	You can only edit/delete if youre the owner of the post
-	You can show regardless of being logged in.
-9. Static Routes...help, about, contact
-10. INGEST events from other sites(?)
 11. Error Handling
-12. When Search returns with 0 results. redirect to somewhere and flash[:danger] = "No results" 
-8. Star posts to save for later!!
+8. Forgot Password?
+9. Email Account Confirmation
 9. Contact Driver/Finder
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
+5. Sorting/Filtering (see Daichi code)
+	5a. Clear Search...Clear Sorts
+6. When do certain items get deleted from the db?
+	6a. Events: 5 days after they finish?
+	6b. Rides: 6 hours after they start?
+	6c. LostAndFound: After it has been claimed AND confirmed?
+8. Star posts to save for later!!
+9. instead of users/1 can't it be like --> /USERNAME?
+10. INGEST events from other sites(?)
+
 
 
 
@@ -85,7 +92,9 @@ Rails Console Help:
 
  x = user.rides.create!(destination: "Your moms", origin: "Usdan", when: "2017-04-20 19:50:54 UTC", role: "Driver", notes: "pay me plz but not too much", user_id: user.id, title: "Who needs a ride?")
 
- user = User.create(username: "fab", email: "a@abc.com", password: "foobar", password_confirmation: "foobar")
+ user = User.new(username: "fab", email: "a@abc.com", password: "foobar", password_confirmation: "foobar")
+ 
+ user.save
 
 
 

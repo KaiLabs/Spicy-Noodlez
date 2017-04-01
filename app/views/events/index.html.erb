@@ -8,6 +8,7 @@
 <br>
 <body>
 <div class="container">
+  <% if @events.present? %>
     <div class="row">
       <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
         <ul class="event-list">
@@ -33,7 +34,7 @@
               <ul>
                 <li class="facebook" style="width:33%;"><%= link_to 'Show', event %></li>
                 <br>
-                <% if current_user.id == event.user_id %>
+                <% if current_user && current_user.id == event.user_id %>
                 <li class="twitter" style="width:34%;"><%= link_to 'Edit', edit_event_path(event) %></li>
                 <br>
                 <li class="google-plus" style="width:33%;"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %> </li>
@@ -43,6 +44,12 @@
           </li>
           <%end%>
         </ul>
+  <% else %>
+  <% if params[:search] %>
+  <h4> There are no events containing the term: <%= params[:search] %> </h4>
+  <%end%>
+  <h4> No upcoming events :/ </h4>
+<% end %>
       </div>
     </div>
   </div>

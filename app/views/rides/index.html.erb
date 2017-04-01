@@ -1,17 +1,11 @@
 <p id="notice"><%= notice %></p>
-<!-- <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-</head> -->
-
 <h1>Rides</h1>
 
 
 <body> 
   <center>
     <div class='container'>
+<% if @rides.present? %>
   <% @rides.each do |ride| %>
       <div class='card'>
         <div class="card-content">
@@ -26,7 +20,7 @@
           Notes: <%=ride.notes %>
           <br>
           <%= link_to "Show", ride %>
-          <% if current_user.id == ride.user_id %>
+          <% if current_user && current_user.id == ride.user_id %>
             <%= link_to "Edit", edit_ride_path(ride) %>
             <%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
@@ -35,22 +29,14 @@
       <br> 
       <br> 
     <%end%>
+<% else %>
+  <% if params[:search] %>
+  <h4> There are no rides containing the term: <%= params[:search] %> </h4>
+  <%end%>
+  <h4> No upcoming rides have been posted :/ </h4>
+<% end %>
   </div>
 </center>
-
-<!-- <div class="card text-center">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-block">
-    <h4 class="card-title">Special title treatment</h4>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  <div class="card-footer text-muted">
-    2 days ago
-  </div>
-</div> -->
 
 
 <!--   <div data-role="main" class="ui-content">
