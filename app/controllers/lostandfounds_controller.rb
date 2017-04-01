@@ -17,6 +17,7 @@ class LostandfoundsController < ApplicationController
   # GET /lostandfounds/1
   # GET /lostandfounds/1.json
   def show
+    @lostandfound = Lostandfound.find(params[:id])
   end
 
   # GET /lostandfounds/new
@@ -26,6 +27,7 @@ class LostandfoundsController < ApplicationController
 
   # GET /lostandfounds/1/edit
   def edit
+    @lostandfound = Lostandfound.find(params[:id])
   end
 
   # POST /lostandfounds

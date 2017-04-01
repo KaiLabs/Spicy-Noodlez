@@ -29,8 +29,10 @@
         Notes: <%= lostandfound.notes %>
         <br>
         <%= link_to 'Show', lostandfound %>
+        <% if current_user.id == lostandfound.user_id %>
         <%= link_to 'Edit', edit_lostandfound_path(lostandfound) %>
         <%= link_to 'Destroy', lostandfound, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
     </div>
   </div>
   <br>

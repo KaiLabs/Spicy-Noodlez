@@ -26,8 +26,10 @@
           Notes: <%=ride.notes %>
           <br>
           <%= link_to "Show", ride %>
-          <%= link_to "Edit", edit_ride_path(ride) %>
-          <%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if current_user.id == ride.user_id %>
+            <%= link_to "Edit", edit_ride_path(ride) %>
+            <%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
       </div>
       <br> 

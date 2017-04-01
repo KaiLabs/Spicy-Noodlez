@@ -17,6 +17,7 @@ class RidesController < ApplicationController
   # GET /rides/1
   # GET /rides/1.json
   def show
+    @ride = Ride.find(params[:id])
   end
 
   # GET /rides/new
@@ -26,6 +27,7 @@ class RidesController < ApplicationController
 
   # GET /rides/1/edit
   def edit
+    @ride = Ride.find(params[:id])
   end
 
   # POST /rides
@@ -61,6 +63,7 @@ class RidesController < ApplicationController
   # DELETE /rides/1
   # DELETE /rides/1.json
   def destroy
+    @ride = Ride.find(params[:id])
     @ride.destroy
     respond_to do |format|
       format.html { redirect_to rides_url, notice: 'Ride was successfully destroyed.' }

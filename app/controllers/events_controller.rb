@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-
+    @event = Event.find(params[:id])
   end
 
   # GET /events/new
@@ -30,6 +30,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
   end
 
   # POST /events
