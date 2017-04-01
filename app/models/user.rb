@@ -2,7 +2,6 @@ class User < ApplicationRecord
 # https://www.railstutorial.org/book/modeling_users#fig-sqlite_user_row
 # belongs_to
 # has_many events, rides, lostandfounds
-	has_many :microposts, dependent: :destroy
 	has_many :rides, dependent: :destroy
 	has_many :events, dependent: :destroy
 	has_many :lostandfounds, dependent: :destroy

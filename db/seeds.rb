@@ -14,10 +14,6 @@ User.create(username:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true)
-Micropost.create(content: "I don't know", user_id: 1)
-Micropost.create(content: "Demonstration", user_id: 1)
-Micropost.create(content: "Cookies!", user_id: 1)
-
 # Ride.create(
 # 	"title": "Wes -> NYC",
 # 	"destination": "New York City",
