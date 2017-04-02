@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329131910) do
+ActiveRecord::Schema.define(version: 20170402145226) do
 
   create_table "calendars", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -70,8 +70,10 @@ ActiveRecord::Schema.define(version: 20170329131910) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "email_confirmed", default: false
+    t.string   "confirm_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

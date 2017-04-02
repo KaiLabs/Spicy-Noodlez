@@ -70,6 +70,7 @@ WRITE TESTS!!!!!!!!!
 11. Error Handling
 8. Forgot Password?
 9. Email Account Confirmation
+	https://coderwall.com/p/u56rra/ruby-on-rails-user-signup-email-confirmation-tutorial
 9. Contact Driver/Finder
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
 5. Sorting/Filtering (see Daichi code)

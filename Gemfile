@@ -14,9 +14,6 @@ gem 'rails',            '~> 5.0.1'
 gem 'kaminari'
 # Form Helper
 gem 'simple_form'
-# Authentication Helper Gem
-gem 'devise'
-# Confirmable --> Recoverable
 # Boostrap
 gem 'bootstrap-sass',   '~> 3.3.6'
 # Twitter CSS Stylesheets
