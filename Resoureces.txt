@@ -96,5 +96,6 @@ Rails Console Help:
  
  user.save
 
+# RUN rubocop in a directory --> For Rails convention checker
 
 

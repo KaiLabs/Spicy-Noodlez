@@ -10,14 +10,30 @@ end
 # https://infinum.co/the-capsized-eight/a-gem-for-every-occasion-11-great-ruby-libraries-we-use-on-every-project
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',            '~> 5.0.1'
+# Pagination
+gem 'kaminari'
+# Form Helper
+gem 'simple_form'
+# Authentication Helper Gem
+gem 'devise'
+# Confirmable --> Recoverable
+# Boostrap
 gem 'bootstrap-sass',   '~> 3.3.6'
+# Twitter CSS Stylesheets
+gem "twitter-bootstrap-rails"
+# Materialize
 gem 'materialize-sass'
 gem 'material_icons'
+# Fonts
 gem 'font-awesome-sass'
+# Pagination from Hartl
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+# Time Validations
 gem 'validates_timeliness', '~> 4.0'
+# Simple Calendar
 gem 'simple_calendar',  '~> 2.0'
+# Encryption
 gem 'bcrypt',           '~> 3.1.11'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
