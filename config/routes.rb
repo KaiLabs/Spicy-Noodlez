@@ -14,13 +14,13 @@ Rails.application.routes.draw do
   get '/pages/:page', to: 'pages#show'
   get "/calendar", to: "events#calendar"
   delete '/signout', to: 'sessions#destroy'
-  get '/users/:id/confirm_email', to: 'users#confirm_email'
+  # get '/users/:id/confirm_email', to: 'users#confirm_email'
 
-  # resources :users do
-  #   member do
-  #     get :confirm_email
-  #   end
-  # end
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
   # match "/404", :to => "errors#not_found", :via => :all
   # match "/500", :to => "errors#internal_server_error", :via => :all
 
