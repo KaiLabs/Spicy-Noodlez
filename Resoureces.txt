@@ -47,7 +47,8 @@ Done:
 12. When Search returns with 0 results. redirect to somewhere and flash[:danger] = "No results" 
 	maybe --> have a before_action if there is a search and there are no results, then just print "nothing here" only: [:index]
 9. Static Routes...help, about, contact
-
+9. Email Account Confirmation
+	https://coderwall.com/p/u56rra/ruby-on-rails-user-signup-email-confirmation-tutorial
 
 To Do:
 WRITE TESTS!!!!!!!!!
@@ -65,12 +66,13 @@ WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 
-4. Error Handling when not logged in and so on...
 5. https://www.railstutorial.org/book/modeling_users
+
+4. Catching urls like localhost:3000/signout shouldn't sign you out unless you click the actual button!
 11. Error Handling
-8. Forgot Password?
-9. Email Account Confirmation
-	https://coderwall.com/p/u56rra/ruby-on-rails-user-signup-email-confirmation-tutorial
+12. Get User Email from oauth so that we can send emails to users
+11. Comments to contact poster
+12. Rides: How many Seats available? Allow owner to update this information.
 9. Contact Driver/Finder
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
 5. Sorting/Filtering (see Daichi code)
@@ -98,5 +100,4 @@ Rails Console Help:
  user.save
 
 # RUN rubocop in a directory --> For Rails convention checker
-
 

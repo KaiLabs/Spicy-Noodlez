@@ -1,14 +1,11 @@
 class EventsController < ApplicationController
-  # before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
-    # @events.each do |event|
-    #   Event.convert_times(event)
-    # end
 
     if params[:search]
       @events = (@events.all.search(params[:search])).sort {|a,b| b.startdate <=> a.startdate }
@@ -20,17 +17,14 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = find_event
   end
 
   # GET /events/new
   def new
-    # can_post?
   end
 
   # GET /events/1/edit
   def edit
-    @event = find_event
     if owner?(@event.user_id)
       @event
     else
@@ -42,7 +36,6 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    # CREATE TIMES IN EST?
     @event = current_user.events.build(event_params)
     
     respond_to do |format|
@@ -91,16 +84,12 @@ class EventsController < ApplicationController
       params.require(:event).permit(:title, :location, :description, :startdate, :enddate, :link)
     end
 
-    def find_event
-      Event.find(params[:id])
-    end
-
     def can_post?
       if logged_in?
         @event = Event.new
       else
         flash[:danger] = "Nice try. You can't post unless you are logged in."
-        redirect_to signin_url
+        redirect_to root_url
       end
     end
 

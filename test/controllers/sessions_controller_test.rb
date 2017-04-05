@@ -5,10 +5,10 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     @session = sessions(:one)
   end
 
-  test "should get index" do
-    get sessions_url
-    assert_response :success
-  end
+  # test "should get index" do
+  #   get sessions_url
+  #   assert_response :success
+  # end
 
   test "should get new" do
     get new_session_url
@@ -23,20 +23,20 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to session_url(Session.last)
   end
 
-  test "should show session" do
-    get session_url(@session)
-    assert_response :success
-  end
+  # test "should show session" do
+  #   get session_url(@session)
+  #   assert_response :success
+  # end
 
-  test "should get edit" do
-    get edit_session_url(@session)
-    assert_response :success
-  end
+  # test "should get edit" do
+  #   get edit_session_url(@session)
+  #   assert_response :success
+  # end
 
-  test "should update session" do
-    patch session_url(@session), params: { session: { new: @session.new } }
-    assert_redirected_to session_url(@session)
-  end
+  # test "should update session" do
+  #   patch session_url(@session), params: { session: { new: @session.new } }
+  #   assert_redirected_to session_url(@session)
+  # end
 
   test "should destroy session" do
     assert_difference('Session.count', -1) do

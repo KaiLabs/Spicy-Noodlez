@@ -4,7 +4,6 @@ class Lostandfound < ApplicationRecord
 	validates :foundlocation, length: {maximum: 50}
 	validates :foundtime, presence: true
 	validates :notes, length: {maximum: 500}
-
 	validates_datetime :foundtime, :before => :now
 	belongs_to :user
 	default_scope -> { order(created_at: :desc) }

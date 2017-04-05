@@ -1,4 +1,5 @@
 class LostandfoundsController < ApplicationController
+  before_action :set_lostandfound, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
 
@@ -18,7 +19,6 @@ class LostandfoundsController < ApplicationController
   # GET /lostandfounds/1
   # GET /lostandfounds/1.json
   def show
-    @lostandfound = find_lostandfound
   end
 
   # GET /lostandfounds/new
@@ -28,7 +28,6 @@ class LostandfoundsController < ApplicationController
 
   # GET /lostandfounds/1/edit
   def edit
-    @lostandfound = find_lostandfound
     if owner?(@lostandfound.user_id)
       @lostandfound
     else
@@ -40,7 +39,7 @@ class LostandfoundsController < ApplicationController
   # POST /lostandfounds
   # POST /lostandfounds.json
   def create
-    @lostandfound = current_user.lostandfounds.build(lostandfounds_params)
+    @lostandfound = current_user.lostandfounds.build(lostandfound_params)
 
     respond_to do |format|
       if @lostandfound.save
@@ -89,16 +88,14 @@ class LostandfoundsController < ApplicationController
       params.require(:lostandfound).permit(:title, :item, :foundlocation, :foundtime, :notes)
     end
 
-    def find_lostandfound
-      Lostandfound.find(params[:id])
-    end
+
 
     def can_post?
       if logged_in?
         @lostandfound = Lostandfound.new
       else
         flash[:danger] = "Nice try. You can't post unless you are logged in."
-        redirect_to signin_url
+        redirect_to root_url
       end
     end
 

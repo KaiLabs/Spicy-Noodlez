@@ -10,6 +10,8 @@ end
 # https://infinum.co/the-capsized-eight/a-gem-for-every-occasion-11-great-ruby-libraries-we-use-on-every-project
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',            '~> 5.0.1'
+# Wesleyan Portal Helper
+gem 'omniauth-google-oauth2', '~> 0.2.1'
 # Pagination
 gem 'kaminari'
 # Form Helper

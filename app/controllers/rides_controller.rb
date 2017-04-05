@@ -1,7 +1,10 @@
 class RidesController < ApplicationController
-  # before_action :set_ride, only: [:show, :edit, :update, :destroy]
+  before_action :set_ride, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
+
+
+  
   # GET /rides
   # GET /rides.json
   def index
@@ -17,7 +20,6 @@ class RidesController < ApplicationController
   # GET /rides/1
   # GET /rides/1.json
   def show
-    @ride = find_ride
   end
 
   # GET /rides/new
@@ -27,7 +29,6 @@ class RidesController < ApplicationController
 
   # GET /rides/1/edit
   def edit
-    @ride = find_ride
     if owner?(@ride.user_id)
       @ride
     else
@@ -69,7 +70,6 @@ class RidesController < ApplicationController
   # DELETE /rides/1
   # DELETE /rides/1.json
   def destroy
-    @ride = find_ride
     @ride.destroy
     respond_to do |format|
       format.html { redirect_to rides_url, notice: 'Ride was successfully destroyed.' }
@@ -79,25 +79,22 @@ class RidesController < ApplicationController
 
   private
     # # Use callbacks to share common setup or constraints between actions.
-    # def set_ride
-    #   @ride = Ride.find(params[:id])
-    # end
+    def set_ride
+      @ride = Ride.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ride_params
       params.require(:ride).permit(:destination, :title, :origin, :when, :role, :notes)
     end
 
-    def find_ride
-      Ride.find(params[:id])
-    end
 
     def can_post?
       if logged_in?
         @ride = Ride.new
       else
         flash[:danger] = "Nice try. You can't post unless you are logged in."
-        redirect_to signin_url
+        redirect_to root_url
       end
     end
 

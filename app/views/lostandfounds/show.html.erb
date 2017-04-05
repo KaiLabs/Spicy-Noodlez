@@ -26,5 +26,8 @@
   <%= @lostandfound.notes %>
 </p>
 
+
+<% if owner?(@lostandfound.user_id) %>
 <%= link_to 'Edit', edit_lostandfound_path(@lostandfound) %> |
+<% end %>
 <%= link_to 'Back', lostandfounds_path %>

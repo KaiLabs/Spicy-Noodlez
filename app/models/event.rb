@@ -3,11 +3,9 @@ class Event < ApplicationRecord
 	validates :location, length: {in: 5..50}
 	validates :description, length: {maximum: 500}
 	validates :startdate, :enddate, presence: true
-
 	validates_datetime :startdate, :after => :now
 	validates_datetime :startdate, :before => :enddate
 	validates_datetime :enddate, :after => :startdate
-	
 	belongs_to :user
   	default_scope -> { order(created_at: :desc) }
   	validates :user_id, presence: true

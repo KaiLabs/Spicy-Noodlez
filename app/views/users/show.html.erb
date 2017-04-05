@@ -1,17 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <% provide(:title, @user.username) %>
-<div class="row">
-  <aside class="col-md-2">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.username %>
-      </h1>
-    </section>
-  </aside>
 
-  <div class="col-md-3">
+<h3> <%= @user.username %> 
+
+<div class="row">
+  <div class="col-md-4">
     <% if @user.events.any? %>
       <h3>Events (<%= @user.events.count %>)</h3>
       <ol class="events">
@@ -19,7 +13,7 @@
       </ol>
     <% end %>
   </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
     <% if @user.rides.any? %>
       <h3>Rides (<%= @user.rides.count %>)</h3>
       <ol class="rides">
@@ -27,7 +21,7 @@
       </ol>
     <% end %>
   </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
     <% if @user.lostandfounds.any? %>
       <h3>Lostandfounds (<%= @user.lostandfounds.count %>)</h3>
       <ol class="lostandfounds">
@@ -37,7 +31,4 @@
   </div>
 </div>
 
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :update, :destroy]
   before_action :logged_in?, except: [:new]
   before_action :logged_in_user, only: [:update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: [:destroy]
+  # before_action :admin_user,     only: [:destroy]
+  
+
   # GET /users
   # GET /users.json
   def index
@@ -12,21 +15,20 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = find_user
     @events = @user.events
     @rides = @user.rides
     @lostandfounds = @user.lostandfounds
   end
 
   # GET /users/new
-  def new
-    @user = User.new
-  end
+  # def new
+  #   @user = User.new
+  # end
 
   # GET /users/1/edit
-  def edit
-    @user = find_user
-  end
+  # def edit
+  #   @user = find_user
+  # end
 
   # POST /users
   # POST /users.json
@@ -35,8 +37,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         # log_in @user
-        UserMailer.registration_confirmation(@user).deliver
-        flash[:success] = "Please confirm your email address to continue"
+        # UserMailer.registration_confirmation(@user).deliver
+        # flash[:success] = "Please confirm your email address to continue"
         format.html { redirect_to root_url, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -64,26 +66,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = find_user
     @user.destroy
     flash[:success] = "User deleted"
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def confirm_email
-      user = User.find_by_confirm_token(params[:id])
-      if user
-        user.email_activate
-        flash[:success] = "Welcome to the Sample App! Your email has been confirmed."
-        log_in user
-        redirect_to root_url
-      else
-        flash[:error] = "Sorry. User does not exist"
-        redirect_to root_url
-      end
   end
 
   private
@@ -97,16 +85,12 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 
-    def find_user
-      User.find(params[:id])
-    end
-
     # Confirms a logged-in user.
     def logged_in_user
       unless logged_in?
         store_location
-        flash[:danger] = "Please log in."
-        redirect_to signin_url
+        flash[:danger] = "Please log in first."
+        redirect_to root_url
       end
     end
 
