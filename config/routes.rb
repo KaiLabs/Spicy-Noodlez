@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get '/signout', to: 'sessions#destroy', as: 'signout'
-  
   # match "/404", :to => "errors#not_found", :via => :all
   # match "/500", :to => "errors#internal_server_error", :via => :all
 

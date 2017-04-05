@@ -71,6 +71,7 @@ WRITE TESTS!!!!!!!!!
 4. Catching urls like localhost:3000/signout shouldn't sign you out unless you click the actual button!
 11. Error Handling
 12. Get User Email from oauth so that we can send emails to users
+1. Can Users delete themselves/ wipe everything? THat would be a User Destroy?
 11. Comments to contact poster
 12. Rides: How many Seats available? Allow owner to update this information.
 9. Contact Driver/Finder
