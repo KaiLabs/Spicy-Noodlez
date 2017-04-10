@@ -4,6 +4,7 @@ class Ride < ApplicationRecord
 	validates :origin, length: {in: 2..50}
 	validates :when, :role, presence: true
 	validates :notes, length: {maximum: 500}
+	# validates :seats, presence: true
 	validates_datetime :when, :after => :now
 	belongs_to :user
 	default_scope -> {order(created_at: :desc) }

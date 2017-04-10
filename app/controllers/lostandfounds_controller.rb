@@ -40,10 +40,10 @@ class LostandfoundsController < ApplicationController
   # POST /lostandfounds.json
   def create
     @lostandfound = current_user.lostandfounds.build(lostandfound_params)
-
+    flash[:success] = 'Lostandfound was successfully created.'
     respond_to do |format|
       if @lostandfound.save
-        format.html { redirect_to '/', notice: 'Lostandfound was successfully created.' }
+        format.html { redirect_to '/'}
         format.json { render :show, status: :created, location: @lostandfound }
       else
         format.html { render :new }
@@ -57,7 +57,8 @@ class LostandfoundsController < ApplicationController
   def update
     respond_to do |format|
       if @lostandfound.update(lostandfound_params)
-        format.html { redirect_to root_path, notice: 'Your post was successfully updated.' }
+        flash[:success] = 'Your post was successfully updated.'
+        format.html { redirect_to root_path}
         format.json { render :show, status: :ok, location: @lostandfound }
       else
         format.html { render :edit }
@@ -71,8 +72,9 @@ class LostandfoundsController < ApplicationController
   # DELETE /lostandfounds/1.json
   def destroy
     @lostandfound.destroy
+    flash[:sucess] = 'Lostandfound was successfully destroyed.'
     respond_to do |format|
-      format.html { redirect_to lostandfounds_url, notice: 'Lostandfound was successfully destroyed.' }
+      format.html { redirect_to lostandfounds_url }
       format.json { head :no_content }
     end
   end

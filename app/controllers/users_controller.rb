@@ -38,8 +38,8 @@ class UsersController < ApplicationController
       if @user.save
         # log_in @user
         # UserMailer.registration_confirmation(@user).deliver
-        # flash[:success] = "Please confirm your email address to continue"
-        format.html { redirect_to root_url, notice: 'User was successfully created.' }
+        flash[:success] = 'User was successfully created.'
+        format.html { redirect_to root_url}
         format.json { render :show, status: :created, location: @user }
       else
         flash[:error] = "Something went wrong"
@@ -66,10 +66,11 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    log_out
     @user.destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "User was successfully deleted"
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url}
       format.json { head :no_content }
     end
   end

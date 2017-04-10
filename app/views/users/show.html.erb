@@ -31,4 +31,7 @@
   </div>
 </div>
 
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %>   
+<% if current_user?(@user) %>
+  <%= link_to "delete", @user, method: :delete, data: { confirm: "Are you sure? This will delete all of your posts as well." } %>
+<% end %>

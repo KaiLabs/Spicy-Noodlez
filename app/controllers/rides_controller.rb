@@ -44,7 +44,7 @@ class RidesController < ApplicationController
     respond_to do |format|
       if @ride.save
         flash[:success] = "Ride created!"
-        format.html { redirect_to '/', notice: 'Ride was successfully created.' }
+        format.html { redirect_to '/'}
         format.json { render :show, status: :created, location: @ride }
       else
         format.html { render :new }
@@ -71,8 +71,9 @@ class RidesController < ApplicationController
   # DELETE /rides/1.json
   def destroy
     @ride.destroy
+    flash[:success] = "Ride was successfully destroyed "
     respond_to do |format|
-      format.html { redirect_to rides_url, notice: 'Ride was successfully destroyed.' }
+      format.html { redirect_to rides_url}
       format.json { head :no_content }
     end
   end
@@ -85,7 +86,7 @@ class RidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ride_params
-      params.require(:ride).permit(:destination, :title, :origin, :when, :role, :notes)
+      params.require(:ride).permit(:destination, :title, :origin, :when, :role, :notes, :seats)
     end
 
 

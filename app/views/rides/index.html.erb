@@ -17,6 +17,8 @@
           <br>
           Notes: <%=ride.notes %>
           <br>
+          Seats Available: <%= ride.seats %>
+          <br>
           <%= link_to "Show", ride %>
           <% if current_user && current_user.id == ride.user_id %>
             <%= link_to "Edit", edit_ride_path(ride) %>

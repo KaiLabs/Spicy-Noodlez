@@ -25,6 +25,12 @@
   <%= @ride.notes %>
 </p>
 
+<p>
+  <strong>Seats Available:</strong>
+  <%= @ride.seats %>
+</p>
+
+
 <% if owner?(@ride.user_id) %>
   <%= link_to 'Edit', edit_ride_path(@ride) %> |
 <% end %>

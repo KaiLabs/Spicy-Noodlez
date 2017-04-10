@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329131910) do
+ActiveRecord::Schema.define(version: 20170410200522) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170329131910) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "seats"
     t.index ["user_id", "created_at"], name: "index_rides_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20170329131910) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "email"
   end
 
 end

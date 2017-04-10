@@ -36,6 +36,10 @@
     <%= f.select(:role, options_for_select([['Offering a Ride', "Driver"], ['Looking for a Ride', "Rider"]])) %>
   </div>
 
+  <div class="field">
+    <%= f.label :seats %>
+    <%= f.select(:seats, options_for_select(0..10)) %>
+  </div>
 
   <div class="field">
     <%= f.label :notes %>

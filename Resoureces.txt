@@ -22,6 +22,8 @@ http://codepen.io/suzukocode/pen/PbLbNv
       # remove fields in db with 
       # rails generate scaffold remove_FIELD_from_TABLE FIELD:FIELDTYPE
 
+
+
 Done:
 
 2. Validators to make sure input fields are filled in COMPLETE
@@ -49,6 +51,13 @@ Done:
 9. Static Routes...help, about, contact
 9. Email Account Confirmation
 	https://coderwall.com/p/u56rra/ruby-on-rails-user-signup-email-confirmation-tutorial
+4. Catching urls like localhost:3000/signout shouldn't sign you out unless you click the actual button!
+1. Can Users delete themselves/ wipe everything? THat would be a User Destroy?
+12. Rides: How many Seats available? Allow owner to update this information.
+12. Get User Email from oauth so that we can send emails to users
+
+
+
 
 To Do:
 WRITE TESTS!!!!!!!!!
@@ -67,14 +76,30 @@ WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 
 5. https://www.railstutorial.org/book/modeling_users
+http://materializecss.com/cards.html
+http://materialdesignblog.com/10-material-design-cards-for-web-in-css-html/
 
-4. Catching urls like localhost:3000/signout shouldn't sign you out unless you click the actual button!
+
+CodePen: 
+
+HOMEPAGE: https://codepen.io/nickpettit/pen/KtcyI
+HOMEPAGE: https://codepen.io/goellner/pen/qqKreq
+ERROR: https://codepen.io/ajerez/pen/jPWgyP
+
+-- Home Page, Forms, Events, Cards, navbar, error page
+http://codepen.io/anon/pen/xbBNOe
+https://www.behance.net/gallery/27978171/Card-Design-(htmlcss)
+https://codepen.io/mauriceconchis/pen/YWBxAg
+http://codepen.io/doonnnx/pen/QbBKxv
+NICE CARD
+
+https://github.com/bootstrap-ruby/rails-bootstrap-forms
+
+
+11. UpVote/DownVote?
+3. Two Views being rendered
 11. Error Handling
-12. Get User Email from oauth so that we can send emails to users
-1. Can Users delete themselves/ wipe everything? THat would be a User Destroy?
-11. Comments to contact poster
-12. Rides: How many Seats available? Allow owner to update this information.
-9. Contact Driver/Finder
+9. Contact Driver/Finder via email
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
 5. Sorting/Filtering (see Daichi code)
 	5a. Clear Search...Clear Sorts
@@ -83,10 +108,15 @@ WRITE TESTS!!!!!!!!!
 	6b. Rides: 6 hours after they start?
 	6c. LostAndFound: After it has been claimed AND confirmed?
 8. Star posts to save for later!!
-9. instead of users/1 can't it be like --> /USERNAME?
+9. THE TRADING POST! --> Post For Sale
 10. INGEST events from other sites(?)
 
 
+11. https://github.com/reddit/reddit/tree/master/r2/r2/templates
+
+
+Code Optimimzation
+https://infinum.co/the-capsized-eight/top-8-tools-for-ruby-on-rails-code-optimization-and-cleanup
 
 
 Rails Console Help:

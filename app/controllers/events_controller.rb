@@ -37,10 +37,10 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.events.build(event_params)
-    
+    flash[:success] = 'Event was successfully created.'
     respond_to do |format|
       if @event.save
-        format.html { redirect_to '/', notice: 'Event was successfully created.' }
+        format.html { redirect_to '/' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -67,8 +67,9 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event.destroy
+    flash[:sucess] = 'Event was successfully destroyed.'
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_url }
       format.json { head :no_content }
     end
   end

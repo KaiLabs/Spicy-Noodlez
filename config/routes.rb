@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show, :destroy]
   resources :calendars, :only => [:index]
   resources :posts, :only => [:index]
   resources :lostandfounds
