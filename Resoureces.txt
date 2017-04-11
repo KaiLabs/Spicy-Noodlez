@@ -62,7 +62,6 @@ Done:
 	http://stackoverflow.com/questions/22046616/rails-delete-object-10minutes-later-after-created
 
 
-
 To Do:
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
@@ -100,8 +99,10 @@ NICE CARD
 https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 
-11. UpVote/DownVote?
-8. Star posts to save for later!!
+8. Star posts to save for later!! & UpVote/DownVote?
+	1. https://github.com/aliibrahim/Save-For-Later
+	2. http://www.trevordjones.com/creating-favorites-in-rails/
+	3. http://stackoverflow.com/questions/34535893/acts-as-votable-ordering-based-on-upvotes-in-controller
 5. Sorting/Filtering (see Daichi code)
 	5a. Clear Search...Clear Sorts
 3. Two Views being rendered
@@ -109,8 +110,6 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 9. Contact Driver/Finder via email
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
 9. THE TRADING POST! --> Post For Sale
-
-
 
 11. https://github.com/reddit/reddit/tree/master/r2/r2/templates
 
