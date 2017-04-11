@@ -2,7 +2,7 @@
 
 A one-stop-shop for Wesleyan University for ridesharing, event posting, lost & found, trading post, and etc. A project for Kai Labs in the Spring of 2017.
 
-Completed so far:
+<h3> Completed so far:</h3> 
 1. Created Events, Rides, Lostandfounds
 2. Created Users
 3. Created Sessions
@@ -26,7 +26,7 @@ Completed so far:
 19. Session Helpers
 20. Calendar View!
 
-To Complete:
+<h3> To Complete:</h3> 
 1. Write Tests
 2. Upvoting / Downvoting
 3. Starring Posts
@@ -38,30 +38,30 @@ To Complete:
 9. FRONT END
 
 
-Some useful Gems:
-# Wesleyan Portal Helper
+<h3> Some useful Gems: </h3> 
+Wesleyan Portal Helper
 gem 'omniauth-google-oauth2', '~> 0.2.1'
-# Scheduling DB record deletion
+Scheduling DB record deletion
 gem 'whenever', :require => false
-# Pagination
+Pagination
 gem 'kaminari'
-# Form Helper
+Form Helper
 gem 'simple_form'
-# Boostrap
+Boostrap
 gem 'bootstrap-sass',   '~> 3.3.6'
-# Twitter CSS Stylesheets
+Twitter CSS Stylesheets
 gem "twitter-bootstrap-rails"
-# Materialize
+Materialize
 gem 'materialize-sass'
 gem 'material_icons'
-# Fonts
+Fonts
 gem 'font-awesome-sass'
-# Pagination from Hartl
+Pagination from Hartl
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
-# Time Validations
+Time Validations
 gem 'validates_timeliness', '~> 4.0'
-# Simple Calendar
+Simple Calendar
 gem 'simple_calendar',  '~> 2.0'
-# Encryption
+Encryption
 gem 'bcrypt',           '~> 3.1.11'
