@@ -17,7 +17,7 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every 10.days, at: '4am' do
+every 1.days, at: '4am' do
 	rake "events:delete_after_finished"
 	rake "rides:delete_after_finished"
 	rake "lostandfounds:delete_after_a_while"
