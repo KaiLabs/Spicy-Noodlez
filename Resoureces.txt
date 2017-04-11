@@ -108,6 +108,8 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 3. Two Views being rendered
 11. Error Handling
 9. Contact Driver/Finder via email
+	EMAILS SENDING AS OF NOW
+	NEED TO HAVE the post as a param --> so that it can send msgs and whatever.
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
 9. THE TRADING POST! --> Post For Sale
 
