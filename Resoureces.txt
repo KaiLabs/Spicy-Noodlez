@@ -55,7 +55,11 @@ Done:
 1. Can Users delete themselves/ wipe everything? THat would be a User Destroy?
 12. Rides: How many Seats available? Allow owner to update this information.
 12. Get User Email from oauth so that we can send emails to users
-
+6. When do certain items get deleted from the db?
+	6a. Events: 5 days after they finish?
+	6b. Rides: 6 hours after they start?
+	6c. LostAndFound: After it has been claimed AND confirmed?
+	http://stackoverflow.com/questions/22046616/rails-delete-object-10minutes-later-after-created
 
 
 
@@ -97,19 +101,15 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 
 11. UpVote/DownVote?
+8. Star posts to save for later!!
+5. Sorting/Filtering (see Daichi code)
+	5a. Clear Search...Clear Sorts
 3. Two Views being rendered
 11. Error Handling
 9. Contact Driver/Finder via email
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
-5. Sorting/Filtering (see Daichi code)
-	5a. Clear Search...Clear Sorts
-6. When do certain items get deleted from the db?
-	6a. Events: 5 days after they finish?
-	6b. Rides: 6 hours after they start?
-	6c. LostAndFound: After it has been claimed AND confirmed?
-8. Star posts to save for later!!
 9. THE TRADING POST! --> Post For Sale
-10. INGEST events from other sites(?)
+
 
 
 11. https://github.com/reddit/reddit/tree/master/r2/r2/templates

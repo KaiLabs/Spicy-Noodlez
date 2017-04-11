@@ -12,6 +12,8 @@ end
 gem 'rails',            '~> 5.0.1'
 # Wesleyan Portal Helper
 gem 'omniauth-google-oauth2', '~> 0.2.1'
+# Scheduling DB record deletion
+gem 'whenever', :require => false
 # Pagination
 gem 'kaminari'
 # Form Helper
