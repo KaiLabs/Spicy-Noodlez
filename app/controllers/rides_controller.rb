@@ -41,8 +41,10 @@ class RidesController < ApplicationController
   # POST /rides.json
   def create
     @ride = current_user.rides.build(ride_params)
+    @user = current_user
     respond_to do |format|
       if @ride.save
+        # UserMailer.contact_user(@user).deliver_now
         flash[:success] = "Ride created!"
         format.html { redirect_to '/'}
         format.json { render :show, status: :created, location: @ride }
