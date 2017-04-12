@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :emails
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:index, :show, :destroy]
   resources :calendars, :only => [:index]

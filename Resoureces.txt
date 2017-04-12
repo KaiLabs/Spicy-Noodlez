@@ -110,9 +110,18 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 9. Contact Driver/Finder via email
 	EMAILS SENDING AS OF NOW
 	NEED TO HAVE the post as a param --> so that it can send msgs and whatever.
+
+	PUT THAT IN THE VIEW for NEW and it shows up in CREATE
+	DO THIS FOR ALL!!!!!!
+	<%= hidden_field_tag 'owner', params[:owner] %>
+
+	IN THE SHOW OR INDEX
+	<%= link_to "Contact", new_email_path(owner: @ride.user_id) %>
+
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
 9. THE TRADING POST! --> Post For Sale
-
+10. Other - Poems(?)
+12. Add Pictures
 11. https://github.com/reddit/reddit/tree/master/r2/r2/templates
 
 
