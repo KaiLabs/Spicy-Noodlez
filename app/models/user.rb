@@ -13,6 +13,8 @@ class User < ApplicationRecord
 	# validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 	# before_create :confirmation_token
 
+# https://github.com/omniauth/omniauth/wiki/auth-hash-schema
+
 	def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
 	   	user.provider = auth.provider
