@@ -33,4 +33,6 @@
 <% if owner?(@event.user_id) %>
   <%= link_to 'Edit', edit_event_path(@event) %> |
 <% end %>
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %> |
+<%= link_to "Contact", new_email_path(owner: @event.user_id, post_id: @event, type: "event") %>
+

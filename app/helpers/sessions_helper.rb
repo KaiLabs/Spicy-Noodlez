@@ -34,7 +34,8 @@ module SessionsHelper
 
   def logged_in_user
     unless logged_in?
-      redirect_to root_url, notice: "Please sign in."
+      redirect_to root_url
+      flash[:danger] = "You need to be logged in to contact posters"
     end
   end
 

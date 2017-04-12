@@ -60,6 +60,25 @@ Done:
 	6b. Rides: 6 hours after they start?
 	6c. LostAndFound: After it has been claimed AND confirmed?
 	http://stackoverflow.com/questions/22046616/rails-delete-object-10minutes-later-after-created
+9. Contact Driver/Finder via email
+	EMAILS SENDING AS OF NOW
+	NEED TO HAVE the post as a param --> so that it can send msgs and whatever.
+
+	PUT THAT IN THE VIEW for NEW and it shows up in CREATE
+	DO THIS FOR ALL!!!!!!
+	<%= hidden_field_tag 'owner', params[:owner] %>
+
+	IN THE SHOW OR INDEX
+	<%= link_to "Contact", new_email_path(owner: @ride.user_id) %>
+	maybe also throw in a ride.id
+
+	!!!!!!!
+	instead of doing this in the create action
+	just do it upon submitting?
+	maybe create email_helper that sends emails???
+	never create a db for it?
+	only:  [:new]		but no edit, show, index
+	!!!!!!!!!
 
 
 To Do:
@@ -99,6 +118,9 @@ NICE CARD
 https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 1. BUG FOR auth.user.email
+
+	THIS WAS JUST A DEVELOPMENT vs. PRODUCTION ISSUE
+	
 8. Star posts to save for later!! & UpVote/DownVote?
 	1. https://github.com/aliibrahim/Save-For-Later
 	2. http://www.trevordjones.com/creating-favorites-in-rails/
@@ -107,17 +129,6 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 	5a. Clear Search...Clear Sorts
 3. Two Views being rendered
 11. Error Handling
-9. Contact Driver/Finder via email
-	EMAILS SENDING AS OF NOW
-	NEED TO HAVE the post as a param --> so that it can send msgs and whatever.
-
-	PUT THAT IN THE VIEW for NEW and it shows up in CREATE
-	DO THIS FOR ALL!!!!!!
-	<%= hidden_field_tag 'owner', params[:owner] %>
-
-	IN THE SHOW OR INDEX
-	<%= link_to "Contact", new_email_path(owner: @ride.user_id) %>
-
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
 9. THE TRADING POST! --> Post For Sale
 10. Other - Poems(?)

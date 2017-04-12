@@ -36,4 +36,4 @@
   <%= link_to 'Edit', edit_ride_path(@ride) %> |
 <% end %>
 <%= link_to 'Back', rides_path %>
-<%= link_to "Contact", new_email_path(owner: @ride.user_id) %>
+<%= link_to "Contact", new_email_path(owner: @ride.user_id, post_id: @ride, type: "ride") %>

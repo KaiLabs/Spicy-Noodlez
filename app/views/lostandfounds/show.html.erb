@@ -30,4 +30,6 @@
 <% if owner?(@lostandfound.user_id) %>
 <%= link_to 'Edit', edit_lostandfound_path(@lostandfound) %> |
 <% end %>
-<%= link_to 'Back', lostandfounds_path %>
+<%= link_to 'Back', lostandfounds_path %> |
+<%= link_to "Contact", new_email_path(owner: @lostandfound.user_id, post_id: @lostandfound, type: "lostandfound") %>
+

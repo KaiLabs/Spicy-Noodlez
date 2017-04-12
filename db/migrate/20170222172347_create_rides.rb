@@ -4,6 +4,7 @@ class CreateRides < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :origin
       t.string :destination
+      t.integer :seats
       t.datetime :when
       t.string :role
       t.text :notes

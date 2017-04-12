@@ -49,13 +49,13 @@ ActiveRecord::Schema.define(version: 20170412143438) do
     t.string   "title"
     t.string   "origin"
     t.string   "destination"
+    t.integer  "seats"
     t.datetime "when"
     t.string   "role"
     t.text     "notes"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "seats"
     t.index ["user_id", "created_at"], name: "index_rides_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
@@ -71,10 +71,10 @@ ActiveRecord::Schema.define(version: 20170412143438) do
     t.string   "uid"
     t.string   "username"
     t.string   "oauth_token"
+    t.string   "email"
     t.datetime "oauth_expires_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.string   "email"
   end
 
 end
