@@ -4,6 +4,6 @@ class UserMailer < ApplicationMailer
 	def contact_user(user, post)
 		@user = user
 		@post = post
-		mail(to: @user.email, subject: @post.title)
+		mail(to: @user.email, subject: "Your post: #{@post.title}")
 	end
 end

@@ -98,7 +98,7 @@ NICE CARD
 
 https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
-
+1. BUG FOR auth.user.email
 8. Star posts to save for later!! & UpVote/DownVote?
 	1. https://github.com/aliibrahim/Save-For-Later
 	2. http://www.trevordjones.com/creating-favorites-in-rails/

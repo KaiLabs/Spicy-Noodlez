@@ -44,7 +44,7 @@ class RidesController < ApplicationController
     @user = current_user
     respond_to do |format|
       if @ride.save
-        # UserMailer.contact_user(@user, @ride).deliver_now
+        UserMailer.contact_user(@user, @ride).deliver_now
         flash[:success] = "Ride created!"
         format.html { redirect_to '/'}
         format.json { render :show, status: :created, location: @ride }
