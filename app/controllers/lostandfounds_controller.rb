@@ -40,10 +40,10 @@ class LostandfoundsController < ApplicationController
   # POST /lostandfounds.json
   def create
     @lostandfound = current_user.lostandfounds.build(lostandfound_params)
-    flash[:success] = 'Lostandfound was successfully created.'
     respond_to do |format|
       if @lostandfound.save
         format.html { redirect_to '/'}
+        flash[:success] = 'Lostandfound was successfully created.'
         format.json { render :show, status: :created, location: @lostandfound }
       else
         format.html { render :new }
