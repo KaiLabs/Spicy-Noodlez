@@ -31,7 +31,19 @@
   </div>
 </div>
 
+
+<h5> My Favorites:  <h5> 
+<div class="favorites"> 
+  <% @user.events.each do |event| %>
+    <%= link_to event.title, event %>
+    <% end %> 
+</div> 
+<br> <br> <br> 
+
+
+<div class="navbottombuttons">
 <%= link_to 'Back', users_path %>   
 <% if current_user?(@user) %>
   <%= link_to "delete", @user, method: :delete, data: { confirm: "Are you sure? This will delete all of your posts as well." } %>
 <% end %>
+</div>

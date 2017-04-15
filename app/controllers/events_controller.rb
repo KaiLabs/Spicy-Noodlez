@@ -86,6 +86,22 @@ class EventsController < ApplicationController
     redirect_to :back
   end
 
+  def favorite 
+    @event = Event.find(params[:id])
+    current_user.events << @event
+    current_user.save
+    redirect_to :back
+    flash[:success] = "favorited"
+  end
+
+  def unfavorite
+    @event = Event.find(params[:id])
+    current_user.events.delete(@event)
+    current_user.save
+    redirect_to :back
+    flash[:success] = "unfavorited"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

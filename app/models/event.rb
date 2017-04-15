@@ -10,6 +10,7 @@ class Event < ApplicationRecord
   	default_scope -> { order(created_at: :desc) }
   	validates :user_id, presence: true
   	acts_as_votable
+  	has_and_belongs_to_many :users
 	require 'time'
 
 	def self.search(search)

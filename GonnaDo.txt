@@ -79,7 +79,10 @@ Done:
 	never create a db for it?
 	only:  [:new]		but no edit, show, index
 	!!!!!!!!!
-
+1. Acts as Votable
+	https://github.com/ryanto/acts_as_votable
+	http://www.mattmorgante.com/technology/votable
+	3. http://stackoverflow.com/questions/34535893/acts-as-votable-ordering-based-on-upvotes-in-controller
 
 To Do:
 WRITE TESTS!!!!!!!!!
@@ -131,12 +134,13 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
 1. Search capabilities for all controllers
 
-8. Star posts to save for later!! & UpVote/DownVote?
+8. Star posts to save for later!! 
 	GEM SAVE FOR LATER
 	GEM ACT AS VOTABLE
 	1. https://github.com/aliibrahim/Save-For-Later
-	2. http://www.trevordjones.com/creating-favorites-in-rails/
-	3. http://stackoverflow.com/questions/34535893/acts-as-votable-ordering-based-on-upvotes-in-controller
+	2.USEFUL AFF -->  http://www.trevordjones.com/creating-favorites-in-rails/
+
+
 5. Sorting/Filtering (see Daichi code)
 	5a. Clear Search...Clear Sorts
 	5b -> Calendar filtering by type of post?!?

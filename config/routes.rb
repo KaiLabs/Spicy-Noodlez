@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   resources :calendars, :only => [:index]
   resources :posts, :only => [:index]
   resources :lostandfounds
+  
   resources :events do
     member do
       put "like", to: "events#upvote"
       put "dislike", to: "events#downvote"
+      post "favorite", to: "events#favorite"
+      post "unfavorite", to: "events#unfavorite"
     end
   end
   resources :rides

@@ -40,6 +40,17 @@
   <%= @event.get_downvotes.size %>
 <% end %>
 
+
+<% if !already_favorited?(@event) %> 
+  <%= form_tag(controller: "events", action: "favorite", method: "post") do %>
+      <%= submit_tag "Favorite"%>
+  <% end %>
+<% else %> 
+    <%= form_tag(controller: "events", action: "unfavorite", method: "post") do %>
+      <%= submit_tag "Unfavorite"%>
+  <% end %>
+<% end %> 
+
 <% if owner?(@event.user_id) %>
   <%= link_to 'Edit', edit_event_path(@event) %> |
 <% end %>
