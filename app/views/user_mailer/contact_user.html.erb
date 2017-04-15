@@ -5,11 +5,13 @@
   </head>
   <body>
     <h1>Hi, my name is <%= @user.username %></h1>
-    <h3>I am writing about this <%=link_to "this post", @post %>. 
+    <h3>I am writing about <%=link_to "this post", @post %>.
 
     <p> 
       <%= @email.body %>
     </p>
+
+    <p> Please hit me up at <%= @user.email %> with your response.  </p>
     <p>Thanks so much and have a great day!</p>
   </body>
 </html>

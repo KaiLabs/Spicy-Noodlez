@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trading Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trading_posts.each do |trading_post| %>
+      <tr>
+        <td><%= trading_post.title %></td>
+        <td><%= trading_post.notes %></td>
+        <td><%= trading_post.price %></td>
+        <td><%= trading_post.role %></td>
+        <td><%= link_to 'Show', trading_post %></td>
+        <td><%= link_to 'Edit', edit_trading_post_path(trading_post) %></td>
+        <td><%= link_to 'Destroy', trading_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trading Post', new_trading_post_path %>

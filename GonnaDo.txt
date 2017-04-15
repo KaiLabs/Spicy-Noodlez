@@ -120,19 +120,32 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 1. BUG FOR auth.user.email
 
 	THIS WAS JUST A DEVELOPMENT vs. PRODUCTION ISSUE
-	
+
+	I THINK!?
+
+9. THE TRADING POST! --> Post For Sale
+	add contact! make it DRY for all models!?!?!?!?!?!?!?!?!?!
+	Add image upload ! ! ! ! ! ! ! ! ! ! ! !
+12. Add Pictures --- see that gem that Tim posted
+	GEM paperclip!
+1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
+1. Search capabilities for all controllers
+
 8. Star posts to save for later!! & UpVote/DownVote?
+	GEM SAVE FOR LATER
+	GEM ACT AS VOTABLE
 	1. https://github.com/aliibrahim/Save-For-Later
 	2. http://www.trevordjones.com/creating-favorites-in-rails/
 	3. http://stackoverflow.com/questions/34535893/acts-as-votable-ordering-based-on-upvotes-in-controller
 5. Sorting/Filtering (see Daichi code)
 	5a. Clear Search...Clear Sorts
+	5b -> Calendar filtering by type of post?!?
+	Filter by price, dates, driver roles, post type
+============================================
 3. Two Views being rendered
 11. Error Handling
-10. Lost and Found --> tags: jewelry, clothing and then filter by those tags
-9. THE TRADING POST! --> Post For Sale
+10. Lost and Found --> tags: jewelry, clothing and then filter by those tags 
 10. Other - Poems(?)
-12. Add Pictures
 11. https://github.com/reddit/reddit/tree/master/r2/r2/templates
 
 

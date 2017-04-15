@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-	# default from: 'b16fabien@gmail.com'
 # http://localhost:3000/rails/mailers/user_mailer/contact_user.txt
 	def contact_user(user, email, owner_id, post_id, type)
 		@user = user

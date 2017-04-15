@@ -1,0 +1,1 @@
+json.partial! "trading_posts/trading_post", trading_post: @trading_post

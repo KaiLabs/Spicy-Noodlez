@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trading_posts
   resources :emails, :only => [:new, :create]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:index, :show, :destroy]

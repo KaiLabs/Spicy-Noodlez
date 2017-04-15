@@ -1,0 +1,1 @@
+json.array! @trading_posts, partial: 'trading_posts/trading_post', as: :trading_post
