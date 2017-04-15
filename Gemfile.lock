@@ -38,6 +38,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.10.0)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
@@ -47,8 +48,6 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap-will_paginate (0.0.10)
-      will_paginate
     builder (3.2.3)
     byebug (9.0.6)
     chronic (0.10.2)
@@ -84,18 +83,6 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     jwt (1.5.6)
-    kaminari (1.0.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.0.1)
-      kaminari-activerecord (= 1.0.1)
-      kaminari-core (= 1.0.1)
-    kaminari-actionview (1.0.1)
-      actionview
-      kaminari-core (= 1.0.1)
-    kaminari-activerecord (1.0.1)
-      activerecord
-      kaminari-core (= 1.0.1)
-    kaminari-core (1.0.1)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -230,22 +217,20 @@ GEM
     websocket-extensions (0.1.2)
     whenever (0.9.7)
       chronic (>= 0.6.3)
-    will_paginate (3.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable (~> 0.10.0)
   bcrypt (~> 3.1.11)
   bootstrap-sass (~> 3.3.6)
-  bootstrap-will_paginate (= 0.0.10)
   byebug
   coffee-rails (~> 4.2)
   font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
-  kaminari
   listen (~> 3.0.5)
   material_icons
   materialize-sass
@@ -266,7 +251,6 @@ DEPENDENCIES
   validates_timeliness (~> 4.0)
   web-console (>= 3.3.0)
   whenever
-  will_paginate (= 3.1.0)
 
 RUBY VERSION
    ruby 2.4.0p0

@@ -14,8 +14,9 @@ gem 'rails',            '~> 5.0.1'
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 # Scheduling DB record deletion
 gem 'whenever', :require => false
-# Pagination
-gem 'kaminari'
+# Votable!
+gem 'acts_as_votable', '~> 0.10.0'
+
 # Form Helper
 gem 'simple_form'
 # Boostrap
@@ -27,9 +28,11 @@ gem 'materialize-sass'
 gem 'material_icons'
 # Fonts
 gem 'font-awesome-sass'
-# Pagination from Hartl
-gem 'will_paginate',           '3.1.0'
-gem 'bootstrap-will_paginate', '0.0.10'
+### Pagination from Hartl
+## gem 'will_paginate',           '3.1.0'
+## gem 'bootstrap-will_paginate', '0.0.10'
+### Pagination
+## gem 'kaminari'
 # Time Validations
 gem 'validates_timeliness', '~> 4.0'
 # Simple Calendar

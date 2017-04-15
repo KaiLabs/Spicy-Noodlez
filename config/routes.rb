@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :calendars, :only => [:index]
   resources :posts, :only => [:index]
   resources :lostandfounds
-  resources :events
+  resources :events do
+    member do
+      put "like", to: "events#upvote"
+      put "dislike", to: "events#downvote"
+    end
+  end
   resources :rides
   resources :errors
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
