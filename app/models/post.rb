@@ -1,4 +1,11 @@
 class Post < ApplicationRecord
+	# Creating Scopes
+    # scope :up, lambda{ where(:save_flag => true) }
+    # scope :down, lambda{ where(:save_flag => false) }
+    # scope :for_type, lambda{ |klass| where(:saveable_type => klass) }
+    # scope :by_type,  lambda{ |klass| where(:saver_type => klass) }
+
+
 
 	def self.print_attributes(post)
 		x = "Category: #{post.class} \n"
