@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.datetime :startdate
       t.datetime :enddate
       t.text :link
+      t.attachment :avatar
       t.references :user, foreign_key: true
 
       t.timestamps

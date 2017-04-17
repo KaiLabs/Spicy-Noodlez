@@ -87,7 +87,7 @@ class LostandfoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lostandfound_params
-      params.require(:lostandfound).permit(:title, :item, :foundlocation, :foundtime, :notes)
+      params.require(:lostandfound).permit(:title, :item, :foundlocation, :foundtime, :notes, :avatar)
     end
 
 

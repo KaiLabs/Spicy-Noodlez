@@ -69,6 +69,6 @@ class TradingPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trading_post_params
-      params.require(:trading_post).permit(:title, :notes, :price)
+      params.require(:trading_post).permit(:title, :notes, :price, :avatar, :role)
     end
 end

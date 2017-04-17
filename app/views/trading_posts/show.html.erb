@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+ <p>
+  <%= image_tag @trading_post.avatar.url(:thumb) %>
+</p> 
+
 <p>
   <strong>Title:</strong>
   <%= @trading_post.title %>

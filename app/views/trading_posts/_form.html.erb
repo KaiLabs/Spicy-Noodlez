@@ -6,6 +6,7 @@
     <%= f.input :notes %>
     <%= f.input :price %>
     <%= f.select(:role, options_for_select(["Buying", "Selling"])) %>
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="form-actions">

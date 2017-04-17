@@ -36,6 +36,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    flash[:success] = event_params
     @event = current_user.events.build(event_params)
     respond_to do |format|
       if @event.save
@@ -110,7 +111,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :location, :description, :startdate, :enddate, :link)
+      params.require(:event).permit(:user_id, :title, :location, :description, :startdate, :enddate, :link, :avatar)
     end
 
     def can_post?

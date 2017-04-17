@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+ <p>
+  <%= image_tag @event.avatar.url(:thumb) %>
+</p> 
+
 <p>
   <strong>Title:</strong>
   <%= @event.title %>
@@ -29,6 +33,8 @@
   <strong>Link:</strong>
   <%= @event.link %>
 </p>
+
+
 
 <%= link_to like_event_path(@event), method: :put do %>
   Upvote

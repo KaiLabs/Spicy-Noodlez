@@ -41,7 +41,7 @@ class RidesController < ApplicationController
   # POST /rides.json
   def create
     @ride = current_user.rides.build(ride_params)
-    @user = current_user
+    # @user = current_user
     respond_to do |format|
       if @ride.save
         flash[:success] = "Ride created!"

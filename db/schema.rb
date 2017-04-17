@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416232931) do
+ActiveRecord::Schema.define(version: 20170415204233) do
 
   create_table "emails", force: :cascade do |t|
     t.text     "body"
@@ -25,9 +25,13 @@ ActiveRecord::Schema.define(version: 20170416232931) do
     t.datetime "startdate"
     t.datetime "enddate"
     t.text     "link"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.index ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -45,9 +49,13 @@ ActiveRecord::Schema.define(version: 20170416232931) do
     t.string   "foundlocation"
     t.datetime "foundtime"
     t.text     "notes"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.index ["user_id", "created_at"], name: "index_lostandfounds_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_lostandfounds_on_user_id"
   end
@@ -77,9 +85,13 @@ ActiveRecord::Schema.define(version: 20170416232931) do
     t.string   "title"
     t.text     "notes"
     t.integer  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string   "role"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,13 +100,13 @@ ActiveRecord::Schema.define(version: 20170416232931) do
     t.string   "username"
     t.string   "oauth_token"
     t.string   "email"
-    t.datetime "oauth_expires_at"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "votes", force: :cascade do |t|

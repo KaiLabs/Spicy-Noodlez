@@ -20,7 +20,9 @@
               <span class="year"><%= event.startdate.strftime("%Y") %></span> 
               <span class="time">8:00 PM</span>
             </time>
-            <img alt="img" src="https://i2.wp.com/wesleying.org/wp-content/uploads/2016/11/kailabs.png" />
+            <%= image_tag event.avatar.url(:thumb) %>
+
+<!--             <img alt="img" src="https://i2.wp.com/wesleying.org/wp-content/uploads/2016/11/kailabs.png" /> -->
             <div class="info">
               <h2 class="title"><%=event.title%></h2>
               <p class="desc"><%=event.description %></p>

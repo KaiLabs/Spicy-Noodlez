@@ -79,6 +79,10 @@ Done:
 	never create a db for it?
 	only:  [:new]		but no edit, show, index
 	!!!!!!!!!
+12. Add Pictures --- see that gem that Tim posted
+	GEM paperclip!
+	DO THIS FOR ALL EVENTS, RIDES, LOST, SALE
+
 
 SEMI COMPLETE :
 
@@ -144,15 +148,11 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 	THIS WAS JUST A DEVELOPMENT vs. PRODUCTION ISSUE
 	I THINK!?
 
-12. Add Pictures --- see that gem that Tim posted
-	GEM paperclip!
-	DO THIS FOR ALL EVENTS, RIDES, LOST, SALE
 1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
 
 
+
 1. Search capabilities for all controllers
-
-
 5. Sorting/Filtering (see Daichi code)
 	5a. Clear Search...Clear Sorts
 	5b -> Calendar filtering by type of post?!?
