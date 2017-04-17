@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415204233) do
+ActiveRecord::Schema.define(version: 20170416232931) do
 
   create_table "emails", force: :cascade do |t|
     t.text     "body"
@@ -89,8 +89,12 @@ ActiveRecord::Schema.define(version: 20170415204233) do
     t.string   "oauth_token"
     t.string   "email"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "votes", force: :cascade do |t|

@@ -4,6 +4,7 @@ class CreateTradingPosts < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :notes
       t.integer :price
+      t.string :role
 
       t.timestamps
     end

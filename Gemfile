@@ -16,6 +16,8 @@ gem 'omniauth-google-oauth2', '~> 0.2.1'
 gem 'whenever', :require => false
 # Votable!
 gem 'acts_as_votable', '~> 0.10.0'
+# Image Upload
+gem "paperclip", "~> 5.0.0"
 # Form Helper
 gem 'simple_form'
 # Boostrap

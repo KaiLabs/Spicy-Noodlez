@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
 
   def create
     user = User.from_omniauth(env["omniauth.auth"])
-      log_in user
-      redirect_to posts_path
+    log_in user
+    redirect_to posts_path
   end
 
   def destroy

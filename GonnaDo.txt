@@ -146,6 +146,7 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 12. Add Pictures --- see that gem that Tim posted
 	GEM paperclip!
+	DO THIS FOR ALL EVENTS, RIDES, LOST, SALE
 1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
 
 

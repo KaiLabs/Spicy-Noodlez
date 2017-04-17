@@ -1,0 +1,5 @@
+<%= form_for @user, url: {action: "update"}, html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
+  <%= form.submit %>
+
+<% end %>

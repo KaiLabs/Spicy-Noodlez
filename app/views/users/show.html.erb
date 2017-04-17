@@ -2,6 +2,11 @@
 
 <% provide(:title, @user.username) %>
 
+<!-- Add Avatar/Change Avatar -->
+<%# image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+<%# image_tag @user.avatar.url(:thumb) %>
+
 <h3> <%= @user.username %> 
 
 <div class="row">
