@@ -102,6 +102,7 @@ SEMI COMPLETE :
 9. THE TRADING POST! --> Post For Sale
 	add contact! make it DRY for all models!?!?!?!?!?!?!?!?!?!
 
+1. Search capabilities for all controllers
 
 
 To Do:
@@ -125,20 +126,6 @@ http://materializecss.com/cards.html
 http://materialdesignblog.com/10-material-design-cards-for-web-in-css-html/
 
 
-CodePen: 
-
-HOMEPAGE: https://codepen.io/nickpettit/pen/KtcyI
-HOMEPAGE: https://codepen.io/goellner/pen/qqKreq
-ERROR: https://codepen.io/ajerez/pen/jPWgyP
-
--- Home Page, Forms, Events, Cards, navbar, error page
-http://codepen.io/anon/pen/xbBNOe
-https://www.behance.net/gallery/27978171/Card-Design-(htmlcss)
-https://codepen.io/mauriceconchis/pen/YWBxAg
-http://codepen.io/doonnnx/pen/QbBKxv
-NICE CARD
-
-https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 1. Make sure that the has_and_belongs_to_many relationship ends when user is destroyed
 2. Make sure that favorites are destroyed as well
@@ -150,9 +137,6 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
 
-
-
-1. Search capabilities for all controllers
 5. Sorting/Filtering (see Daichi code)
 	5a. Clear Search...Clear Sorts
 	5b -> Calendar filtering by type of post?!?
@@ -168,6 +152,7 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 
 
+1. Should ALL posts expire? Which ones should be pinnned
 
 
 
@@ -178,8 +163,20 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 
 
+CodePen: 
 
+HOMEPAGE: https://codepen.io/nickpettit/pen/KtcyI
+HOMEPAGE: https://codepen.io/goellner/pen/qqKreq
+ERROR: https://codepen.io/ajerez/pen/jPWgyP
 
+-- Home Page, Forms, Events, Cards, navbar, error page
+http://codepen.io/anon/pen/xbBNOe
+https://www.behance.net/gallery/27978171/Card-Design-(htmlcss)
+https://codepen.io/mauriceconchis/pen/YWBxAg
+http://codepen.io/doonnnx/pen/QbBKxv
+NICE CARD
+
+https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 
 

@@ -37,7 +37,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     flash[:success] = event_params
-    @event = current_user.events.build(event_params)
+    @event = current_user.events.build(event_params.merge(:user_id => current_user.id))
     respond_to do |format|
       if @event.save
         format.html { redirect_to '/' }
