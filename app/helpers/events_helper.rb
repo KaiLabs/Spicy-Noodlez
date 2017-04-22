@@ -6,7 +6,9 @@ module EventsHelper
 	# This way you can't favorite twice!
 	
 	def already_favorited?(event)
-		current_user.events.exists?(id: event.id)
+		if current_user
+			current_user.events.exists?(id: event.id)
+		end
 	end
 
 end

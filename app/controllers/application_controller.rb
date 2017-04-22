@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
 	def rescue404
 		log_out
+		redirect_to root_url
+		flash[:danger] = "Something went wrong. Check the logs!"
 	#your custom method for errors, you can render anything you want there
 	end
 end

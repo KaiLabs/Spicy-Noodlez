@@ -6,6 +6,7 @@ class CreateTradingPosts < ActiveRecord::Migration[5.0]
       t.integer :price
       t.string :role
       t.attachment :avatar
+      t.integer :user_id
 
       t.timestamps
     end

@@ -1,3 +1,6 @@
+lsof -i :3000
+kill -9 <PID>
+
 MODAL:
 https://www.w3schools.com/howto/howto_css_signup_form.asp
 
@@ -105,6 +108,9 @@ SEMI COMPLETE :
 1. Search capabilities for all controllers
 
 
+
+
+
 To Do:
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
@@ -115,7 +121,7 @@ WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
-WRITE TESTS!!!!!!!!!
+WRITE TESTS!!!!!!!!!w
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
 WRITE TESTS!!!!!!!!!
@@ -126,6 +132,9 @@ http://materializecss.com/cards.html
 http://materialdesignblog.com/10-material-design-cards-for-web-in-css-html/
 
 
+
+Upvote/Downvote isn't really working?
+You can't favorite an event that happened already?
 
 1. Make sure that the has_and_belongs_to_many relationship ends when user is destroyed
 2. Make sure that favorites are destroyed as well

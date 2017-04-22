@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
+  before_action :has_happened?, only: [:favorite, :unfavorite, :upvote, :downvote]
   # GET /events
   # GET /events.json
   def index
@@ -36,8 +37,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    flash[:success] = event_params
-    @event = current_user.events.build(event_params.merge(:user_id => current_user.id))
+    flash[:success] = current_user[:id]
+    @event = current_user.events.build(event_params)
     respond_to do |format|
       if @event.save
         format.html { redirect_to '/' }
@@ -76,19 +77,19 @@ class EventsController < ApplicationController
   end
 
   def upvote 
-    @event = Event.find(params[:id])
+    # @event = Event.find(params[:id])
     @event.upvote_by current_user
     redirect_to :back
   end  
 
   def downvote
-    @event = Event.find(params[:id])
+    # @event = Event.find(params[:id])
     @event.downvote_by current_user
     redirect_to :back
   end
 
   def favorite 
-    @event = Event.find(params[:id])
+    # @event = Event.find(params[:id])
     current_user.events << @event
     current_user.save
     redirect_to :back
@@ -96,7 +97,7 @@ class EventsController < ApplicationController
   end
 
   def unfavorite
-    @event = Event.find(params[:id])
+    # @event = Event.find(params[:id])
     current_user.events.delete(@event)
     current_user.save
     redirect_to :back
@@ -111,7 +112,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:user_id, :title, :location, :description, :startdate, :enddate, :link, :avatar)
+      params.require(:event).permit(:user_id, :title, :location, :description, :startdate, :enddate, :link, :avatar, :user)
     end
 
     def can_post?
@@ -120,6 +121,15 @@ class EventsController < ApplicationController
       else
         flash[:danger] = "Nice try. You can't post unless you are logged in."
         redirect_to root_url
+      end
+    end
+
+# => Doesn't let you favorite/like anything that is in the past
+    def has_happened?
+      @event = Event.find(params[:id])
+      if @event.enddate < Time.now
+        flash[:danger] = "That event has already ended. No point in doing that!"
+        redirect_to @event
       end
     end
 

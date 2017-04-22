@@ -1,10 +1,14 @@
 class TradingPostsController < ApplicationController
   before_action :set_trading_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :can_post?, only: [:new]
   # GET /trading_posts
   # GET /trading_posts.json
   def index
     @trading_posts = TradingPost.all
+
+    if params[:search]
+      @trading_posts = @trading_posts.all.search(params[:search])
+    end
   end
 
   # GET /trading_posts/1
@@ -14,7 +18,6 @@ class TradingPostsController < ApplicationController
 
   # GET /trading_posts/new
   def new
-    @trading_post = TradingPost.new
   end
 
   # GET /trading_posts/1/edit
@@ -24,7 +27,7 @@ class TradingPostsController < ApplicationController
   # POST /trading_posts
   # POST /trading_posts.json
   def create
-    @trading_post = TradingPost.new(trading_post_params)
+    @trading_post = current_user.trading_posts.build(trading_post_params)
 
     respond_to do |format|
       if @trading_post.save
@@ -69,6 +72,15 @@ class TradingPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trading_post_params
-      params.require(:trading_post).permit(:title, :notes, :price, :avatar, :role)
+      params.require(:trading_post).permit(:title, :notes, :price, :avatar, :role, :user_id)
+    end
+
+    def can_post?
+      if logged_in?
+        @trading_post = TradingPost.new
+      else
+        flash[:danger] = "Nice try. You can't post unless you are logged in."
+        redirect_to root_url
+      end
     end
 end

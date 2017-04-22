@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :when %>
-    <%= f.datetime_select :when %>
+    <span> <%= f.datetime_select :when %> </span>
   </div>
 
   <div class="field">
@@ -40,6 +40,7 @@
     <%= f.label :seats %>
     <%= f.select(:seats, options_for_select(0..10)) %>
   </div>
+
 
   <div class="field">
     <%= f.label :notes %>

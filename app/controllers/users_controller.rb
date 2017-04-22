@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   # before_action :admin_user,     only: [:destroy]
-  
+  before_action :destroy_all_owned_posts, only: [:destroy]
 
   # GET /users
   # GET /users.json
@@ -106,6 +106,14 @@ class UsersController < ApplicationController
     # Confirms an admin user.
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def destroy_all_owned_posts
+      current_user.rides.delete_all
+      current_user.events.delete_all
+      current_user.lostandfounds.delete_all
+      current_user.trading_posts.delete_all
+      current_user.save
     end
 
 end

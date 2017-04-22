@@ -10,8 +10,7 @@ class Event < ApplicationRecord
   	default_scope -> { order(created_at: :desc) }
   	validates :user_id, presence: true
   	acts_as_votable
-  	has_and_belongs_to_many :users
-  	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "https://d30y9cdsu7xlg0.cloudfront.net/png/89454-200.png"
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 	require 'time'
