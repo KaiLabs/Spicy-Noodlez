@@ -1,18 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<!--   <form class="navbar-form navbar-right">
-    <div class="input-group">
-      <%= form_tag(lostandfounds_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Lost & Found" %>
-      <% end %>
-      <button class="btn btn-default" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
-  </form> -->
 
 <h1>Lost & Found</h1>
+        <!- Sorting ->
+<div>
+  Sort by: <br>
+  <!- Sets params[:sorting] according which button is clicked ->
+  <%= link_to 'Date', lostandfounds_path(:sorting => 'foundtime')%> |
+  <!- Button to clear params[:sorting] ->
+  <%= link_to 'Clear sorting', lostandfounds_path(:sorting => nil)%>
+</div>
 
+<!- end of sorting ->
 <body>
   <center>
 <% if @lostandfounds.present?%>

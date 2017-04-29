@@ -85,6 +85,11 @@ Done:
 12. Add Pictures --- see that gem that Tim posted
 	GEM paperclip!
 	DO THIS FOR ALL EVENTS, RIDES, LOST, SALE
+Upvote/Downvote isn't really working?
+You can't favorite an event that happened already?
+
+1. Make sure that the has_and_belongs_to_many relationship ends when user is destroyed
+2. Make sure that favorites are destroyed as well
 
 
 SEMI COMPLETE :
@@ -106,6 +111,11 @@ SEMI COMPLETE :
 	add contact! make it DRY for all models!?!?!?!?!?!?!?!?!?!
 
 1. Search capabilities for all controllers
+
+5. Sorting/Filtering (see Daichi code)
+	5a. Clear Search...Clear Sorts
+	5b -> Calendar filtering by type of post?!?
+	Filter by price, dates, driver roles, post type
 
 
 
@@ -133,23 +143,17 @@ http://materialdesignblog.com/10-material-design-cards-for-web-in-css-html/
 
 
 
-Upvote/Downvote isn't really working?
-You can't favorite an event that happened already?
 
-1. Make sure that the has_and_belongs_to_many relationship ends when user is destroyed
-2. Make sure that favorites are destroyed as well
-
+MAJOR ISSUE: GETTING EMAIL FROM THE OAUTH FAILS IN PRODUCTION?
 1. BUG FOR auth.user.email
 
 	THIS WAS JUST A DEVELOPMENT vs. PRODUCTION ISSUE
 	I THINK!?
 
-1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
+2. Filtering add by_date for all types of posts.
+3. Nested Fitlering?
 
-5. Sorting/Filtering (see Daichi code)
-	5a. Clear Search...Clear Sorts
-	5b -> Calendar filtering by type of post?!?
-	Filter by price, dates, driver roles, post type
+1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
 
 
 

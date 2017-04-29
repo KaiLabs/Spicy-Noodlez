@@ -3,15 +3,30 @@ class EventsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
   before_action :has_happened?, only: [:favorite, :unfavorite, :upvote, :downvote]
+
+
   # GET /events
   # GET /events.json
   def index
     @events = Event.all
+    @events = @events.sort {|a,b| b.startdate <=> a.startdate }
 
+    # Searching
     if params[:search]
-      @events = (@events.all.search(params[:search])).sort {|a,b| b.startdate <=> a.startdate }
-    else
-      @events = @events.sort {|a,b| b.startdate <=> a.startdate }
+      @events = @events.all.search(params[:search])
+    end
+
+    # Filtering
+    if params[:sorting]
+      if params[:sorting] == "yesterday"
+        @events = Event.yesterday
+      elsif params[:sorting] == "today"
+        @events = Event.today
+      elsif params[:sorting] == "tomorrow"
+        @events = Event.tomorrow
+      elsif params[:sorting] == "week"
+        @events = Event.thisweek
+      end
     end
   end
 

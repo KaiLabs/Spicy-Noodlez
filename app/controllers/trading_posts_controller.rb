@@ -6,9 +6,15 @@ class TradingPostsController < ApplicationController
   def index
     @trading_posts = TradingPost.all
 
+    #searching
     if params[:search]
       @trading_posts = @trading_posts.all.search(params[:search])
     end
+
+    #filtering
+    @trading_posts = @trading_posts.sort_by(&:price) if params[:sorting] == "price"
+    @trading_posts = @trading_posts.sort_by(&:role) if params[:sorting] == "role"
+
   end
 
   # GET /trading_posts/1

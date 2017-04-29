@@ -2,6 +2,15 @@
 
 
 <h1>Posts</h1>
+
+  Sort by: <br>
+  <!- Sets params[:sorting] according which button is clicked ->
+  <%= link_to 'Yesterday\'s Posts', posts_path(:sorting => 'yesterday')%> | 
+  <%= link_to 'Today\'s Posts', posts_path(:sorting => 'today')%> | 
+  <%= link_to 'Tommorrow\'s Posts', posts_path(:sorting => 'tomorrow')%> |
+  <%= link_to 'This Week\'s Posts', posts_path(:sorting => 'week')%>
+  <!- Button to clear params[:sorting] ->
+  <%= link_to 'Clear sorting', posts_path(:sorting => nil)%>
 <center>
   <% if @posts.present? %>
       <% @posts.each do |post| %>

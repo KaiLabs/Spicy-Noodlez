@@ -9,11 +9,10 @@ class LostandfoundsController < ApplicationController
   def index
     @lostandfounds = Lostandfound.all
 
-		if params[:search]
-			@lostandfounds = @lostandfounds.all.search(params[:search])
-		else
-			@lostandfounds
-		end
+    @lostandfounds = @lostandfounds.all.search(params[:search]) if params[:search]
+
+    @lostandfounds = @lostandfounds.sort_by(&:foundtime) if params[:sorting] == "foundtime"
+
   end
 
   # GET /lostandfounds/1

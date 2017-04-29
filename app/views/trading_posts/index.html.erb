@@ -2,6 +2,13 @@
 
 <h1>Trading Posts</h1>
 
+
+Sort by: 
+<br> <%= link_to '$ - $$', trading_posts_path(:sorting => 'price')%> | 
+<%= link_to 'buying/selling', trading_posts_path(:sorting => 'role')%> |
+<%= link_to 'Clear sorting', trading_posts_path(:sorting => nil)%>
+<br>
+
 <table>
   <thead>
     <tr>

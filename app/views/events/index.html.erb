@@ -5,6 +5,19 @@
   <center> <%= link_to "Calendar View", "calendars#index" %></center>
 
 <br>
+        <!- Sorting ->
+<div>
+  Sort by: <br>
+  <!- Sets params[:sorting] according which button is clicked ->
+  <%= link_to 'Yesterday\'s Events', events_path(:sorting => 'yesterday')%> | 
+  <%= link_to 'Today\'s Events', events_path(:sorting => 'today')%> | 
+  <%= link_to 'Tommorrow\'s Events', events_path(:sorting => 'tomorrow')%> |
+  <%= link_to 'This Week\'s Events', events_path(:sorting => 'week')%>
+  <!- Button to clear params[:sorting] ->
+  <%= link_to 'Clear sorting', events_path(:sorting => nil)%>
+</div>
+
+<!- end of sorting ->
 <br>
 <body>
 <div class="container">

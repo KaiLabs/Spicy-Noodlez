@@ -10,11 +10,13 @@ class RidesController < ApplicationController
   def index
     @rides = Ride.all
 
-    if params[:search]
-      @rides = @rides.all.search(params[:search])
-    else
-      @rides
-    end
+    @rides = @rides.all.search(params[:search])if params[:search]
+
+    @rides = @rides.sort_by(&:seats) if params[:sorting] == "seats"
+    @rides = @rides.sort_by(&:when) if params[:sorting] == "when"
+    @rides = @rides.sort_by(&:role) if params[:sorting] == "role"
+    @rides = Ride.tomorrow if params[:sorting] == "test"
+
   end
 
   # GET /rides/1

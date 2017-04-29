@@ -8,6 +8,10 @@ class Event < ApplicationRecord
 	validates_datetime :enddate, :after => :startdate
 	belongs_to :user
   	default_scope -> { order(created_at: :desc) }
+  	scope :yesterday, -> {where(startdate: Date.yesterday.beginning_of_day..Date.today.beginning_of_day)}
+  	scope :today, -> {where(startdate: Date.today.beginning_of_day..Date.today.end_of_day)}
+  	scope :tomorrow, -> {where(startdate: Date.tomorrow.beginning_of_day..Date.tomorrow.end_of_day)}
+  	scope :thisweek, -> {where(startdate: Date.today.beginning_of_week.beginning_of_day..Date.today.end_of_week.end_of_day)}
   	validates :user_id, presence: true
   	acts_as_votable
   	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "https://d30y9cdsu7xlg0.cloudfront.net/png/89454-200.png"
@@ -25,4 +29,19 @@ class Event < ApplicationRecord
 		timestamp + Time.zone_offset('EST')
 	end
 
+	def self.sorting(params)
+		if params[:sorting] == "yesterday"
+			yesterday_range = Date.yesterday.beginning_of_day..Date.today.beginning_of_day
+			@events = Event.where(startdate: yesterday_range)
+		elsif params[:sorting] == "today"
+			today_range = Date.today.beginning_of_day..Date.today.end_of_day
+			@events = Event.where(startdate: today_range)
+		elsif params[:sorting] == "tomorrow"
+			tomorrow_range = Date.tomorrow.beginning_of_day..Date.tomorrow.end_of_day
+			@events = Event.where(startdate: tomorrow_range)
+		elsif params[:sorting] == "week"
+			this_week = Date.today.beginning_of_week.beginning_of_day..Date.today.end_of_week.end_of_day
+			@events = Event.where(startdate: this_week)
+		end
+	end
 end
