@@ -2,6 +2,7 @@ class RidesController < ApplicationController
   before_action :set_ride, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
+  before_action :is_owner?, only: [:edit, :update, :destroy]
 
 
   
@@ -99,6 +100,15 @@ class RidesController < ApplicationController
       else
         flash[:danger] = "Nice try. You can't post unless you are logged in."
         redirect_to root_url
+      end
+    end
+
+
+    def is_owner?
+      @ride = Ride.find(params[:id])
+      if !((current_user && @ride.id == current_user.id) || current_user.admin == true)
+        flash[:danger] = "You don't own this post! Don't go changing it!"
+        redirect_to rides_path
       end
     end
 

@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
   before_action :has_happened?, only: [:favorite, :unfavorite, :upvote, :downvote]
+  before_action :is_owner?, only: [:edit, :update, :destroy]
 
 
   # GET /events
@@ -145,6 +146,14 @@ class EventsController < ApplicationController
       if @event.enddate < Time.now
         flash[:danger] = "That event has already ended. No point in doing that!"
         redirect_to @event
+      end
+    end
+
+    def is_owner?
+      @event = Event.find(params[:id])
+      if !((current_user && @event.id == current_user.id) || current_user.admin == true)
+        flash[:danger] = "You don't own this post! Don't go changing it!"
+        redirect_to events_path
       end
     end
 

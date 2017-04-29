@@ -1,6 +1,8 @@
 class TradingPostsController < ApplicationController
   before_action :set_trading_post, only: [:show, :edit, :update, :destroy]
   before_action :can_post?, only: [:new]
+  before_action :is_owner?, only: [:edit, :update, :destroy]
+
   # GET /trading_posts
   # GET /trading_posts.json
   def index
@@ -87,6 +89,14 @@ class TradingPostsController < ApplicationController
       else
         flash[:danger] = "Nice try. You can't post unless you are logged in."
         redirect_to root_url
+      end
+    end
+
+    def is_owner?
+      @trade = TradingPost.find(params[:id])
+      if !((current_user && @trade.id == current_user.id) || current_user.admin == true)
+        flash[:danger] = "You don't own this post! Don't go changing it!"
+        redirect_to trading_posts_path
       end
     end
 end

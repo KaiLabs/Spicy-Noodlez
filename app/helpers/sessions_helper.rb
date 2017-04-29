@@ -17,8 +17,8 @@ module SessionsHelper
     user == current_user
   end
 
-  def owner?(user_id)
-    current_user && user_id == current_user.id
+  def owner?(post_id)
+    (current_user && post_id == current_user.id) || is_admin?(current_user)
   end
 
   # Returns true if the user is logged in, false otherwise.
@@ -57,4 +57,10 @@ module SessionsHelper
       return true
     end
   end
+
+  def is_admin?(user)
+    current_user && user.admin == true
+  end
+
+
 end

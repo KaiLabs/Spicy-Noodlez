@@ -153,7 +153,10 @@ MAJOR ISSUE: GETTING EMAIL FROM THE OAUTH FAILS IN PRODUCTION?
 2. Filtering add by_date for all types of posts.
 3. Nested Fitlering?
 
+4. Create good seeds
+
 1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
+		Admin model that allows priveleges
 
 
 

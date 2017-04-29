@@ -29,8 +29,9 @@ class User < ApplicationRecord
 		# user.email = auth.info.email
 		user.oauth_token = auth.credentials.token
 		user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+		user.admin = true if user.username == "Fabien Bessez"
 		user.save!
-	  end
+		end
 	end
 
 # {
@@ -78,5 +79,4 @@ class User < ApplicationRecord
 #         }
 #     }
 # }
-
 end

@@ -101,13 +101,14 @@ ActiveRecord::Schema.define(version: 20170415204233) do
     t.string   "username"
     t.string   "oauth_token"
     t.string   "email"
+    t.boolean  "admin",               default: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "votes", force: :cascade do |t|
