@@ -7,57 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+user = User.create!(id: 1, 
+	provider: "google_oauth2", 
+	uid: "115733573135704211361", 
+	username: "Fabien Bessez", 
+	oauth_token: "ya29.Glw7BHdxCG0KW0uhG-HsgQccAWNAYYwJ7ZBYaSCn-N5R4iuPmkbNdB8O8zJgKyVZvc3LU5HjQxc0Dy3YzGC5AaGnSPB92IdbUAu55QGQhw2_iNTycA7dVsErH8gfLw", 
+	email: nil, 
+	admin: true, 
+	avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil, 
+	oauth_expires_at: "2017-04-29 21:36:56", 
+	created_at: "2017-04-29 20:32:10", 
+	updated_at: "2017-04-29 20:36:58")
 
 
-# User.create!(username:  "Example User",
-#              email: "abc@abc.com",
-#              password:              "foobar",
-#              password_confirmation: "foobar",
-#              admin: true,
-#              activated: true,
-#              activated_at: Time.zone.now)
-# Ride.create(
-# 	"title": "Wes -> NYC",
-# 	"destination": "New York City",
-# 	"origin": "Usdan",
-# 	"when": "2018-03-10 16:00:00 UTC",
-# 	"role": "Driver",
-# 	"notes": "I am driving ppl for free!")
-# Ride.create(
-# 	"title": "Anyone going to Vassar College?",
-# 	"destination": "Vassar",
-# 	"origin": "Wesleyan",
-# 	"when": "2018-03-08 16:00:00 UTC",
-# 	"role": "Rider",
-# 	"notes": "I will happily pay $20 to anyone who is going there!")
-# Event.create(
-# 	"title": "Kai Lab Presentations", 
-# 	"location":"Fisk 666", 
-# 	"description":"Present where you're at.", 
-# 	"startdate": "2018-03-05 7:00:00 UTC",
-# 	"enddate": "2018-03-05 12:03:00 UTC",
-# 	"link": "http://www.kaiwes.com/")
-# Event.create(
-# 	"title": "Men's Basketball Game v. Vassar College", 
-# 	"location":"Freeman Athletic Center", 
-# 	"description":"Come support plz!", 
-# 	"startdate": "2018-03-22 12:03:00 UTC",
-# 	"enddate": "2018-03-22 20:03:00 UTC",
-# 	"link": "http://athletics.wesleyan.edu/landing/index")
-# Lostandfound.create(
-# 	"title": "Lost my favorite jacket",
-# 	"item": "Black jacket with rhinestones",
-# 	"foundlocation": "Usdan Quiet Side",
-# 	"foundtime": "2016-03-25 20:03:00 UTC",
-# 	"notes": "I will bake you some brownies if you find it")
-# Lostandfound.create(
-# 	"title": "Found a Motorola Razr (pink)",
-# 	"item": "Motorola Razr",
-# 	"foundlocation": "Meditation Room",
-# 	"foundtime": "2016-03-25 20:03:00 UTC",
-# 	"notes": "I will be sitting in Roth's office until 3pm today if you want to come by and get it")
+# user.rides.build()
+user.events.build(
+	id: 1, 
+	title: "This is a test", 
+	description: "I tihnk he will222be able to.", 
+	location: "Can Fabien edit your thing?", 
+	startdate: "2017-04-29 20:44:00", 
+	enddate: "2017-04-29 20:54:00", 
+	link: "", 
+	avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil, 
+	user_id: 1, 
+	created_at: "2017-04-29 20:36:06", 
+	updated_at: "2017-04-29 20:39:18")
 
-
+# user.lostandfounds.build()
+# user.trading_posts.build()
 
 
 

@@ -91,6 +91,11 @@ You can't favorite an event that happened already?
 1. Make sure that the has_and_belongs_to_many relationship ends when user is destroyed
 2. Make sure that favorites are destroyed as well
 
+1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
+		Admin model that allows priveleges
+2. Filtering add by_date for all types of posts.
+
+
 
 SEMI COMPLETE :
 
@@ -150,20 +155,33 @@ MAJOR ISSUE: GETTING EMAIL FROM THE OAUTH FAILS IN PRODUCTION?
 	THIS WAS JUST A DEVELOPMENT vs. PRODUCTION ISSUE
 	I THINK!?
 
-2. Filtering add by_date for all types of posts.
-3. Nested Fitlering?
+3. Nested Filtering?
+
+
+5. Need a way for an admin to add other admins!!!
+	Search through all users? to find one that you want to adminify
+
+	Add Admin
+	if current_user.admin ->
+		User.find_by(email: "AOlafsson@wesleyan.edu").update_attribute :admin, true
+	Delete Admin
+	if current_user.admin -> 
+		User.find_by(email: "AOlafsson@wesleyan.edu").update_attribute :admin, false
+	Make sure there is always at least one ADMIN!
+	Only Admin can add or delete --> before_action
+	Show all admins --> Link to delete them next to it.
+
+
 
 4. Create good seeds
-
-1111. Admin!?!?!?!?!?!?!?!??!?!?!?!?!?!?
-		Admin model that allows priveleges
+10. Lost and Found --> tags: jewelry, clothing and then filter by those tags 
+11. Calendar clicking for creating posts instead of dropdown
 
 
 
 ============================================
 3. Two Views being rendered
 11. Error Handling
-10. Lost and Found --> tags: jewelry, clothing and then filter by those tags 
 11. https://github.com/reddit/reddit/tree/master/r2/r2/templates
 
 

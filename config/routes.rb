@@ -15,6 +15,13 @@ Rails.application.routes.draw do
       post "unfavorite", to: "events#unfavorite"
     end
   end
+
+  resources :users do
+    member do
+      put "adminify", to: "users#add_admin"
+      put "deadminify", to: "users#remove_admin"
+    end
+  end
   resources :rides
   resources :errors
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

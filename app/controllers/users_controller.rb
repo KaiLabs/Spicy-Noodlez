@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   # before_action :admin_user,     only: [:destroy]
   before_action :destroy_all_owned_posts, only: [:destroy]
+  before_action :admin_user, only: [:add_admin, :remove_admin]
 
   # GET /users
   # GET /users.json
@@ -72,6 +73,20 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url}
       format.json { head :no_content }
     end
+  end
+
+  def add_admin
+    @user = User.find(params[:id])
+    @user.update_attribute :admin, true
+    flash[:success] = "#{@user.name} is now an admin."
+    redirect_to current_user
+  end
+
+  def remove_admin
+    @user = User.find(params[:id])
+    @user.update_attribute :admin, false
+    flash[:success] = "#{@user.name} is no longer an admin."
+    redirect_to current_user
   end
 
   private
