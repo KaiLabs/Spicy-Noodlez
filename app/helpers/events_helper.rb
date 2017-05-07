@@ -7,7 +7,7 @@ module EventsHelper
 	
 	def already_favorited?(event)
 		if current_user
-			current_user.events.exists?(id: event.id)
+			current_user.saved_for? event
 		end
 	end
 

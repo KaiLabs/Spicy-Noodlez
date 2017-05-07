@@ -7,43 +7,69 @@
   Sort by: <br>
   <!- Sets params[:sorting] according which button is clicked ->
   <%= link_to 'Date', lostandfounds_path(:sorting => 'foundtime')%> |
+  <%= link_to 'Lost only', lostandfounds_path(:sorting => 'lostonly')%> |
+  <%= link_to 'Found only', lostandfounds_path(:sorting => 'foundonly')%> |
   <!- Button to clear params[:sorting] ->
   <%= link_to 'Clear sorting', lostandfounds_path(:sorting => nil)%>
 </div>
-
 <!- end of sorting ->
-<body>
-  <center>
+
+<!-- 
+
+Material Cards Designed especiall for Posts with an Image and Post Information, Along with social buttons.
+
+Responsive using flexbox.
+
+Pure CSS, No JS
+
+Images Used in Pen are Not Mine :
+
+They are of Creative Artist from Dribbble
+-Marko Stupic : https://dribbble.com/sweetness-every-day
+
+
+
+-->
+
+
 <% if @lostandfounds.present?%>
- <% @lostandfounds.each do |lostandfound| %>
-  <div class="card">
-    <div class="card-content">
-        Title: <%= lostandfound.title %>
-        <br>
-        Item: <%= lostandfound.item %>
-        <br>
-        Location Found: <%= lostandfound.foundlocation %>
-        <br>
-        When did you find it:<%= Common.readable_timestamps(lostandfound.foundtime)%>
-        <br>
-        Notes: <%= lostandfound.notes %>
-        <br>
-        <%= link_to 'Show', lostandfound %>
-        <% if current_user && current_user.id == lostandfound.user_id %>
-        <%= link_to 'Edit', edit_lostandfound_path(lostandfound) %>
-        <%= link_to 'Destroy', lostandfound, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-    </div>
+  <div class="card-container">
+   <% @lostandfounds.each do |lostandfound| %>
+      <div class="card">
+       <div> <%= image_tag lostandfound.avatar.url, :class => "card-image" %> </div> 
+        <div class="card-info">
+          <div class="card-title"> LOST: <%= lostandfound.item %> </div>
+          <div class="card-detail"> 
+            When: <%= Common.readable_timestamps(lostandfound.foundtime)%> <br>
+            Where: <%= lostandfound.foundlocation %> <br>
+            Notes: <%= lostandfound.notes %> </div>
+          </div>
+          <div class="card-social">
+            <ul>
+               <li>  
+                <%= link_to lostandfound, class: "btn btn-default" do %>
+                  <i class="fa fa-comment-o" aria-hidden="true"></i>
+                  <% end %> 
+                </li>
+              <li>
+                <%= link_to edit_lostandfound_path(lostandfound), class: "btn btn-default" do %>
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <% end %>
+              </li>
+              <li>
+                <%= link_to root_url, class: "btn btn-default" do %>
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                  <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+    <% end %> 
   </div>
-  <br>
-  <br>
-  <%end%>
 <% else %>
   <% if params[:search] %>
   <h4> There are no items containing the term: <%= params[:search] %> </h4>
   <%end%>
   <h4> No items have been lost or found :/ </h4>
 <% end %>
-</center>
-</body>
 

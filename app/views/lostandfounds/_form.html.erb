@@ -37,6 +37,11 @@
     <%= f.text_area :notes %>
   </div>
 
+    <div class="field">
+    <%= f.label "Lost or Found?" %>
+    <%= f.select(:lostorfound, options_for_select([["Lost", true], ["Found", false]]))%>
+  </div>
+
   <div class="field">
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>

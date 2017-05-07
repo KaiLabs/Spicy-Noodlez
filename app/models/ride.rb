@@ -13,6 +13,10 @@ class Ride < ApplicationRecord
   	scope :tomorrow, -> {where(:when =>  Date.tomorrow.beginning_of_day..Date.tomorrow.end_of_day)}
   	scope :thisweek, -> {where(:when =>  Date.today.beginning_of_week.beginning_of_day..Date.today.end_of_week.end_of_day)}
 	validates :user_id, presence: true
+  	acts_as_votable
+  	acts_as_saveable
+
+  	
 	def self.search(search)
 		where("destination LIKE ? OR origin LIKE ? OR title LIKE ?", 
 			"%#{search}%", "%#{search}%", "%#{search}%")

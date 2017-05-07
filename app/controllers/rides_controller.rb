@@ -1,5 +1,5 @@
 class RidesController < ApplicationController
-  before_action :set_ride, only: [:show, :edit, :update, :destroy]
+  before_action :set_ride, only: [:show, :edit, :update, :destroy, :favorite, :unfavorite, :upvote, :downvote ]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
   before_action :is_owner?, only: [:edit, :update, :destroy]
@@ -80,6 +80,32 @@ class RidesController < ApplicationController
       format.html { redirect_to rides_url}
       format.json { head :no_content }
     end
+  end
+
+  def upvote 
+    # @event = Event.find(params[:id])
+    @ride.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    # @event = Event.find(params[:id])
+    @ride.downvote_by current_user
+    redirect_to :back
+  end
+
+  def favorite 
+    @ride.upsaved_by current_user
+    current_user.save
+    redirect_to :back
+    flash[:success] = "favorited"
+  end
+
+  def unfavorite
+    @ride.unsave_by current_user
+    current_user.save
+    redirect_to :back
+    flash[:success] = "unfavorited"
   end
 
   private

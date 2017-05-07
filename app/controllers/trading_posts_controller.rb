@@ -1,5 +1,5 @@
 class TradingPostsController < ApplicationController
-  before_action :set_trading_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_trading_post, only: [:show, :edit, :update, :destroy, :favorite, :unfavorite, :upvote, :downvote ]
   before_action :can_post?, only: [:new]
   before_action :is_owner?, only: [:edit, :update, :destroy]
 
@@ -71,6 +71,35 @@ class TradingPostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def upvote 
+    # @event = Event.find(params[:id])
+    @trading_post.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    # @event = Event.find(params[:id])
+    @trading_post.downvote_by current_user
+    redirect_to :back
+  end
+
+  def favorite 
+    @trading_post.upsaved_by current_user
+    current_user.save
+    redirect_to :back
+    flash[:success] = "favorited"
+  end
+
+  def unfavorite
+    @trading_post.unsave_by current_user
+    current_user.save
+    redirect_to :back
+    flash[:success] = "unfavorited"
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

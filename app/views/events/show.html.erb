@@ -35,30 +35,7 @@
 </p>
 
 
-Likes: <%= @event.get_upvotes.size - @event.get_downvotes.size %> 
-
-<% if logged_in? %> 
-  <%= link_to like_event_path(@event), method: :put do %>
-    Upvote
-    <%# @event.get_upvotes.size %>
-  <% end %>
-
-  <%= link_to dislike_event_path(@event), method: :put do %>
-    Downvote
-    <%# @event.get_downvotes.size %>
-  <% end %>
-
-  <% if !already_favorited?(@event) %> 
-    <%= form_tag(controller: "events", action: "favorite", method: "post") do %>
-      <%= submit_tag "Favorite"%>
-    <% end %>
-  <% elsif already_favorited?(@event) %>
-      <%= form_tag(controller: "events", action: "unfavorite", method: "post") do %>
-      <%= submit_tag "Unfavorite"%>
-    <% end %>
-  <% end %>
-<%end %>
-
+<%= render '/layouts/favoriteandup' %>
 
 
 <% if owner?(@event.user_id) %>

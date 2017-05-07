@@ -1,5 +1,6 @@
 class LostandfoundsController < ApplicationController
-  before_action :set_lostandfound, only: [:show, :edit, :update, :destroy]
+  before_action :set_lostandfound, only: [:show, :edit, :update, :destroy, :favorite, :unfavorite, :upvote, :downvote ]
+
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
   before_action :is_owner?, only: [:edit, :update, :destroy]
@@ -13,6 +14,8 @@ class LostandfoundsController < ApplicationController
     @lostandfounds = @lostandfounds.all.search(params[:search]) if params[:search]
 
     @lostandfounds = @lostandfounds.sort_by(&:foundtime) if params[:sorting] == "foundtime"
+    @lostandfounds = @lostandfounds.where(lostorfound: true) if params[:sorting] == "lostonly"
+    @lostandfounds = @lostandfounds.where(lostorfound: false)  if params[:sorting] == "foundonly"
 
   end
 
@@ -42,7 +45,7 @@ class LostandfoundsController < ApplicationController
     @lostandfound = current_user.lostandfounds.build(lostandfound_params)
     respond_to do |format|
       if @lostandfound.save
-        format.html { redirect_to '/'}
+        format.html { redirect_to lostandfounds_url}
         flash[:success] = 'Lostandfound was successfully created.'
         format.json { render :show, status: :created, location: @lostandfound }
       else
@@ -79,6 +82,32 @@ class LostandfoundsController < ApplicationController
     end
   end
 
+  def upvote 
+    # @event = Event.find(params[:id])
+    @lostandfound.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    # @event = Event.find(params[:id])
+    @lostandfound.downvote_by current_user
+    redirect_to :back
+  end
+
+  def favorite 
+    @lostandfound.upsaved_by current_user
+    current_user.save
+    redirect_to :back
+    flash[:success] = "Favorited"
+  end
+
+  def unfavorite
+    @lostandfound.unsave_by current_user
+    current_user.save
+    redirect_to :back
+    flash[:success] = "Unfavorited"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lostandfound
@@ -87,10 +116,8 @@ class LostandfoundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lostandfound_params
-      params.require(:lostandfound).permit(:title, :item, :foundlocation, :foundtime, :notes, :avatar)
+      params.require(:lostandfound).permit(:title, :item, :foundlocation, :foundtime, :notes, :avatar, :lostorfound)
     end
-
-
 
     def can_post?
       if logged_in?

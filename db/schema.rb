@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415204233) do
+ActiveRecord::Schema.define(version: 20170507180224) do
 
   create_table "emails", force: :cascade do |t|
     t.text     "body"
@@ -36,13 +36,6 @@ ActiveRecord::Schema.define(version: 20170415204233) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "events_users", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-    t.index ["event_id"], name: "index_events_users_on_event_id"
-    t.index ["user_id"], name: "index_events_users_on_user_id"
-  end
-
   create_table "lostandfounds", force: :cascade do |t|
     t.string   "title"
     t.string   "item"
@@ -54,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170415204233) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "user_id"
+    t.boolean  "lostorfound"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["user_id", "created_at"], name: "index_lostandfounds_on_user_id_and_created_at"
@@ -73,6 +67,20 @@ ActiveRecord::Schema.define(version: 20170415204233) do
     t.datetime "updated_at",  null: false
     t.index ["user_id", "created_at"], name: "index_rides_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_rides_on_user_id"
+  end
+
+  create_table "saves", force: :cascade do |t|
+    t.string   "saveable_type"
+    t.integer  "saveable_id"
+    t.string   "saver_type"
+    t.integer  "saver_id"
+    t.boolean  "save_flag"
+    t.string   "save_scope"
+    t.integer  "save_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["saveable_id", "saveable_type", "save_scope"], name: "index_saves_on_saveable_id_and_saveable_type_and_save_scope"
+    t.index ["saver_id", "saver_type", "save_scope"], name: "index_saves_on_saver_id_and_saver_type_and_save_scope"
   end
 
   create_table "sessions", force: :cascade do |t|

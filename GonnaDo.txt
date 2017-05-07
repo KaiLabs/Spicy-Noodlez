@@ -122,6 +122,18 @@ SEMI COMPLETE :
 	5b -> Calendar filtering by type of post?!?
 	Filter by price, dates, driver roles, post type
 
+5. Need a way for an admin to add other admins!!!
+	Search through all users? to find one that you want to adminify
+
+	Add Admin
+	if current_user.admin ->
+		User.find_by(email: "AOlafsson@wesleyan.edu").update_attribute :admin, true
+	Delete Admin
+	if current_user.admin -> 
+		User.find_by(email: "AOlafsson@wesleyan.edu").update_attribute :admin, false
+	Make sure there is always at least one ADMIN!
+	Only Admin can add or delete --> before_action
+	Show all admins --> Link to delete them next to it.
 
 
 
@@ -155,40 +167,18 @@ MAJOR ISSUE: GETTING EMAIL FROM THE OAUTH FAILS IN PRODUCTION?
 	THIS WAS JUST A DEVELOPMENT vs. PRODUCTION ISSUE
 	I THINK!?
 
+
+
 3. Nested Filtering?
-
-
-5. Need a way for an admin to add other admins!!!
-	Search through all users? to find one that you want to adminify
-
-	Add Admin
-	if current_user.admin ->
-		User.find_by(email: "AOlafsson@wesleyan.edu").update_attribute :admin, true
-	Delete Admin
-	if current_user.admin -> 
-		User.find_by(email: "AOlafsson@wesleyan.edu").update_attribute :admin, false
-	Make sure there is always at least one ADMIN!
-	Only Admin can add or delete --> before_action
-	Show all admins --> Link to delete them next to it.
-
-
-
-4. Create good seeds
+4. Lost and found --> Lost / Found filter
 10. Lost and Found --> tags: jewelry, clothing and then filter by those tags 
 11. Calendar clicking for creating posts instead of dropdown
-
-
+4. Create good seeds
 
 ============================================
 3. Two Views being rendered
 11. Error Handling
 11. https://github.com/reddit/reddit/tree/master/r2/r2/templates
-
-
-
-1. Should ALL posts expire? Which ones should be pinnned
-
-
 
 2. FrontEnd
 

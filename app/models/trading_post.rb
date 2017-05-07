@@ -7,6 +7,10 @@ class TradingPost < ApplicationRecord
   	scope :tomorrow, -> {where(created_at: Date.tomorrow.beginning_of_day..Date.tomorrow.end_of_day)}
   	scope :thisweek, -> {where(created_at: Date.today.beginning_of_week.beginning_of_day..Date.today.end_of_week.end_of_day)}
   	
+  	acts_as_votable
+  	acts_as_saveable
+
+  	
 	def self.search(search)
 		where("title LIKE ? OR notes LIKE ? ", 
 			"%#{search}%", "%#{search}%")

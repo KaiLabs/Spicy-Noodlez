@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   before_action :logged_in?, except: [:new]
   before_action :logged_in_user, only: [:update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
-  # before_action :admin_user,     only: [:destroy]
   before_action :destroy_all_owned_posts, only: [:destroy]
   before_action :admin_user, only: [:add_admin, :remove_admin]
+  before_action :there_are_other_admins, only: [:remove_admin]
 
   # GET /users
   # GET /users.json
@@ -78,14 +78,14 @@ class UsersController < ApplicationController
   def add_admin
     @user = User.find(params[:id])
     @user.update_attribute :admin, true
-    flash[:success] = "#{@user.name} is now an admin."
+    flash[:success] = "#{@user.username} is now an admin."
     redirect_to current_user
   end
 
   def remove_admin
     @user = User.find(params[:id])
     @user.update_attribute :admin, false
-    flash[:success] = "#{@user.name} is no longer an admin."
+    flash[:success] = "#{@user.username} is no longer an admin."
     redirect_to current_user
   end
 
@@ -120,7 +120,8 @@ class UsersController < ApplicationController
 
     # Confirms an admin user.
     def admin_user
-      redirect_to(root_url) unless current_user.admin?
+      redirect_to(root_url) and flash[:danger] = "Only admins can do that!" unless current_user.admin?
+
     end
 
     def destroy_all_owned_posts
@@ -129,6 +130,11 @@ class UsersController < ApplicationController
       current_user.lostandfounds.delete_all
       current_user.trading_posts.delete_all
       current_user.save
+    end
+
+    def there_are_other_admins
+      redirect_to(root_url) and 
+      flash[:danger] = "This is the only remaining admin. Try finding a replacement first!" unless User.where(admin: true).count > 1
     end
 
 end

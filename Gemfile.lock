@@ -38,6 +38,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_saveable (0.10.1)
     acts_as_votable (0.10.0)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
@@ -69,6 +70,8 @@ GEM
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
+    flexbox-rails (1.0.1)
+      rails (>= 3.1)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
     globalid (0.3.7)
@@ -232,11 +235,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_saveable (~> 0.10.1)
   acts_as_votable (~> 0.10.0)
   bcrypt (~> 3.1.11)
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.2)
+  flexbox-rails (~> 1.0)
   font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails

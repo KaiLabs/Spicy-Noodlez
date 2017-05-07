@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :favorite, :unfavorite, :upvote, :downvote ]
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :can_post?, only: [:new]
-  before_action :has_happened?, only: [:favorite, :unfavorite, :upvote, :downvote]
+  before_action :has_happened?, only: [:favorite, :upvote, :downvote]
   before_action :is_owner?, only: [:edit, :update, :destroy]
 
 
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    flash[:success] = current_user[:id]
+    # flash[:success] = current_user[:id]
     @event = current_user.events.build(event_params)
     respond_to do |format|
       if @event.save
@@ -105,16 +105,14 @@ class EventsController < ApplicationController
   end
 
   def favorite 
-    # @event = Event.find(params[:id])
-    current_user.events << @event
+    @event.upsaved_by current_user
     current_user.save
     redirect_to :back
     flash[:success] = "favorited"
   end
 
   def unfavorite
-    # @event = Event.find(params[:id])
-    current_user.events.delete(@event)
+    @event.unsave_by current_user
     current_user.save
     redirect_to :back
     flash[:success] = "unfavorited"

@@ -14,6 +14,10 @@ gem 'rails',            '~> 5.0.1'
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 # Scheduling DB record deletion
 gem 'whenever', :require => false
+# Favoriting 
+gem 'acts_as_saveable', '~> 0.10.1'
+# Flexbox
+gem 'flexbox-rails', '~> 1.0'
 # Votable!
 gem 'acts_as_votable', '~> 0.10.0'
 # Image Upload

@@ -14,6 +14,8 @@ class Lostandfound < ApplicationRecord
 	validates :user_id, presence: true
 	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+	acts_as_votable
+  	acts_as_saveable
 
 	def self.search(search)
 		where("title LIKE ? OR item LIKE ? OR foundlocation LIKE ? OR notes LIKE ?", 

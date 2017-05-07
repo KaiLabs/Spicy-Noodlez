@@ -13,9 +13,11 @@ class Event < ApplicationRecord
   	scope :tomorrow, -> {where(startdate: Date.tomorrow.beginning_of_day..Date.tomorrow.end_of_day)}
   	scope :thisweek, -> {where(startdate: Date.today.beginning_of_week.beginning_of_day..Date.today.end_of_week.end_of_day)}
   	validates :user_id, presence: true
-  	acts_as_votable
   	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "https://d30y9cdsu7xlg0.cloudfront.net/png/89454-200.png"
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+	acts_as_votable
+  	acts_as_saveable
 
 	require 'time'
 
