@@ -14,37 +14,22 @@
 </div>
 <!- end of sorting ->
 
-<!-- 
-
-Material Cards Designed especiall for Posts with an Image and Post Information, Along with social buttons.
-
-Responsive using flexbox.
-
-Pure CSS, No JS
-
-Images Used in Pen are Not Mine :
-
-They are of Creative Artist from Dribbble
--Marko Stupic : https://dribbble.com/sweetness-every-day
-
-
-
--->
-
 
 <% if @lostandfounds.present?%>
-  <div class="card-container">
    <% @lostandfounds.each do |lostandfound| %>
-      <div class="card">
-       <div> <%= image_tag lostandfound.avatar.url, :class => "card-image" %> </div> 
-        <div class="card-info">
-          <div class="card-title"> LOST: <%= lostandfound.item %> </div>
-          <div class="card-detail"> 
+       <div> 
+        <div>
+        <%= image_tag lostandfound.avatar.url, :class => "card-image" %>
+            <%if lostandfound.lostorfound = true %> 
+              FOUND:
+              <% else %> 
+              LOST:
+              <% end %>
+               <%= lostandfound.item %> <br>
             When: <%= Common.readable_timestamps(lostandfound.foundtime)%> <br>
             Where: <%= lostandfound.foundlocation %> <br>
-            Notes: <%= lostandfound.notes %> </div>
+            Notes: <%= lostandfound.notes %>
           </div>
-          <div class="card-social">
             <ul>
                <li>  
                 <%= link_to lostandfound, class: "btn btn-default" do %>
@@ -57,12 +42,9 @@ They are of Creative Artist from Dribbble
                   <% end %>
               </li>
               <li>
-                <%= link_to root_url, class: "btn btn-default" do %>
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                  <% end %>
+                <%= link_to 'Destroy', lostandfound, method: :delete, data: { confirm: 'Are you sure?' } %>
               </li>
             </ul>
-          </div>
         </div>
     <% end %> 
   </div>

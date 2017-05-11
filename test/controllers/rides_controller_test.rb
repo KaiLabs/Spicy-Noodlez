@@ -23,7 +23,7 @@ class RidesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ride" do
     assert_difference('Ride.count') do
-      post rides_url, params: { ride: { destination: @ride.destination, notes: @ride.notes, origin: @ride.origin, role: @ride.role, when: @ride.when } }
+      post rides_url, params: { ride: { destination: @ride.destination, notes: @ride.notes, origin: @ride.origin, role: @ride.role, time: @ride.time } }
     end
 
     assert_redirected_to ride_url(Ride.last)
@@ -40,7 +40,7 @@ class RidesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ride" do
-    patch ride_url(@ride), params: { ride: { destination: @ride.destination, notes: @ride.notes, origin: @ride.origin, role: @ride.role, when: @ride.when } }
+    patch ride_url(@ride), params: { ride: { destination: @ride.destination, notes: @ride.notes, origin: @ride.origin, role: @ride.role, time: @ride.time } }
     assert_redirected_to ride_url(@ride)
   end
 

@@ -4,12 +4,14 @@ class UserMailer < ApplicationMailer
 		@user = user
 		@email = email
 		@owner = User.find(owner_id)
-		if type == "ride"
+		if type == "Ride"
 			@post = Ride.find(post_id)
-		elsif type == "event"
+		elsif type == "Event"
 			@post = Event.find(post_id)
-		elsif type == "lostandfound"
+		elsif type == "Lostandfound"
 			@post = Lostandfound.find(post_id)
+		else
+			@post = TradingPost.find(post_id)
 		end
 		mail(to: @owner.email, subject: "Your post on WesAdmits: #{@post.title}")
 	end

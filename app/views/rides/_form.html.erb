@@ -1,4 +1,5 @@
 <%= form_for(ride) do |f| %>
+<div id="contact-form" class="clearfix">
   <% if ride.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ride.errors.count, "error") %> prohibited this ride from being saved:</h2>
@@ -11,45 +12,55 @@
     </div>
   <% end %>
 
-  <div class='field'>
+  <div class='form-inputs'>
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="form-inputs">
     <%= f.label :destination %>
     <%= f.text_field :destination %>
   </div>
 
-  <div class="field">
+  <div class="form-inputs">
     <%= f.label :origin %>
     <%= f.text_field :origin %>
   </div>
 
-  <div class="field">
-    <%= f.label :when %>
-    <span> <%= f.datetime_select :when %> </span>
+  <div class="form-inputs">
+    <%= f.label :time %>
+    <span> <%= f.datetime_select :time %> </span>
   </div>
 
-  <div class="field">
+  <div class="form-inputs">
     <%= f.label :role %>
     <%= f.select(:role, options_for_select([['Offering a Ride', "Driver"], ['Looking for a Ride', "Rider"]])) %>
   </div>
 
-  <div class="field">
+  <div class="form-inputs">
     <%= f.label :seats %>
     <%= f.select(:seats, options_for_select(0..10)) %>
   </div>
 
 
-  <div class="field">
+  <div class="form-inputs">
     <%= f.label :notes %>
     <%= f.text_area :notes %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Submit!"%>
+  <div class="card__icons">
+      <img src="/assets/pic.png"> 
+      <img src="/assets/url.png">  
+      <img src="/assets/audio.png">  
   </div>
+
+    <div class="form-actions">
+      <%= f.submit "Submit!", :id => "submit-button", :type => "submit" %>
+    </div>
+
+        <%= link_to 'Back', trading_posts_path %>
+
+</div>
 <% end %>
 
 

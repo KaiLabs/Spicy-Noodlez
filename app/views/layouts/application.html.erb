@@ -1,26 +1,69 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WesAdmits</title>
+    <title >WesAdmits </title>
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body>
     <% unless current_page?('/pages/home') %>
-      <%= render 'layouts/navbar' %>
-      <%= render 'layouts/newpostbuttons' %>
-      <div class="container">
-        <% flash.each do |message_type, message| %>
-          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-        <% end %>
-        <%= yield %>
-        <%= debug(params.inspect) if Rails.env.development? %>
-      </div>
+      <%# render 'layouts/navbar' %>
+      <%# render 'layouts/newpostbuttons' %>
+
     </div>
     <% end %>
     
   </body>
+
+
+
+<body>
+<%= render 'layouts/header' %> 
+<%= render 'layouts/navbar' %>
+<%= render 'layouts/flashes' %>
+<%# render 'layouts/error_messages' %> 
+<%= render 'layouts/feed' %> 
+
+<!-- 
+    <div id="contact-form" class="clearfix">
+        <label for="name">What: <span class="required">*</span></label>
+        <input type="text" id="name" name="name" value="" required="required" autofocus="autofocus" />
+         
+        <label for="email">When: 
+        <input type="email" id="email" name="email" value="" ="required" />
+         
+        <label for="telephone">Where: </label>
+        <input type="tel" id="telephone" name="telephone" value="" />
+         
+        <label for="enquiry">Categories: <span class="required">*</span></label></label> 
+        <select id="enquiry" name="enquiry">
+            <option value="general">Events</option>
+            <option value="sales">Ride</option>
+            <option value="support">Drive</option>
+            <option value="support">Lost</option>
+            <option value="support">Found</option>
+            <option value="support">Sell</option>
+            <option value="support">Borrow</option>
+            <option value="support">Random</option>
+
+        </select>
+         
+        <label for="message">Description: <span class="required">*</span></label>
+        <textarea></textarea>
+
+
+        <div class="card__icons">
+          <img src="/assets/pic.png"> 
+          <img src="/assets/url.png">  
+          <img src="/assets/audio.png">  
+       </div>
+        <span id="loading"></span>
+        <input type="submit" value="Submit!" id="submit-button" />
+    </div>
+ -->
+</body>
 
 </html>

@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170507180224) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "user_id"
-    t.boolean  "lostorfound"
+    t.string   "lostorfound"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["user_id", "created_at"], name: "index_lostandfounds_on_user_id_and_created_at"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170507180224) do
     t.string   "origin"
     t.string   "destination"
     t.integer  "seats"
-    t.datetime "when"
+    t.datetime "time"
     t.string   "role"
     t.text     "notes"
     t.integer  "user_id"

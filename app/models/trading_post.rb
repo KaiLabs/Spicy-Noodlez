@@ -1,5 +1,5 @@
 class TradingPost < ApplicationRecord
-	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+	has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 	belongs_to :user
   	scope :yesterday, -> {where(created_at: Date.yesterday.beginning_of_day..Date.today.beginning_of_day)}
@@ -15,4 +15,5 @@ class TradingPost < ApplicationRecord
 		where("title LIKE ? OR notes LIKE ? ", 
 			"%#{search}%", "%#{search}%")
 	end
+
 end

@@ -1,15 +1,19 @@
 <%= simple_form_for(@trading_post) do |f| %>
-  <%= f.error_notification %>
+    <div id="contact-form" class="clearfix">
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :notes %>
-    <%= f.input :price %>
-    <%= f.select(:role, options_for_select(["Buying", "Selling"])) %>
-    <%= f.file_field :avatar %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :title %>
+        <%= f.input :notes %>
+        <%= f.input :price %>
+        <%= f.select(:role, options_for_select(["Buying", "Selling"])) %>
+        <%= f.file_field :avatar %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <div class="form-actions">
+      <%= f.submit "Submit!", :id => "submit-button", :type => "submit" %>
+    </div>
+
+    <%= link_to 'Back', trading_posts_path %>
+    </div>
 <% end %>

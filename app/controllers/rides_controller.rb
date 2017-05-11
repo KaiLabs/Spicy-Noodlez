@@ -14,7 +14,7 @@ class RidesController < ApplicationController
     @rides = @rides.all.search(params[:search])if params[:search]
 
     @rides = @rides.sort_by(&:seats) if params[:sorting] == "seats"
-    @rides = @rides.sort_by(&:when) if params[:sorting] == "when"
+    @rides = @rides.sort_by(&:time) if params[:sorting] == "time"
     @rides = @rides.sort_by(&:role) if params[:sorting] == "role"
     @rides = Ride.tomorrow if params[:sorting] == "test"
 
@@ -44,7 +44,6 @@ class RidesController < ApplicationController
   # POST /rides.json
   def create
     @ride = current_user.rides.build(ride_params)
-    # @user = current_user
     respond_to do |format|
       if @ride.save
         flash[:success] = "Ride created!"
@@ -116,7 +115,7 @@ class RidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ride_params
-      params.require(:ride).permit(:destination, :title, :origin, :when, :role, :notes, :seats)
+      params.require(:ride).permit(:destination, :title, :origin, :time, :role, :notes, :seats)
     end
 
 

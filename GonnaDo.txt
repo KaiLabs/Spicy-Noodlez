@@ -212,7 +212,9 @@ https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
 
 
-
+INTEGRATE FRONT END FOR ALL INDEXES
+GET RID OF SHOW??
+SWAG
 
 
 

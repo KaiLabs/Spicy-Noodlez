@@ -1,0 +1,16 @@
+      <div class="card">
+      <%=h(Post.print_attributes(post)).gsub(/\n/, '<br/>').html_safe %>
+       <%= link_to "Show", post %>
+       <% if current_user && current_user.id == post.user_id %>
+      <% if post.is_a?(Event) %>
+        <%=link_to "Edit", edit_event_path(post) %>
+        <% elsif post.is_a?(Ride) %>
+          <%= link_to "Edit", edit_ride_path(post) %>
+        <% else %>
+          <%= link_to "Edit", edit_lostandfound_path(post) %>
+        <%end%>
+       <%= link_to "Destroy", post, method: :delete, data: { confirm: 'Are you sure?' } %>
+       <%end %>
+       <br>
+     </div>
+      <%end%>

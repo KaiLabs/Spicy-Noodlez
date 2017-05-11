@@ -1,17 +1,31 @@
 <%= simple_form_for(@email) do |f| %>
-  <%= f.error_notification %>
+  <% if @email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
 
-  <div class="form-inputs">
-    <%= f.input :body, placeholder: "Maybe say a better way to contact you? Why are you contacting this person?", label: "What do you want to say?" %>
-  </div>
+      <ul>
+      <% @email.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send it!" %>
-  </div>
+  <div id="contact-form" class="clearfix">
+    <div class="form-inputs">
+      <%= f.input :body, placeholder: "Maybe say a better way to contact you? Why are you contacting this person?", label: "What do you want to say?" %>
+    </div> 
+    <div class="form-actions"> 
+      <%= f.submit :email, :id => 'submit-button', :type => "submit" %>
+    </div> 
 
+    <div class="Nevermind__Button"> 
+      <%= link_to "Nevermind", post_path_helper(params[:type], params[:post_id]) do%>
+    </div>
 
+  </div> 
   <%= hidden_field_tag 'owner', params[:owner] %>
   <%= hidden_field_tag 'post_id', params[:post_id] %>
   <%= hidden_field_tag 'type', params[:type] %>
 
-<% end %>
+<% end %> 

@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 <h1>Rides</h1>
-<body> 
 
         <!- Sorting ->
 <div>
   Sort by: <br>
   <!- Sets params[:sorting] according which button is clicked ->
-  <%= link_to 'Date', rides_path(:sorting => 'when')%> | 
+  <%= link_to 'Date', rides_path(:sorting => 'time')%> | 
   <%= link_to 'Available Seats', rides_path(:sorting => 'seats')%> | 
   <%= link_to 'Driving/Riding', rides_path(:sorting => 'role')%> | 
   <%= link_to 'Test', rides_path(:sorting => 'test')%> | 
@@ -16,30 +15,6 @@
 
 <!- end of sorting ->
 
-
-<div class="row">
-  <% if @rides.present? %>
-    <% @rides.each do |ride| %>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-          <div class="tm-home-box-2">           
-            <%= image_tag("http://www.clipartkid.com/images/128/car-ride-http-www-wpclipart-com-transportation-car-ride-png-html-PrEKlQ-clipart.png", :class => "img-responsive") %>
-            <h3><%= ride.title %> <br> <br>
-            From <strong> <%= ride.origin %> </strong>to <strong><%= ride.destination %></strong> </h3>
-            <p class="tm-date"><%=Common.readable_timestamps(ride.when) %> </p>
-            <div class="tm-home-box-2-container">
-              <a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
-              <a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description">Ride</span></a>
-              <a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
-            </div>
-          </div>
-          <br>
-        </div>
-        <% end %> 
-      <% end %> 
-      </div>
-
-
-</body>
   <center>
     <div class='container'>
 
@@ -52,7 +27,7 @@
           <br>
           From where? <%=ride.origin%>
           <br>
-          When? <%=Common.readable_timestamps(ride.when) %>
+          When? <%=Common.readable_timestamps(ride.time) %>
           <br> 
           Role: <%=ride.role%>
           <br>

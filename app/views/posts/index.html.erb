@@ -1,8 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
-<h1>Posts</h1>
-
   Sort by: <br>
   <!- Sets params[:sorting] according which button is clicked ->
   <%= link_to 'Yesterday\'s Posts', posts_path(:sorting => 'yesterday')%> | 
@@ -11,27 +6,63 @@
   <%= link_to 'This Week\'s Posts', posts_path(:sorting => 'week')%>
   <!- Button to clear params[:sorting] ->
   <%= link_to 'Clear sorting', posts_path(:sorting => nil)%>
-<center>
+
   <% if @posts.present? %>
       <% @posts.each do |post| %>
-      <br>
-      <!-- http://stackoverflow.com/questions/3137393/rails-add-a-line-break-into-a-text-area -->
-      <div class="card">
-      <%=h(Post.print_attributes(post)).gsub(/\n/, '<br/>').html_safe %>
-       <%= link_to "Show", post %>
-       <% if current_user && current_user.id == post.user_id %>
-      <% if post.is_a?(Event) %>
-        <%=link_to "Edit", edit_event_path(post) %>
-        <% elsif post.is_a?(Ride) %>
-          <%= link_to "Edit", edit_ride_path(post) %>
-        <% else %>
-          <%= link_to "Edit", edit_lostandfound_path(post) %>
-        <%end%>
-       <%= link_to "Destroy", post, method: :delete, data: { confirm: 'Are you sure?' } %>
-       <%end %>
-       <br>
-     </div>
-      <%end%>
+        <% @user = User.find(post.user_id) %> 
+          <div class="card"> 
+            <div class="card__image">
+                <%= image_tag @user.avatar.url(:thumb) %>
+                <div class="card__name-time">
+                  <h4 class="card__name"> <%= @user.username %> </h4> <br>
+                  <div class="card__time"> <%= time_ago_in_words(post.created_at) %> ago  </div> 
+                  <!--  I should do the X minutes ago -->
+                </div>
+
+              <div class="card__title">
+                  <strong> <%= Post.get_title(post) %> </strong>
+              </div>
+
+                <div class="card__title">
+                  <div class="card__lefttime">
+                    <img src="/assets/clockicon.png"  alt="clockicon" >
+                      <%= Post.get_times(post) %>
+                </div>
+
+                <div class="card__location">
+                    <img src="/assets/locationicon.png"  alt="locationicon" >
+                    <%= Post.get_location(post) %> 
+               </div>
+
+               <div class="card__content">
+                <!-- gets the notes -->
+                  <%= Post.get_notes(post) %> 
+                  <!-- gets the image -->
+                  <% unless post.is_a?(Ride) %>
+                    <% if post.avatar_content_type != nil %> 
+                      <%= image_tag post.avatar.url %>
+                      <% end %> 
+                  <% end %> 
+                </div>
+
+                <div class="card__actions">
+                  <!-- <img src="/assets/comment.png"> comment -->
+                  <%= link_to  new_email_path(owner: post.user_id, post_id: post.id, type: post.class.name) do %>
+                    <%= image_tag "/assets/message.png", width: 25, height: 25, alt: "Email Post Owner"%>
+                  <% end %> contact
+                  <!-- <img src="/assets/share.png">  share -->
+               </div>
+
+                <div class="card__actionsright">
+                  <img src="/assets/link.png"> 
+                  <img src="/assets/save.png">  
+               </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+
 <% else %>
   <% if params[:search] %>
   <h4> There are no posts containing the term: <%= params[:search] %> </h4>
@@ -39,7 +70,6 @@
   <h4> No posts yet </h4>
 <% end %>
       <br>
-    </center>
 
 
 

@@ -1,53 +1,64 @@
-<%= form_for(event) do |f| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<%= simple_form_for(event) do |f| %>
+  <div id="contact-form" class="clearfix">
+    <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-inputs">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
     </div>
-  <% end %>
 
+    <div class="form-inputs">
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </div>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+    <div class="form-inputs">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
 
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
+    <div class="form-inputs">
+      <%= f.label :startdate %>
+      <%= f.datetime_select :startdate %>
+    </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
+    <div class="form-inputs">
+      <%= f.label :enddate %>
+      <%= f.datetime_select :enddate%>
+    </div>
 
-  <div class="field">
-    <%= f.label :startdate %>
-    <%= f.datetime_select :startdate %>
-  </div>
+    <div class="form-inputs">
+      <%= f.label :link %>
+      <%= f.url_field :link %>
+    </div>
 
-  <div class="field">
-    <%= f.label :enddate %>
-    <%= f.datetime_select :enddate%>
-  </div>
+    <div class="form-inputs">
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar do %>
+        <%= image_tag "/assets/pic.png" %> 
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= f.label :link %>
-    <%= f.url_field :link %>
-  </div>
+    <div class="card__icons">
+          <img src="/assets/pic.png"> 
+          <img src="/assets/url.png">  
+          <img src="/assets/audio.png">  
+      </div>
+    <div class="form-actions">
+      <%= f.submit "Submit!", :id => "submit-button", :type => "submit" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-  </div>
+        <%= link_to 'Back', trading_posts_path %>
 
-  <div class="actions">
-    <%= f.submit "Submit!" %>
   </div>
 <% end %>

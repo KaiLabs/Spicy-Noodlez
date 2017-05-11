@@ -8,7 +8,7 @@ class CreateLostandfounds < ActiveRecord::Migration[5.0]
       t.text :notes
       t.attachment :avatar
       t.references :user, foreign_key: true
-      t.boolean :lostorfound
+      t.string :lostorfound
 
       t.timestamps
     end

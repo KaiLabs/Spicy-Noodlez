@@ -5,7 +5,7 @@ class CreateRides < ActiveRecord::Migration[5.0]
       t.string :origin
       t.string :destination
       t.integer :seats
-      t.datetime :when
+      t.datetime :time
       t.string :role
       t.text :notes
       t.references :user, foreign_key: true
