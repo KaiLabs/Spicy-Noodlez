@@ -25,4 +25,5 @@
 </p>
 
 <%= link_to 'Edit', edit_trading_post_path(@trading_post) %> |
+<%= link_to 'Destroy', @trading_post, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', trading_posts_path %>

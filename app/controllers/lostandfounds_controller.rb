@@ -45,7 +45,7 @@ class LostandfoundsController < ApplicationController
     @lostandfound = current_user.lostandfounds.build(lostandfound_params)
     respond_to do |format|
       if @lostandfound.save
-        format.html { redirect_to lostandfounds_url}
+        format.html { redirect_to root_url}
         flash[:success] = 'Lostandfound was successfully created.'
         format.json { render :show, status: :created, location: @lostandfound }
       else

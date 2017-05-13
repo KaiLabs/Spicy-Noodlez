@@ -5,13 +5,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.get_everything() 
+    @posts = Post.get_everything()
 
     #searching
     @posts = Post.search_everything(params) if params[:search]
 
     # filtering
     @posts = Post.filter_by(params) if params[:sorting]
+
+    # sort by newest
+    @posts = @posts.sort {|a,b| b.updated_at <=> a.updated_at }
 
   end
 

@@ -2,9 +2,9 @@
 
 
 <h1>Lost & Found</h1>
-        <!- Sorting ->
+<!- Sorting ->
 <div>
-  Sort by: <br>
+  Sort by: 
   <!- Sets params[:sorting] according which button is clicked ->
   <%= link_to 'Date', lostandfounds_path(:sorting => 'foundtime')%> |
   <%= link_to 'Lost only', lostandfounds_path(:sorting => 'lostonly')%> |
@@ -15,43 +15,5 @@
 <!- end of sorting ->
 
 
-<% if @lostandfounds.present?%>
-   <% @lostandfounds.each do |lostandfound| %>
-       <div> 
-        <div>
-        <%= image_tag lostandfound.avatar.url, :class => "card-image" %>
-            <%if lostandfound.lostorfound = true %> 
-              FOUND:
-              <% else %> 
-              LOST:
-              <% end %>
-               <%= lostandfound.item %> <br>
-            When: <%= Common.readable_timestamps(lostandfound.foundtime)%> <br>
-            Where: <%= lostandfound.foundlocation %> <br>
-            Notes: <%= lostandfound.notes %>
-          </div>
-            <ul>
-               <li>  
-                <%= link_to lostandfound, class: "btn btn-default" do %>
-                  <i class="fa fa-comment-o" aria-hidden="true"></i>
-                  <% end %> 
-                </li>
-              <li>
-                <%= link_to edit_lostandfound_path(lostandfound), class: "btn btn-default" do %>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i>
-                  <% end %>
-              </li>
-              <li>
-                <%= link_to 'Destroy', lostandfound, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </li>
-            </ul>
-        </div>
-    <% end %> 
-  </div>
-<% else %>
-  <% if params[:search] %>
-  <h4> There are no items containing the term: <%= params[:search] %> </h4>
-  <%end%>
-  <h4> No items have been lost or found :/ </h4>
-<% end %>
+<%= render 'layouts/feed', posts: @lostandfounds %>
 

@@ -1,0 +1,24 @@
+<% if logged_in? %>
+
+        <div class="dropdown">
+          <button class="dropbtn">+ Post</button>
+          <div class="dropdown-content">
+            <%= link_to "+ Event", new_event_path(:redirect_to => @state) %> 
+            <%= link_to '+ Lost/Found', new_lostandfound_path(:redirect_to => @state)%>
+            <%= link_to '+ Ride', new_ride_path(:redirect_to => @state)%>
+            <%= link_to '+ Buying/Selling', new_trading_post_path(:redirect_to => @state) %>
+            <a href="#">+ Random</a>
+          </div>
+        </div>
+
+<% end %> 
+
+
+
+
+
+
+
+
+
+

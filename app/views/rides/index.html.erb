@@ -3,56 +3,16 @@
 
         <!- Sorting ->
 <div>
-  Sort by: <br>
+  Sort by:
   <!- Sets params[:sorting] according which button is clicked ->
   <%= link_to 'Date', rides_path(:sorting => 'time')%> | 
   <%= link_to 'Available Seats', rides_path(:sorting => 'seats')%> | 
   <%= link_to 'Driving/Riding', rides_path(:sorting => 'role')%> | 
-  <%= link_to 'Test', rides_path(:sorting => 'test')%> | 
   <!- Button to clear params[:sorting] ->
   <%= link_to 'Clear sorting', rides_path(:sorting => nil)%>
 </div>
 
 <!- end of sorting ->
 
-  <center>
-    <div class='container'>
-
-
-<% if @rides.present? %>
-  <% @rides.each do |ride| %>
-      <div class='card'>
-        <div class="card-content">
-          Where to? <%=ride.destination%>
-          <br>
-          From where? <%=ride.origin%>
-          <br>
-          When? <%=Common.readable_timestamps(ride.time) %>
-          <br> 
-          Role: <%=ride.role%>
-          <br>
-          Notes: <%=ride.notes %>
-          <br>
-          Seats Available: <%= ride.seats %>
-          <br>
-          <%= link_to "Show", ride %>
-          <% if current_user && current_user.id == ride.user_id %>
-            <%= link_to "Edit", edit_ride_path(ride) %>
-            <%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </div>
-      </div>
-      <br> 
-      <br> 
-    <%end%>
-<% else %>
-  <% if params[:search] %>
-  <h4> There are no rides containing the term: <%= params[:search] %> </h4>
-  <%end%>
-  <h4> No upcoming rides have been posted :/ </h4>
-<% end %>
-  </div>
-</center>
-
-
+<%= render 'layouts/feed', posts: @rides %>
 

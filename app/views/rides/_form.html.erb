@@ -29,7 +29,7 @@
 
   <div class="form-inputs">
     <%= f.label :time %>
-    <span> <%= f.datetime_select :time %> </span>
+    <%= f.datetime_select :time, {}, {:class => 'option-large'} %>
   </div>
 
   <div class="form-inputs">
@@ -58,7 +58,8 @@
       <%= f.submit "Submit!", :id => "submit-button", :type => "submit" %>
     </div>
 
-        <%= link_to 'Back', trading_posts_path %>
+        <%= link_to 'Back', rides_path %>
+
 
 </div>
 <% end %>

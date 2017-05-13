@@ -30,7 +30,11 @@ class User < ApplicationRecord
 		user.email = auth.info.email
 		user.oauth_token = auth.credentials.token
 		user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-		user.admin = false unless user.username == "Fabien Bessez"
+		if user.username == "Fabien Bessez"
+			user.admin = true
+		else
+			user.admin = false
+		end
 		user.save!
 		end
 	end

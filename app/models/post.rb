@@ -50,8 +50,6 @@ class Post < ApplicationRecord
 	end
 
 
-	# CONVERT THIS TO READABLE!!!!!!!!
-
 	def self.get_times(post)
 		if post.is_a?(Event)
 			"#{post.startdate.to_formatted_s(:short)} - #{post.enddate.to_formatted_s(:short)}"
@@ -68,6 +66,8 @@ class Post < ApplicationRecord
 	def self.get_notes(post)
 		if post.is_a?(Event)
 			"#{post.description}"
+		elsif post.is_a?(Ride)
+			"#{post.notes}..#{post.seats} seats!"
 		else  # post.is_a?(Lostandfound)
 			"#{post.notes}"
 		end
@@ -108,6 +108,7 @@ class Post < ApplicationRecord
 			"#{post.foundlocation}"
 		end
 	end
+
 
 end
 

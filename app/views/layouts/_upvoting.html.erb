@@ -1,0 +1,36 @@
+<%= post.get_upvotes.size - post.get_downvotes.size %> 
+  <% if logged_in? %> 
+       <% if post.is_a?(Event)%>
+          <%= link_to like_event_path(post), method: :put do %>
+            <%= image_submit_tag "/assets/thumbsup1.png", width: 10, height: 10 %>
+          <% end %>
+
+          <%= link_to dislike_event_path(post), method: :put do %>
+            <%= image_submit_tag "/assets/thumbsup.png", width: 10, height: 10 %>
+          <% end %>
+      <% elsif post.is_a?(Ride) %>
+           <%= link_to like_ride_path(post), method: :put do %>
+            <%= image_submit_tag "/assets/thumbsup1.png", width: 10, height: 10 %>
+          <% end %>
+
+          <%= link_to dislike_ride_path(post), method: :put do %>
+            <%= image_submit_tag "/assets/thumbsup.png", width: 10, height: 10 %>
+          <% end %>
+      <% elsif post.is_a?(Lostandfound)%> 
+           <%= link_to like_lostandfound_path(post), method: :put do %>
+            <%= image_submit_tag "/assets/thumbsup1.png", width: 10, height: 10 %>
+          <% end %>
+
+          <%= link_to dislike_lostandfound_path(post), method: :put do %>
+            <%= image_submit_tag "/assets/thumbsup.png", width: 10, height: 10 %>
+          <% end %>
+      <% else %> 
+          <%= link_to like_trading_post_path(post), method: :put do %>
+            <%= image_submit_tag "/assets/thumbsup1.png", width: 10, height: 10 %>
+          <% end %>
+
+          <%= link_to dislike_trading_post_path(post), method: :put do %>
+            <%= image_submit_tag "/assets/thumbsup.png", width: 10, height: 10 %>
+          <% end %>
+      <% end %> 
+  <% end %> 

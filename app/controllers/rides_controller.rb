@@ -16,7 +16,6 @@ class RidesController < ApplicationController
     @rides = @rides.sort_by(&:seats) if params[:sorting] == "seats"
     @rides = @rides.sort_by(&:time) if params[:sorting] == "time"
     @rides = @rides.sort_by(&:role) if params[:sorting] == "role"
-    @rides = Ride.tomorrow if params[:sorting] == "test"
 
   end
 
@@ -47,7 +46,7 @@ class RidesController < ApplicationController
     respond_to do |format|
       if @ride.save
         flash[:success] = "Ride created!"
-        format.html { redirect_to '/'}
+        format.html { redirect_to root_url}
         format.json { render :show, status: :created, location: @ride }
       else
         format.html { render :new }

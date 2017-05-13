@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
-
-
-<h1> Events </h1>
-  <center> <%= link_to "Calendar View", "calendars#index" %></center>
-
-<br>
+<%= link_to "Calendar View", "calendars#index" %>
         <!- Sorting ->
 <div>
-  Sort by: <br>
+  Sort by:
   <!- Sets params[:sorting] according which button is clicked ->
   <%= link_to 'Yesterday\'s Events', events_path(:sorting => 'yesterday')%> | 
   <%= link_to 'Today\'s Events', events_path(:sorting => 'today')%> | 
@@ -18,54 +13,5 @@
 </div>
 
 <!- end of sorting ->
-<br>
-<body>
-<div class="container">
-  <% if @events.present? %>
-    <div class="row">
-      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-        <ul class="event-list">
-          <%@events.each do |event| %>
-            <li>
-            <time datetime="2014-07-20 2000">
-              <span class="day"><%=event.startdate.strftime("%d") %></span>
-              <span class="month"><%=event.startdate.strftime("%m") %></span>
-              <span class="year"><%= event.startdate.strftime("%Y") %></span> 
-              <span class="time">8:00 PM</span>
-            </time>
-            <%= image_tag event.avatar.url(:thumb) %>
+<%= render 'layouts/feed', posts: @events %>
 
-<!--             <img alt="img" src="https://i2.wp.com/wesleying.org/wp-content/uploads/2016/11/kailabs.png" /> -->
-            <div class="info">
-              <h2 class="title"><%=event.title%></h2>
-              <p class="desc"><%=event.description %></p>
-              <ul>
-                <li style="width:33%;">400 <span class="glyphicon glyphicon-ok"></span></li>
-<!--                 <li style="width:34%;">3 <span class="fa fa-question"></span></li>
-                <li style="width:33%;">103 <span class="fa fa-envelope"></span></li> -->
-              </ul>
-            </div>
-            <div class="social">
-              <ul>
-                <li class="facebook" style="width:33%;"><%= link_to 'Show', event %></li>
-                <br>
-                <% if owner?(event.user_id) %>
-                <li class="twitter" style="width:34%;"><%= link_to 'Edit', edit_event_path(event) %></li>
-                <br>
-                <li class="google-plus" style="width:33%;"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %> </li>
-                <% end %>
-              </ul>
-            </div>
-          </li>
-          <%end%>
-        </ul>
-  <% else %>
-  <% if params[:search] %>
-  <h4> There are no events containing the term: <%= params[:search] %> </h4>
-  <%end%>
-  <h4> No upcoming events :/ </h4>
-<% end %>
-      </div>
-    </div>
-  </div>
-</body>

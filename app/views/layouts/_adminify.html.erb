@@ -1,4 +1,4 @@
-<% if current_user.admin? %> 
+<% if current_user && current_user.admin? %> 
 	<%= link_to "Add as Admin", add_admin_user_path(@user), data: {method: :put, confirm: "Are you sure?"}%> | 
 	<%= link_to "Remove as Admin", remove_admin_user_path(@user), method: :put, confirm: "Are you sure?" %>
 <%end%>

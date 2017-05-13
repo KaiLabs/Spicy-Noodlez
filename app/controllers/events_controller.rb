@@ -57,7 +57,7 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     respond_to do |format|
       if @event.save
-        format.html { redirect_to '/' }
+        format.html { redirect_to root_url }
         flash[:success] = 'Event was successfully created.'
         format.json { render :show, status: :created, location: @event }
       else

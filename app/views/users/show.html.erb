@@ -1,78 +1,95 @@
+    <div class="cardsprofile">
+          <div class="cardprofile">
+          
+              
+                <h3 class="cardprofile__name"> <%= @user.username %> </h3>
+                <h5 class="cardprofile__class"> Class of 2017 </h5>
+          
+                <div class="cardprofile__image">
+                    <%= image_tag @user.avatar.url%> 
+                <!-- <img src="profile.png" alt="profile pic" /> -->
+                </div>
 
-    <!-- Wrapper -->
-      <div id="wrapper">
+                <div class="button">
+                    <button class="button button1">My Post</button>
+                    <button class="button button2">Saved</button>
+                    <button class="button button3">Inbox</button>
+                </div> 
 
-        <!-- Header -->
-          <header id="header">
-            <center> 
-            <%= image_tag @user.avatar.url(:medium) %>
-            <h1><strong> <%= @user.username%></strong></h1>
-            <%= render 'layouts/adminify' %>
-          </center> 
-          </header>
-        </div>
+                <%= render 'layouts/adminify' %>
 
-        <!-- Main -->
-          <section id="main">
-            <div class="row">
-              <div class="col-md-3">
+
                 <% if @user.events.any? %>
-                  <h3>Events (<%= @user.events.count %>)</h3>
-                  <ol class="events">
-                    <%= render @events %>
-                  </ol>
-                <% end %>
-              </div>
-                <div class="col-md-3">
-                <% if @user.rides.any? %>
-                  <h3>Rides (<%= @user.rides.count %>)</h3>
-                  <ol class="rides">
-                    <%= render @rides %>
-                  </ol>
-                <% end %>
-              </div>
-                <div class="col-md-3">
-                <% if @user.lostandfounds.any? %>
-                  <h3>Lostandfounds (<%= @user.lostandfounds.count %>)</h3>
-                  <ol class="lostandfounds">
-                    <%= render @lostandfounds %>
-                  </ol>
-                <% end %>
-              </div>
-               <div class="col-md-3">
-                <% if @user.trading_posts.any? %>
-                  <h3>Trading Posts (<%= @user.trading_posts.count %>)</h3>
-                  <ol class="trading_posts">
-                    <%= render @user.trading_posts %>
-                  </ol>
-                <% end %>
-              </div>
+                              <hr>
+                      <h3>Events (<%= @user.events.count %>)</h3>
+                        <% @user.events.each do |event| %>
+                        <span> <%= image_tag event.avatar.url(:thumb), width: 35, height: 35 %> 
+                          <%= link_to event.title, event %> 
+                        </span> 
+                        <% end %> 
+                    <% end %>
+                    <% if @user.rides.any? %>
+                              <hr>
+                      <h3>Rides (<%= @user.rides.count %>)</h3>
+                        <% @user.rides.each do |ride| %>
+                          <%= image_tag "/assets/car_icon.png", width: 35, height: 35 %> 
+                          <%= link_to ride.title, ride %> 
+                          <br>
+                        <% end %> 
+                    <% end %>
+                    <% if @user.lostandfounds.any? %>
+                              <hr>
+                      <h3>Lostandfounds (<%= @user.lostandfounds.count %>)</h3>
+                        <% @user.lostandfounds.each do |lostandfound| %>
+                          <span> 
+                            <%= image_tag lostandfound.avatar.url(:thumb), width: 35, height: 35 %> 
+                            <%= link_to lostandfound.title, lostandfound %> 
+                          </span>
+                        <% end %> 
+                    <% end %>
+                    <% if @user.trading_posts.any? %>
+                              <hr>
+                      <h3>Trading Posts (<%= @user.trading_posts.count %>)</h3>
+                        <% @user.trading_posts.each do |trading_post| %>
+                          <span> 
+                            <% if trading_post.avatar_file_name = nil %> 
+                                <%= image_tag trading_post.avatar.url(:thumb), width: 35, height: 35 %>
+                            <% else %> 
+                                <%= image_tag "/assets/sell&borrow.png", width: 35, height: 35 %> 
+                            <% end %>  
+                            <%= link_to trading_post.title, trading_post %> 
+                          </span>
+                        <% end %> 
+                    <% end %>
+                    <hr>
+            <div>
+              <strong> My Favorites: </strong>
+                <br>
+
+                <% if @user.saves.any? %> 
+                  <% @user.saves.each do |save| %>
+                    <% type = save.saveable_type.constantize %>
+                    <% post = type.find(save.saveable_id) %> 
+                        <%= link_to post.title, post %>
+                    <% end %> 
+                    <br>
+                <% end %> 
             </div>
-          </section>
+            <br>
+            <div>
+              <% if current_user?(@user) %>
+                <%= link_to "Delete My Profile", @user, method: :delete, data: { confirm: "Are you sure? This will delete all of your posts as well." } %>
+              <% end %>
+              <br> 
+            </div>
 
+          </div>
+    </div>
 
-<% provide(:title, @user.username) %>
 
 <!-- Add Avatar/Change Avatar -->
 <%# image_tag @user.avatar.url %>
 <%# image_tag @user.avatar.url(:medium) %>
 <%# image_tag @user.avatar.url(:thumb) %>
-  <!-- If admin then show link_to add_admin -->
+<!-- If admin then show link_to add_admin -->
 
-
-<h5> My Favorites:  <h5> 
-<div class="favorites"> 
-  <% @user.saves.each do |save| %>
-    <% event = Event.find(save.saveable_id) %> 
-    <%= link_to event.title, event %>
-    <% end %> 
-</div> 
-<br> <br> <br> 
-
-
-<div class="navbottombuttons">
-<%= link_to 'Back', users_path %>   
-<% if current_user?(@user) %>
-  <%= link_to "delete", @user, method: :delete, data: { confirm: "Are you sure? This will delete all of your posts as well." } %>
-<% end %>
-</div>

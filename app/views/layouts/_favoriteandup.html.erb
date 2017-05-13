@@ -11,14 +11,14 @@ Likes: <%= @event.get_upvotes.size - @event.get_downvotes.size %>
     Downvote
     <%# @event.get_downvotes.size %>
   <% end %>
-
+  
   <% if !already_favorited?(@event) %> 
     <%= form_tag(controller: "events", action: "favorite", method: "post") do %>
       <%= submit_tag "Favorite"%>
     <% end %>
   <% elsif already_favorited?(@event) %>
       <%= form_tag(controller: "events", action: "unfavorite", method: "post") do %>
-      <%= submit_tag "Unfavorite"%>
+        <%= image_submit_tag '/assets/save.png' %>
     <% end %>
   <% end %>
 <%end %>

@@ -39,7 +39,7 @@ class TradingPostsController < ApplicationController
 
     respond_to do |format|
       if @trading_post.save
-        format.html { redirect_to @trading_post, notice: 'Trading post was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Trading post was successfully created.' }
         format.json { render :show, status: :created, location: @trading_post }
       else
         format.html { render :new }
